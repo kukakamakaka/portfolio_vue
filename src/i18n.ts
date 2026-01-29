@@ -38,7 +38,9 @@ const messages = {
             perf: 'performance',
             desc: 'I am a Fullstack Developer dedicated to building seamless interfaces and robust backends. My mission is to continuously evolve, master emerging technologies, and drive the industry forward through innovative software engineering.',
             btn: 'GET IN TOUCH'
-        }
+        },
+
+
     },
     RU: {
         about: 'Обо мне',
