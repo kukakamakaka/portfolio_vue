@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import TheNavbar from './components/TheNavbar.vue'
 import { onMounted, onUnmounted, ref } from 'vue';
+// ОБЯЗАТЕЛЬНО: Импортируем locale для работы переводов в шаблоне
+import { locale } from './i18n';
 
 const isLoading = ref(true);
 const loadingProgress = ref(0);
@@ -10,13 +12,13 @@ const handleScroll = () => {
   const scrollValue = window.scrollY;
   const bgTitle = document.querySelector('.bg-title') as HTMLElement;
   if (bgTitle) {
-    // Текст плавно уходит влево
+    // Текст плавно уходит влево при скролле
     bgTitle.style.transform = `translateX(-${scrollValue * 0.4}px)`;
   }
 };
 
 onMounted(() => {
-  // Анимация процентов в прелоадере
+  // Анимация прогресс-бара
   const interval = setInterval(() => {
     if (loadingProgress.value < 100) {
       loadingProgress.value += Math.floor(Math.random() * 10) + 1;
@@ -25,7 +27,7 @@ onMounted(() => {
       clearInterval(interval);
       setTimeout(() => {
         isLoading.value = false;
-      }, 500);
+      }, 500); // Задержка перед исчезновением прелоадера
     }
   }, 100);
 
@@ -36,7 +38,6 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
 </script>
-
 <template>
   <div class="app-container">
     <transition name="preloader-fade">
@@ -60,7 +61,7 @@ onUnmounted(() => {
     <TheNavbar v-if="!isLoading" />
 
     <main v-if="!isLoading" class="smooth-scroll">
-      <section class="hero light-section">
+      <section id="hero" class="hero light-section">
         <div class="bg-title-wrapper">
           <h1 class="bg-title">FULLSTACK DEVELOPER</h1>
         </div>
@@ -68,12 +69,12 @@ onUnmounted(() => {
         <div class="hero-content">
           <div class="hero-info">
             <div class="info-block">
-              <span class="label">Status</span>
-              <p>Available for freelance</p>
+              <span class="label">{{ locale.t('hero.status') }}</span>
+              <p>{{ locale.t('hero.statusText') }}</p>
             </div>
             <div class="info-block align-right">
-              <span class="label">Location</span>
-              <p>Kazakhstan, 2026</p>
+              <span class="label">{{ locale.t('hero.location') }}</span>
+              <p>{{ locale.t('hero.locText') }} 2026</p>
             </div>
           </div>
 
@@ -87,7 +88,7 @@ onUnmounted(() => {
           <div class="hero-footer">
             <div class="scroll-explore">
               <div class="mouse"></div>
-              <span>Scroll to explore</span>
+              <span>{{ locale.t('hero.scroll') }}</span>
             </div>
           </div>
         </div>
@@ -97,38 +98,52 @@ onUnmounted(() => {
         <div class="about-container">
           <div class="about-header">
             <span class="section-num">01 // 05</span>
-            <h2 class="section-title">ABOUT</h2>
+            <h2 class="section-title">{{ locale.t('aboutSection.title') }}</h2>
           </div>
 
           <div class="about-grid">
             <div class="about-visual">
               <div class="photo-placeholder">
                 <img src="https://i.ibb.co.com/d0XkzFyv/my-photo.jpg" alt="Onege Alibek" class="about-img" />
+
                 <div class="image-overlay"></div>
               </div>
+
+              <div class="visual-decor"></div>
             </div>
 
             <div class="about-content">
-              <p class="about-lead">
-                Creating digital solutions with a focus on
-                <span class="highlight">modernity</span> and
-                <span class="highlight">performance</span>.
+              <p class="about-lead" v-if="locale.current === 'EN'">
+                A 19-year-old <span class="highlight">{{ locale.t('aboutSection.uni') }}</span> graduate.
+                Crafting digital solutions with a focus on
+                <span class="highlight">{{ locale.t('aboutSection.mod') }}</span> and
+                <span class="highlight">{{ locale.t('aboutSection.perf') }}</span>.
               </p>
+              <p class="about-lead" v-else-if="locale.current === 'RU'">
+                19-летняя выпускница <span class="highlight">{{ locale.t('aboutSection.uni') }}</span>.
+                Создаю цифровые решения с акцентом на
+                <span class="highlight">{{ locale.t('aboutSection.mod') }}</span> и
+                <span class="highlight">{{ locale.t('aboutSection.perf') }}</span>.
+              </p>
+              <p class="about-lead" v-else>
+                19 жастағы <span class="highlight">{{ locale.t('aboutSection.uni') }}</span> түлегімін.
+                <span class="highlight">{{ locale.t('aboutSection.mod') }}</span> пен
+                <span class="highlight">{{ locale.t('aboutSection.perf') }}</span> бағытталған цифрлық шешімдер жасаймын.
+              </p>
+
               <p class="about-description">
-                I am a Fullstack Developer who loves building clean interfaces and robust backends.
-                My goal is to bridge the gap between design and technology.
+                {{ locale.t('aboutSection.desc') }}
               </p>
+
               <div class="about-action">
-
                 <a href="https://t.me/evfendy" target="_blank" class="circle-btn">
-
-                  <span>GET IN TOUCH</span>
-
+                  <span>{{ locale.t('aboutSection.btn') }}</span>
                 </a>
-
               </div>
             </div>
-          </div> </div> </section>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 </template>
