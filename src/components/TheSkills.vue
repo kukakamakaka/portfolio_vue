@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
+import { locale } from '../i18n'; // Путь к твоему файлу i18n.ts
 
 onMounted(() => {
+  // Анимация появления
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('active');
@@ -10,12 +12,14 @@ onMounted(() => {
 
   document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
+  // Эффект Spotlight
   const cards = document.querySelectorAll('.skill-card');
-  cards.forEach((card: any) => {
-    card.onmousemove = (e: MouseEvent) => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-      card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+  cards.forEach((card) => {
+    const skillCard = card as HTMLElement;
+    skillCard.onmousemove = (e: MouseEvent) => {
+      const rect = skillCard.getBoundingClientRect();
+      skillCard.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+      skillCard.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
     };
   });
 });
@@ -26,7 +30,6 @@ onMounted(() => {
     <div class="noise-overlay"></div>
     <div class="bg-glow-circle circle-1"></div>
     <div class="bg-glow-circle circle-2"></div>
-
     <div class="bg-grid-decor"></div>
 
     <div class="marquee-wrapper">
@@ -45,27 +48,27 @@ onMounted(() => {
           <div class="spotlight"></div>
           <div class="card-content">
             <div class="card-header-flex">
-              <span class="num">01 // BACKEND</span>
-              <div class="status-badge"><span class="dot"></span> Senior Logic</div>
+              <span class="num">01 // {{ locale.t('skillsSection.backend.title') }}</span>
+              <div class="status-badge"><span class="dot"></span> {{ locale.t('skillsSection.backend.status') }}</div>
             </div>
-            <h3 class="main-title">Backend Architecture</h3>
+            <h3 class="main-title">{{ locale.t('skillsSection.backend.mainTitle') }}</h3>
 
             <div class="expertise-grid">
               <div class="exp-item">
-                <div class="exp-head"><span>/</span> Python & Frameworks</div>
-                <p><b>Django:</b> MVT, ORM (N+1 optimization), Custom Auth. <br> <b>FastAPI & Flask:</b> Pydantic, RESTful APIs.</p>
+                <div class="exp-head"><span>/</span> {{ locale.t('skillsSection.backend.python.head') }}</div>
+                <p v-html="locale.t('skillsSection.backend.python.desc')"></p>
               </div>
               <div class="exp-item">
-                <div class="exp-head"><span>/</span> PHP & Automation</div>
-                <p><b>Laravel:</b> MVC, Artisan, Providers. <br> <b>Telegram Bots:</b> State Machines, Google Sheets API.</p>
+                <div class="exp-head"><span>/</span> {{ locale.t('skillsSection.backend.php.head') }}</div>
+                <p v-html="locale.t('skillsSection.backend.php.desc')"></p>
               </div>
               <div class="exp-item">
-                <div class="exp-head"><span>/</span> AI Integration</div>
-                <p><b>LLM:</b> Ollama, Hugging Face. Внедрение ИИ в бизнес-логику и диагностику.</p>
+                <div class="exp-head"><span>/</span> {{ locale.t('skillsSection.backend.ai.head') }}</div>
+                <p v-html="locale.t('skillsSection.backend.ai.desc')"></p>
               </div>
               <div class="exp-item">
-                <div class="exp-head"><span>/</span> Database Logic</div>
-                <p><b>SQL:</b> PostgreSQL, MySQL. Оптимизация и проектирование структур.</p>
+                <div class="exp-head"><span>/</span> {{ locale.t('skillsSection.backend.db.head') }}</div>
+                <p v-html="locale.t('skillsSection.backend.db.desc')"></p>
               </div>
             </div>
           </div>
@@ -74,11 +77,11 @@ onMounted(() => {
         <div class="skill-card reveal">
           <div class="spotlight"></div>
           <div class="card-content">
-            <span class="num">02 // FRONTEND</span>
-            <h3 class="sub-title">Frontend & UI</h3>
+            <span class="num">02 // {{ locale.t('skillsSection.frontend.title') }}</span>
+            <h3 class="sub-title">{{ locale.t('skillsSection.frontend.mainTitle') }}</h3>
             <ul class="tech-list">
-              <li><span class="dash">—</span> <b>Vue.js 3:</b> Composition API</li>
-              <li><span class="dash">—</span> <b>TypeScript:</b> Strict Typing</li>
+              <li><span class="dash">—</span> <b>Vue.js 3:</b> {{ locale.t('skillsSection.frontend.vue') }}</li>
+              <li><span class="dash">—</span> <b>TypeScript:</b> {{ locale.t('skillsSection.frontend.ts') }}</li>
               <li><span class="dash">—</span> <b>Build:</b> Vite, NPM</li>
               <li><span class="dash">—</span> <b>Styles:</b> Tailwind, GSAP, i18n</li>
             </ul>
@@ -89,12 +92,12 @@ onMounted(() => {
         <div class="skill-card reveal">
           <div class="spotlight"></div>
           <div class="card-content">
-            <span class="num">03 // INFRA</span>
-            <h3 class="sub-title">Infrastructure</h3>
+            <span class="num">03 // {{ locale.t('skillsSection.infra.title') }}</span>
+            <h3 class="sub-title">{{ locale.t('skillsSection.infra.mainTitle') }}</h3>
             <ul class="tech-list">
               <li><span class="dash">—</span> <b>DevOps:</b> Docker, Compose</li>
               <li><span class="dash">—</span> <b>CI/CD:</b> GitHub Actions</li>
-              <li><span class="dash">—</span> <b>VCS:</b> Git (Advanced)</li>
+              <li><span class="dash">—</span> <b>VCS:</b> {{ locale.t('skillsSection.infra.git') }}</li>
               <li><span class="dash">—</span> <b>OS:</b> Linux, CLI tools</li>
             </ul>
           </div>
