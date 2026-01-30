@@ -74,6 +74,11 @@ const messages = {
                 mainTitle: 'Infrastructure',
                 git: 'Git (Advanced)'
             }
+        },
+        projects: {
+            title1: 'SELECTED',
+            title2: 'WORKS',
+            hint: 'GALLERY // VOL. 2026'
         }
     },
     RU: {
@@ -132,6 +137,11 @@ const messages = {
                 mainTitle: 'Инфраструктура',
                 git: 'Git (Продвинутый уровень)'
             }
+        },
+        projects: {
+            title1: 'ИЗБРАННЫЕ',
+            title2: 'РАБОТЫ',
+            hint: 'ГАЛЕРЕЯ // 2026'
         }
     },
     KZ: {
@@ -190,6 +200,11 @@ const messages = {
                 mainTitle: 'Инфрақұрылым',
                 git: 'Git (Жоғары деңгей)'
             }
+        },
+        projects: {
+            title1: 'ТАҢДАУЛЫ',
+            title2: 'ЖҰМЫСТАР',
+            hint: 'ГАЛЕРЕЯ // 2026'
         }
     }
 }

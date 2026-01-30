@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { gsap } from 'gsap';
+// 1. Импортируй СВОЙ файл локализации (проверь путь к файлу!)
+import { locale } from '../i18n';
 
 const images = [
   new URL('../assets/projects/p1.png', import.meta.url).href,
@@ -33,7 +35,6 @@ const handleMouseMove = (e: MouseEvent) => {
   mousePos.x = e.clientX - rect.left;
   mousePos.y = e.clientY - rect.top;
 
-  // Параллакс текста (двигается слегка против мыши)
   if (textRef.value) {
     const moveX = (mousePos.x - rect.width / 2) * 0.03;
     const moveY = (mousePos.y - rect.height / 2) * 0.03;
@@ -44,24 +45,20 @@ const handleMouseMove = (e: MouseEvent) => {
 const showNextImage = () => {
   zIndexVal++;
   imgPosition = (imgPosition + 1) % images.length;
-
   const el = imgRefs.value[imgPosition];
   if (!el) return;
 
   const dx = mousePos.x - cacheMousePos.x;
   const dy = mousePos.y - cacheMousePos.y;
-
-  // Вычисляем угол наклона в зависимости от скорости и направления
   const rotation = gsap.utils.clamp(-15, 15, dx * 0.2);
 
   gsap.killTweensOf(el);
-
   const tl = gsap.timeline();
 
   tl.fromTo(el, {
     opacity: 1,
     scale: 0.9,
-    filter: 'blur(10px)', // Влетает из расфокуса
+    filter: 'blur(10px)',
     zIndex: zIndexVal,
     x: cacheMousePos.x - el.offsetWidth / 2,
     y: cacheMousePos.y - el.offsetHeight / 2,
@@ -81,7 +78,7 @@ const showNextImage = () => {
         scale: 0.8,
         filter: 'blur(20px)',
         ease: 'power2.inOut'
-      }, 1.3) // Время жизни фото
+      }, 1.3)
       .to(el, {
         duration: 2,
         ease: 'expo.out',
@@ -94,7 +91,6 @@ const render = () => {
   const distance = Math.hypot(mousePos.x - lastMousePos.x, mousePos.y - lastMousePos.y);
   cacheMousePos.x = lerp(cacheMousePos.x, mousePos.x, 0.1);
   cacheMousePos.y = lerp(cacheMousePos.y, mousePos.y, 0.1);
-
   if (distance > threshold) {
     showNextImage();
     lastMousePos = { ...mousePos };
@@ -111,10 +107,10 @@ onMounted(() => render());
 
     <div class="hero-text-container" ref="textRef">
       <h2 class="main-title">
-        <span class="row">SELECTED</span>
-        <span class="row outline">WORKS</span>
+        <span class="row">{{ locale.t('projects.title1') }}</span>
+        <span class="row outline">{{ locale.t('projects.title2') }}</span>
       </h2>
-      <p class="hint">VOL 2026 // PORTFOLIO</p>
+      <p class="hint">{{ locale.t('projects.hint') }}</p>
     </div>
 
     <div class="images-layer">
@@ -149,15 +145,31 @@ onMounted(() => render());
   user-select: none;
   display: flex;
   flex-direction: column;
+  /* Добавляем безопасные отступы по бокам */
+  padding: 0 5vw;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .main-title {
-  font-size: clamp(5rem, 18vw, 15rem);
-  font-weight: 900;
-  line-height: 0.95;
+  /* Уменьшаем верхний порог с 15rem до 11rem, чтобы длинные слова влезали */
+  font-size: clamp(3rem, 12vw, 11rem);
+  font-weight: 950;
+  line-height: 0.9;
   color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: -0.04em;
+  /* Убираем отрицательный letter-spacing, он "съедает" место */
+  letter-spacing: 0.02em;
+  /* Разрешаем перенос, если слово ну совсем гигантское */
+  word-break: break-word;
+  /* Убираем nowrap, чтобы слова могли встать друг под другом на узких экранах */
+  white-space: normal;
+}
+
+.row {
+  display: block;
+  /* Предотвращает обрезку букв типа "S" или "Ж" */
+  padding: 0 0.1em;
 }
 
 .row.outline {
