@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import TheNavbar from './components/TheNavbar.vue'
+import TheSkills from './components/TheSkills.vue'
+import TheProjectsHero from './components/TheProjectsHero.vue';
 import { onMounted, onUnmounted, ref } from 'vue';
-// ОБЯЗАТЕЛЬНО: Импортируем locale для работы переводов в шаблоне
 import { locale } from './i18n';
 
 const isLoading = ref(true);
@@ -144,11 +145,16 @@ onUnmounted(() => {
           </div>
         </div>
       </section>
+
+      <TheSkills />
+      <TheProjectsHero />
+
     </main>
   </div>
 </template>
 
 <style>
+
 /* Используем твои переменные из сохраненной инфы */
 :root {
   --fg-bg-light: #f4f4f7;
@@ -405,7 +411,7 @@ body {
   min-height: 100vh;
   background-color: var(--fg-bg-dark);
   color: var(--fg-text-light);
-  padding: 160px 10%;
+  padding: 160px 10% 0 10%;
   position: relative;
   overflow: hidden;
   view-timeline-name: --section;
@@ -587,7 +593,7 @@ body {
 @media (max-width: 768px) {
   .about {
     min-height: auto;
-    padding: 80px 6% 140px; /* Увеличили нижний паддинг для кнопки */
+    padding: 160px 10% 0 10%; /* Увеличили нижний паддинг для кнопки */
     display: flex;
     flex-direction: column;
     background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
