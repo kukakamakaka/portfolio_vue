@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import { onMounted, onUnmounted, ref } from 'vue';
+import { locale } from './i18n';
+
+// Импорты компонентов
 import TheNavbar from './components/TheNavbar.vue'
 import TheSkills from './components/TheSkills.vue'
 import TheProjectsHero from './components/TheProjectsHero.vue';
-import { onMounted, onUnmounted, ref } from 'vue';
-import { locale } from './i18n';
+import TheProjectsGallery from './components/TheProjectsGallery.vue'; // Исправленный путь
+import TheExperience from './components/TheExperience.vue'
 
 const isLoading = ref(true);
 const loadingProgress = ref(0);
@@ -13,7 +17,6 @@ const handleScroll = () => {
   const scrollValue = window.scrollY;
   const bgTitle = document.querySelector('.bg-title') as HTMLElement;
   if (bgTitle) {
-    // Текст плавно уходит влево при скролле
     bgTitle.style.transform = `translateX(-${scrollValue * 0.4}px)`;
   }
 };
@@ -28,7 +31,7 @@ onMounted(() => {
       clearInterval(interval);
       setTimeout(() => {
         isLoading.value = false;
-      }, 500); // Задержка перед исчезновением прелоадера
+      }, 500);
     }
   }, 100);
 
@@ -148,6 +151,8 @@ onUnmounted(() => {
 
       <TheSkills />
       <TheProjectsHero />
+      <TheProjectsGallery />
+      <TheExperience />
 
     </main>
   </div>
