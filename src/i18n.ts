@@ -84,6 +84,31 @@ const messages = {
                 git: 'Git (Advanced)'
             }
         },
+        certificatesSection: {
+            title: 'CERTIFICATIONS',
+            subtitle: '// PROFESSIONAL DEVELOPMENT',
+            view: 'VIEW CERTIFICATE',
+            items: [
+                {
+                    title: 'Python Essentials 1',
+                    issuer: 'Cisco Networking Academy / OpenEDG',
+                    date: 'Jan 19, 2026',
+                    description: 'Design, develop, and refactor computer programs written in Python 3.'
+                },
+                {
+                    title: 'Ethical Hacker',
+                    issuer: 'Astana IT University / Cisco',
+                    date: 'Nov 10, 2025',
+                    description: 'Completed ethical hacking course through Cisco Networking Academy.'
+                },
+                {
+                    title: 'CCNA: Switching, Routing, and Wireless Essentials',
+                    issuer: 'Astana IT University / Cisco',
+                    date: 'Oct 31, 2024',
+                    description: 'Studied networking protocols, switching, and wireless infrastructure.'
+                }
+            ]
+        },
         projects: {
             title1: 'SELECTED',
             title2: 'WORKS',
@@ -184,6 +209,31 @@ const messages = {
                 git: 'Git (Продвинутый уровень)'
             }
         },
+        certificatesSection: {
+            title: 'СЕРТИФИКАТЫ',
+            subtitle: '// ПРОФЕССИОНАЛЬНОЕ РАЗВИТИЕ',
+            view: 'СМОТРЕТЬ',
+            items: [
+                {
+                    title: 'Python Essentials 1',
+                    issuer: 'Cisco Networking Academy / OpenEDG',
+                    date: '19 янв, 2026',
+                    description: 'Проектирование и разработка программ на языке Python 3.'
+                },
+                {
+                    title: 'Ethical Hacker',
+                    issuer: 'Astana IT University / Cisco',
+                    date: '10 ноя, 2025',
+                    description: 'Курс этичного хакинга через академию Cisco.'
+                },
+                {
+                    title: 'CCNA: Switching, Routing, and Wireless Essentials',
+                    issuer: 'Astana IT University / Cisco',
+                    date: '31 окт, 2024',
+                    description: 'Сетевые протоколы, коммутация и беспроводная инфраструктура.'
+                }
+            ]
+        },
         projects: {
             title1: 'ИЗБРАННЫЕ',
             title2: 'РАБОТЫ',
@@ -283,6 +333,31 @@ const messages = {
                 mainTitle: 'Инфрақұрылым',
                 git: 'Git (Жоғары деңгей)'
             }
+        },
+        certificatesSection: {
+            title: 'СЕРТИФИКАТТАР',
+            subtitle: '// КӘСІБИ ДАМУ',
+            view: 'ҚАРАУ',
+            items: [
+                {
+                    title: 'Python Essentials 1',
+                    issuer: 'Cisco Networking Academy / OpenEDG',
+                    date: '19 қаң, 2026',
+                    description: 'Python 3 тілінде бағдарламаларды жобалау және әзірлеу.'
+                },
+                {
+                    title: 'Ethical Hacker',
+                    issuer: 'Astana IT University / Cisco',
+                    date: '10 қар, 2025',
+                    description: 'Cisco академиясы арқылы этикалық хакинг курсы.'
+                },
+                {
+                    title: 'CCNA: Switching, Routing, and Wireless Essentials',
+                    issuer: 'Astana IT University / Cisco',
+                    date: '31 қаз, 2024',
+                    description: 'Желілік хаттамалар, коммутация және сымсыз инфрақұрылым.'
+                }
+            ]
         },
         projects: {
             title1: 'ТАҢДАУЛЫ',

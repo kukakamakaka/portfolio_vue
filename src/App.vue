@@ -6,8 +6,9 @@ import { locale } from './i18n';
 import TheNavbar from './components/TheNavbar.vue'
 import TheSkills from './components/TheSkills.vue'
 import TheProjectsHero from './components/TheProjectsHero.vue';
-import TheProjectsGallery from './components/TheProjectsGallery.vue'; // Исправленный путь
+import TheProjectsGallery from './components/TheProjectsGallery.vue';
 import TheExperience from './components/TheExperience.vue'
+import TheCertificates from './components/TheCertificates.vue'
 
 const isLoading = ref(true);
 const loadingProgress = ref(0);
@@ -153,6 +154,7 @@ onUnmounted(() => {
       <TheProjectsHero />
       <TheProjectsGallery />
       <TheExperience />
+      <TheCertificates />
 
     </main>
   </div>

@@ -81,7 +81,6 @@ const jobStacks = [
   background: #000;
   color: #fff;
   padding: 100px 0;
-  border-top: 1px solid #111;
   overflow: hidden; /* Чтобы скролл не ломал всю страницу */
 }
 
