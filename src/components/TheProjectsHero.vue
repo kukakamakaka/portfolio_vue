@@ -102,7 +102,7 @@ onMounted(() => render());
 </script>
 
 <template>
-  <section class="projects-hero" ref="containerRef" @mousemove="handleMouseMove">
+  <section id="projects" class="projects-hero" ref="containerRef" @mousemove="handleMouseMove">
     <div class="noise"></div>
 
     <div class="hero-text-container" ref="textRef">
