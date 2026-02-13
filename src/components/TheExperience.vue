@@ -1,14 +1,40 @@
+<script setup lang="ts">
+import { computed } from 'vue';
+import { locale } from '../i18n'; // Путь к твоему файлу i18n
+
+// Используем только твой кастомный locale.t
+const localizedExperience = computed(() => {
+  const data = locale.t('experience.items');
+  return Array.isArray(data) ? data : [];
+});
+
+// Статические данные (не зависят от языка)
+const jobLinks = [
+  "https://github.com/kukakamakaka/qazaqgaz-test",
+  "https://github.com/kukakamakaka/autoshkola-bot",
+  "https://github.com/kukakamakaka/skt-orken-site"
+];
+
+const jobStacks = [
+  ["Laravel 12", "Breeze", "MySQL", "Tailwind"],
+  ["Python", "FastAPI", "Gspread", "APScheduler"],
+  ["Flask", "Python 3.12", "Jinja2", "Virtualenv"]
+];
+</script>
+
 <template>
   <section id="experience" class="experience-section">
     <div class="container">
+
       <div class="section-intro">
         <h2 class="section-title">PATH</h2>
-        <p class="section-subtitle">// 2025 — 2026 Career Journey</p>
+        <p class="section-subtitle">// {{ locale.t('experience.journey') }}</p>
       </div>
 
       <div class="experience-grid">
-        <div v-for="(job, index) in experienceData" :key="index" class="exp-card">
+        <div v-for="(job, index) in localizedExperience" :key="index" class="exp-card">
           <div class="card-inner">
+
             <div class="card-header">
               <span class="job-month">{{ job.month }}</span>
               <span class="job-id">0{{ index + 1 }}</span>
@@ -33,60 +59,22 @@
 
             <div class="card-footer">
               <div class="tech-row">
-                <span v-for="tech in job.stack" :key="tech" class="tech-tag">{{ tech }}</span>
+                <span v-for="tech in jobStacks[index]" :key="tech" class="tech-tag">
+                  {{ tech }}
+                </span>
               </div>
-              <a :href="job.link" target="_blank" class="github-link">
-                VIEW SOURCE ↗
+              <a :href="jobLinks[index]" target="_blank" class="github-link">
+                {{ locale.t('experience.viewSource') }} ↗
               </a>
             </div>
+
           </div>
         </div>
       </div>
+
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-const experienceData = [
-  {
-    month: "ЯНВАРЬ 2026",
-    company: "QazaqGaz НТЦ",
-    role: "Junior Laravel Developer (Test Task)",
-    achievements: [
-      "Разработка ServiceDesk системы на Laravel 12 с RBAC моделью.",
-      "Админ-панель для управления тикетами, категориями и приоритетами.",
-      "Полная настройка окружения и БД с использованием Seeder."
-    ],
-    stack: ["Laravel 12", "Breeze", "MySQL", "Tailwind"],
-    link: "https://github.com/kukakamakaka/qazaqgaz-test"
-  },
-  {
-    month: "ИЮНЬ 2025",
-    company: "Avtoshkola NS",
-    role: "Commercial Bot Developer",
-    achievements: [
-      "Автоматизация записи на вождение через Google Sheets API.",
-      "Система мониторинга оплат и автоматические уведомления.",
-      "Разработка архитектуры на python-telegram-bot + FastAPI."
-    ],
-    stack: ["Python", "FastAPI", "Gspread", "APScheduler"],
-    link: "https://github.com/kukakamakaka/autoshkola-bot"
-  },
-  {
-    month: "ИЮНЬ 2025",
-    company: "СКТ ӨРКЕН БЬЮЛД",
-    role: "Web Developer Intern",
-    achievements: [
-      "Разработка корпоративного сайта на Flask с Jinja2 шаблонами.",
-      "Оптимизация серверной части под специфические порты (macOS).",
-      "Проектирование адаптивной верстки и структуры ресурсов."
-    ],
-    stack: ["Flask", "Python 3.12", "Jinja2", "Virtualenv"],
-    link: "https://github.com/kukakamakaka/skt-orken-site",
-    comment: "Мой первый сайт, строго не судить ахаха"
-  }
-];
-</script>
 
 <style scoped>
 .experience-section {

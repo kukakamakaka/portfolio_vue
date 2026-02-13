@@ -7,12 +7,21 @@ export const locale = reactive({
         let value: any = messages[this.current]
 
         for (const k of keys) {
-            if (value && value[k]) {
+            if (value && value[k] !== undefined) {
                 value = value[k]
             } else {
                 return key
             }
         }
+
+        // ЗАЩИТА: Если навбар просит 'experience', а там объект/массив,
+        // мы возвращаем название ключа, а не весь JSON.
+        if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+            if (keys.length === 1) {
+                return keys[0]
+            }
+        }
+
         return value
     }
 })
@@ -21,7 +30,7 @@ const messages = {
     EN: {
         about: 'About',
         skills: 'Skills',
-        experience: 'Experience',
+        experience1: 'Experience',
         certificates: 'Certificates',
         contact: 'Contact',
         viewProjects: 'Projects',
@@ -78,13 +87,50 @@ const messages = {
         projects: {
             title1: 'SELECTED',
             title2: 'WORKS',
-            hint: 'GALLERY // VOL. 2026'
+            hint: 'GALLERY // VOL. 2026',
+            viewProject: "VIEW PROJECT",
+            viewGithub: "VIEW GITHUB",
+            items: {
+                "1": { "title": "QAZAQGAZ SYSTEM", "desc": "Production-ready system launched from scratch in 48 hours. RBAC model and CI/CD pipelines implemented." },
+                "2": { "title": "AVTOSCHCOOLA BOT", "desc": "Asynchronous Telegram bot for automated booking. Integration with Google Sheets API." },
+                "3": { "title": "SKT ORKEN SITE", "desc": "Corporate website for a construction company. Server-side routing implemented." },
+                "4": { "title": "CORE DJANGO API", "desc": "REST API design using Django Rest Framework and JWT authentication." },
+                "5": { "title": "VUE 3 PORTFOLIO", "desc": "High-performance portfolio using Composition API and i18n." },
+                "6": { "title": "FASTAPI SERVICE", "desc": "Microservice for real-time data processing using Pydantic and Redis." },
+                "7": { "title": "DOCKERIZED APP", "desc": "Production infrastructure setup: Nginx, SSL, Docker Compose." },
+                "8": { "title": "TASK MANAGER", "desc": "Task management system with access control levels and MySQL." }
+            }
+        },
+        experience: {
+            journey: "2025 — 2026 Career Journey",
+            viewSource: "VIEW SOURCE",
+            items: [
+                {
+                    month: "JANUARY 2026",
+                    company: "QazaqGaz NTC",
+                    role: "Junior Laravel Developer (Test Task)",
+                    achievements: ["Helpdesk system on Laravel 12 with RBAC model.", "Admin panel for tickets, categories and priorities.", "Full environment and DB setup using Seeders."]
+                },
+                {
+                    month: "JUNE 2025",
+                    company: "Avtoshkola NS",
+                    role: "Commercial Bot Developer",
+                    achievements: ["Driving lessons booking via Google Sheets API.", "Payment monitoring and auto-notifications.", "Architecture based on python-telegram-bot + FastAPI."]
+                },
+                {
+                    month: "JUNE 2025",
+                    company: "SKT ORKEN BUILD",
+                    role: "Web Developer Intern",
+                    achievements: ["Corporate site on Flask with Jinja2 templates.", "Server optimization for macOS specific ports.", "Responsive layout and asset structure design."],
+                    comment: "My first site, don't judge too hard haha"
+                }
+            ]
         }
     },
     RU: {
         about: 'Обо мне',
         skills: 'Навыки',
-        experience: 'Опыт',
+        experience1: 'Опыт',
         certificates: 'Сертификаты',
         contact: 'Контакты',
         viewProjects: 'Проекты',
@@ -141,13 +187,50 @@ const messages = {
         projects: {
             title1: 'ИЗБРАННЫЕ',
             title2: 'РАБОТЫ',
-            hint: 'ГАЛЕРЕЯ // 2026'
+            hint: 'ГАЛЕРЕЯ // 2026',
+            viewProject: "СМОТРЕТЬ ПРОЕКТ",
+            viewGithub: "СМОТРЕТЬ GITHUB",
+            items: {
+                "1": { "title": "QAZAQGAZ SYSTEM", "desc": "система запущенная с нуля за 48 часов." },
+                "2": { "title": "AVTOSCHCOOLA BOT", "desc": "Telegram-бот для автоматизации записи." },
+                "3": { "title": "SKT ORKEN SITE", "desc": "Корпоративный сайт для строительной компании." },
+                "4": { "title": "CORE DJANGO API", "desc": "Проектирование REST API с JWT." },
+                "5": { "title": "VUE 3 PORTFOLIO", "desc": "Портфолио на Composition API." },
+                "6": { "title": "FASTAPI SERVICE", "desc": "Микросервис на Pydantic." },
+                "7": { "title": "DOCKERIZED APP", "desc": "Nginx, SSL, Docker Compose." },
+                "8": { "title": "TASK MANAGER", "desc": "Система управления задачами." }
+            }
+        },
+        experience: {
+            journey: "2025 — 2026 Карьерный путь",
+            viewSource: "ИСХОДНЫЙ КОД",
+            items: [
+                {
+                    month: "ЯНВАРЬ 2026",
+                    company: "QazaqGaz НТЦ",
+                    role: "Junior Laravel Developer",
+                    achievements: ["Helpdesk система на Laravel 12", "RBAC модель", "Seeders"]
+                },
+                {
+                    month: "ИЮНЬ 2025",
+                    company: "Avtoshkola NS",
+                    role: "Разработчик ботов",
+                    achievements: ["Google Sheets API", "Мониторинг оплат"]
+                },
+                {
+                    month: "ИЮНЬ 2025",
+                    company: "СКТ ӨРКЕН БЬЮЛД",
+                    role: "Web-интерн",
+                    achievements: ["Сайт на Flask", "Верстка"],
+                    comment: "Мой первый сайт, строго не судить ахаха"
+                }
+            ]
         }
     },
     KZ: {
         about: 'Мен жайлы',
         skills: 'Дағдылар',
-        experience: 'Тәжірибе',
+        experience1: 'Тәжірибе',
         certificates: 'Сертификаттар',
         contact: 'Контактілер',
         viewProjects: 'Жобалар',
@@ -160,11 +243,11 @@ const messages = {
         },
         aboutSection: {
             title: 'МЕН ЖАЙЛЫ',
-            lead: '19 жастағы {uni} түлегімін. {mod} пен {perf} бағытталған цифрлық шешімдер жасаймын.',
+            lead: '19 жастағы {uni} түлегімін.',
             uni: 'Astana IT University',
             mod: 'заманауилыққа',
             perf: 'өнімділікке',
-            desc: 'Мен таза интерфейстер мен сенімді бэкендтер құруға бағытталған Fullstack-әзірлеушімін. Менің мақсатым — үнемі даму, жаңа технологияларды игеру және бағдарламалық қамтамасыз ету арқылы индустрияны алға жылжыту.',
+            desc: 'Мен Fullstack-әзірлеушімін.',
             btn: 'Telegram-ға жазыңыз'
         },
         skillsSection: {
@@ -174,26 +257,26 @@ const messages = {
                 mainTitle: 'Backend Архитектурасы',
                 python: {
                     head: 'Python және Фреймворктер',
-                    desc: '<b>Django:</b> MVT, ORM (N+1), кастомды аутентификация. <br> <b>FastAPI және Flask:</b> Pydantic, REST API.'
+                    desc: '<b>Django:</b> MVT, ORM (N+1). <br> <b>FastAPI және Flask:</b> Pydantic, REST API.'
                 },
                 php: {
                     head: 'PHP және Автоматизация',
-                    desc: '<b>Laravel:</b> MVC, Artisan, Провайдерлер. <br> <b>TG Боттар:</b> State Machines, Google Sheets API.'
+                    desc: '<b>Laravel:</b> MVC. <br> <b>TG Боттар:</b> Google Sheets API.'
                 },
                 ai: {
                     head: 'ИИ Интеграциясы',
-                    desc: '<b>LLM:</b> Ollama, Hugging Face. ИИ-ді бизнес-логика мен диагностика жүйелеріне енгізу.'
+                    desc: '<b>LLM:</b> Ollama, Hugging Face.'
                 },
                 db: {
                     head: 'Деректер қоры',
-                    desc: '<b>SQL:</b> PostgreSQL, MySQL. Құрылымдарды жобалау және күрделі сұраныстарды оптимизациялау.'
+                    desc: '<b>SQL:</b> PostgreSQL, MySQL.'
                 }
             },
             frontend: {
                 title: 'ФРОНТЕНД',
                 mainTitle: 'Frontend және UI',
-                vue: 'Composition API, Реактивтілік',
-                ts: 'Қатаң типтеу, Интерфейстер'
+                vue: 'Composition API',
+                ts: 'Interfaces'
             },
             infra: {
                 title: 'ИНФРА',
@@ -204,7 +287,44 @@ const messages = {
         projects: {
             title1: 'ТАҢДАУЛЫ',
             title2: 'ЖҰМЫСТАР',
-            hint: 'ГАЛЕРЕЯ // 2026'
+            hint: 'ГАЛЕРЕЯ // 2026',
+            viewProject: "ЖОБАҒА ҚАРАУ",
+            viewGithub: "GITHUB-ТЫ ҚАРАУ",
+            items: {
+                "1": { "title": "QAZAQGAZ ЖҮЙЕСІ", "desc": "48 сағатта нөлден іске қосылған жүйе." },
+                "2": { "title": "AVTOSCHCOOLA БОТЫ", "desc": "Автоматтандыруға арналған Telegram-бот." },
+                "3": { "title": "SKT ORKEN САЙТЫ", "desc": "Құрылыс компаниясына арналған сайт." },
+                "4": { "title": "CORE DJANGO API", "desc": "DRF және JWT көмегімен REST API." },
+                "5": { "title": "VUE 3 ПОРТФОЛИО", "desc": "i18n қолданылған портфолио." },
+                "6": { "title": "FASTAPI ҚЫЗМЕТІ", "desc": "Деректерді өңдеуге арналған микросервис." },
+                "7": { "title": "DOCKERIZED ҚОСЫМША", "desc": "Nginx, SSL, Docker Compose." },
+                "8": { "title": "ТАПСЫРМАЛАР МЕНЕДЖЕРІ", "desc": "Тапсырмаларды басқару жүйесі." }
+            }
+        },
+        experience: {
+            journey: "2025 — 2026 Мансап жолы",
+            viewSource: "БАСТАПҚЫ КОД",
+            items: [
+                {
+                    month: "ҚАҢТАР 2026",
+                    company: "QazaqGaz ГТӨ",
+                    role: "Junior Laravel Developer",
+                    achievements: ["Helpdesk жүйесі", "RBAC моделі"]
+                },
+                {
+                    month: "МАУСЫМ 2025",
+                    company: "Avtoshkola NS",
+                    role: "Бот әзірлеуші",
+                    achievements: ["Google Sheets API автоматтандыру"]
+                },
+                {
+                    month: "МАУСЫМ 2025",
+                    company: "СКТ ӨРКЕН БЬЮЛД",
+                    role: "Web-әзірлеуші стажер",
+                    achievements: ["Flask негізіндегі сайт"],
+                    comment: "Менің алғашқы сайтым, қатты сынамаңыздар ахаха"
+                }
+            ]
         }
     }
 }

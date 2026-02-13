@@ -66,7 +66,7 @@ onUnmounted(() => {
     <div class="nav-links">
       <a href="#about">{{ locale.t('about') }}</a>
       <a href="#skills">{{ locale.t('skills') }}</a>
-      <a href="#experience">{{ locale.t('experience') }}</a>
+      <a href="#experience">{{ locale.t('experience1') }}</a>
       <a href="#certificates">{{ locale.t('certificates') }}</a>
       <a href="#contact">{{ locale.t('contact') }}</a>
     </div>
