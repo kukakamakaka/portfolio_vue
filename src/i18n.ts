@@ -126,7 +126,7 @@ const messages = {
                 "8": { "title": "TASK MANAGER", "desc": "Task management system with access control levels and MySQL." }
             }
         },
-        "contacts": {
+        contacts: {
             "status": "ACTIVE_NEURAL_LINK",
             "get_in": "GET IN",
             "touch": "TOUCH",
@@ -162,6 +162,18 @@ const messages = {
                     comment: "My first site, don't judge too hard haha"
                 }
             ]
+        },
+        footer: {
+            role: "WEB_DEVELOPER",
+            nav_title: "NAVIGATION",
+            about: "ABOUT",
+            works: "WORKS",
+            stack: "STACK",
+            location: "LOCATION",
+            city: "ASTANA, KAZAKHSTAN",
+            socials: "SOCIAL_SYSTEMS",
+            built: "BUILT WITH VUE 3 & GSAP",
+            update: "LAST_UPDATE: FEB_2026"
         }
     },
     RU: {
@@ -263,7 +275,7 @@ const messages = {
                 "8": { "title": "TASK MANAGER", "desc": "Система управления задачами." }
             }
         },
-        "contacts": {
+        contacts: {
             "status": "АКТИВНОЕ_СОЕДИНЕНИЕ",
             "get_in": "СВЯЖИТЕСЬ",
             "touch": "СО МНОЙ",
@@ -299,6 +311,18 @@ const messages = {
                     comment: "Мой первый сайт, строго не судить ахаха"
                 }
             ]
+        },
+        footer: {
+            role: "ВЕБ_РАЗРАБОТЧИК",
+            nav_title: "НАВИГАЦИЯ",
+            about: "ОБО МНЕ",
+            works: "РАБОТЫ",
+            stack: "СТЕК",
+            location: "ЛОКАЦИЯ",
+            city: "АСТАНА, КАЗАХСТАН",
+            socials: "СОЦ_СЕТИ",
+            built: "СОЗДАНО НА VUE 3 & GSAP",
+            update: "ОБНОВЛЕНО: ФЕВ_2026"
         }
     },
     KZ: {
@@ -436,6 +460,18 @@ const messages = {
                     comment: "Менің алғашқы сайтым, қатты сынамаңыздар ахаха"
                 }
             ]
+        },
+        footer: {
+            role: "ВЕБ_ӘЗІРЛЕУШІ",
+            nav_title: "НАВИГАЦИЯ",
+            about: "МЕН ЖАЙЛЫ",
+            works: "ЖҰМЫСТАР",
+            stack: "СТЕК",
+            location: "ЛОКАЦИЯ",
+            city: "АСТАНА, ҚАЗАҚСТАН",
+            socials: "ӘЛЕУМЕТТІК_ЖЕЛІ",
+            built: "VUE 3 ЖӘНЕ GSAP-ПЕН ЖАСАЛҒАН",
+            update: "ЖАҢАРТЫЛДЫ: АҚПAН_2026"
         }
     }
 }

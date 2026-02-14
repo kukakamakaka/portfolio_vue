@@ -3,7 +3,7 @@
     <div class="footer-grid-container">
       <div class="footer-main-section">
         <div class="name-wrapper">
-          <p class="role-text">// WEB_DEVELOPER</p>
+          <p class="role-text">// {{ locale.t('footer.role') }}</p>
           <h1 class="highlight name-logo">0NEGE ALIBEK</h1>
           <div class="underline-glow"></div>
         </div>
@@ -11,22 +11,22 @@
 
       <div class="footer-bento-grid">
         <div class="bento-cell">
-          <span class="cell-label">NAVIGATION</span>
+          <span class="cell-label">{{ locale.t('footer.nav_title') }}</span>
           <nav class="footer-nav">
-            <a href="#about" class="nav-link">ABOUT</a>
-            <a href="#projects" class="nav-link">WORKS</a>
-            <a href="#skills" class="nav-link">STACK</a>
+            <a href="#about" class="nav-link">{{ locale.t('footer.about') }}</a>
+            <a href="#projects" class="nav-link">{{ locale.t('footer.works') }}</a>
+            <a href="#skills" class="nav-link">{{ locale.t('footer.stack') }}</a>
           </nav>
         </div>
 
         <div class="bento-cell">
-          <span class="cell-label">LOCATION</span>
-          <p class="cell-value">ASTANA, KAZAKHSTAN</p>
+          <span class="cell-label">{{ locale.t('footer.location') }}</span>
+          <p class="cell-value">{{ locale.t('footer.city') }}</p>
           <p class="cell-sub">UTC +5:00</p>
         </div>
 
         <div class="bento-cell socials">
-          <span class="cell-label">SOCIAL_SYSTEMS</span>
+          <span class="cell-label">{{ locale.t('footer.socials') }}</span>
           <div class="pill-group">
             <a href="https://github.com/kukakamakaka" target="_blank" class="social-pill">GH</a>
             <a href="https://t.me/evfendy" target="_blank" class="social-pill">TG</a>
@@ -39,17 +39,45 @@
     <div class="footer-legal-bar">
       <div class="legal-left">
         <span class="copyright">© 2026 0NEGE.</span>
-        <span class="built-with">BUILT WITH VUE 3 & GSAP</span>
+        <span class="built-with">{{ locale.t('footer.built') }}</span>
       </div>
       <div class="legal-right">
         <div class="system-status">
           <span class="status-dot"></span>
-          <span class="status-text">LAST_UPDATE: FEB_2026</span>
+          <span class="status-text">{{ locale.t('footer.update') }}</span>
         </div>
       </div>
     </div>
   </footer>
 </template>
+
+<script setup>
+import { ref, onMounted, watch } from 'vue';
+import { locale } from '../i18n';
+
+const currentTime = ref('');
+// Бастапқы мәнді сенің locale.t арқылы аламыз
+const copyMessage = ref(locale.t('contacts.copy'));
+
+// Тіл өзгергенде хабарламаны автоматты түрде жаңарту
+watch(() => locale.current, () => {
+  copyMessage.value = locale.t('contacts.copy');
+});
+
+const handleCopy = (text) => {
+  navigator.clipboard.writeText(text);
+  copyMessage.value = locale.t('contacts.copied');
+  setTimeout(() => {
+    copyMessage.value = locale.t('contacts.copy');
+  }, 2000);
+};
+
+onMounted(() => {
+  setInterval(() => {
+    currentTime.value = new Date().toLocaleTimeString('en-GB', { hour12: false });
+  }, 1000);
+});
+</script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&display=swap');
