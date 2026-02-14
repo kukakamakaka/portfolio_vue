@@ -10,6 +10,7 @@ import TheProjectsGallery from './components/TheProjectsGallery.vue';
 import TheExperience from './components/TheExperience.vue'
 import TheCertificates from './components/TheCertificates.vue'
 import TheContacts from "./components/TheContacts.vue";
+import TheFooter from "./components/TheFooter.vue";
 
 const isLoading = ref(true);
 const loadingProgress = ref(0);
@@ -157,6 +158,7 @@ onUnmounted(() => {
       <TheExperience />
       <TheCertificates />
       <TheContacts />
+      <TheFooter />
     </main>
   </div>
 </template>
