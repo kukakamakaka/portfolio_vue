@@ -14,19 +14,22 @@
           <div class="bento-item header-card">
             <div class="status-badge">
               <span class="pulse-dot"></span>
-              ACTIVE_NEURAL_LINK
+              {{ locale.t('contacts.status') }}
             </div>
-            <h2 class="hero-title">GET IN <span class="stroke-text">TOUCH</span></h2>
+            <h2 class="hero-title">
+              {{ locale.t('contacts.get_in') }} <br>
+              <span class="stroke-text">{{ locale.t('contacts.touch') }}</span>
+            </h2>
           </div>
 
           <div class="bento-item location-card">
-            <span class="label">CURRENT_NODE</span>
-            <span class="city">ASTANA, KZ</span>
+            <span class="label">{{ locale.t('contacts.node') }}</span>
+            <span class="city">{{ locale.t('contacts.astana') }}</span>
             <span class="tz">UTC +5:00</span>
           </div>
 
           <div class="bento-item email-card" @click="handleCopy('kukakamakaka99@gmail.com')">
-            <span class="label">PRIMARY_ENDPOINT</span>
+            <span class="label">{{ locale.t('contacts.endpoint') }}</span>
             <div class="email-row">
               <h3>kukakamakaka99@gmail.com</h3>
               <i class="fas fa-copy"></i>
@@ -61,7 +64,7 @@
             <a href="https://t.me/kukakamakaka" target="_blank" class="bento-item wide-link ch">
               <i class="fas fa-bullhorn"></i>
               <div class="txt">
-                <span class="title">DEV CHANNEL</span>
+                <span class="title">{{ locale.t('contacts.dev_channel') }}</span>
                 <span class="sub">@kukakamakaka</span>
               </div>
             </a>
@@ -69,7 +72,7 @@
               <i class="fas fa-university"></i>
               <div class="txt">
                 <span class="title">MS TEAMS</span>
-                <span class="sub">AITU Student</span>
+                <span class="sub">{{ locale.t('contacts.student') }}</span>
               </div>
             </div>
           </div>
@@ -78,23 +81,28 @@
       </div>
     </section>
 
-    <footer class="minimal-footer">
-      <span>© 2026 EVFENDY</span>
-      <span class="clock">{{ currentTime }}</span>
-    </footer>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
+import { locale } from '../i18n';
 
 const currentTime = ref('');
-const copyMessage = ref('CLICK TO COPY');
+// Бастапқы мәнді сенің locale.t арқылы аламыз
+const copyMessage = ref(locale.t('contacts.copy'));
+
+// Тіл өзгергенде хабарламаны автоматты түрде жаңарту
+watch(() => locale.current, () => {
+  copyMessage.value = locale.t('contacts.copy');
+});
 
 const handleCopy = (text) => {
   navigator.clipboard.writeText(text);
-  copyMessage.value = 'COPIED!';
-  setTimeout(() => copyMessage.value = 'CLICK TO COPY', 2000);
+  copyMessage.value = locale.t('contacts.copied');
+  setTimeout(() => {
+    copyMessage.value = locale.t('contacts.copy');
+  }, 2000);
 };
 
 onMounted(() => {
@@ -116,26 +124,26 @@ onMounted(() => {
   overflow: hidden;
 }
 
-/* VIDEO SECTION */
 .video-layer {
   position: absolute;
   inset: 0;
   z-index: 1;
 }
+
 .bg-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0.6;
 }
+
 .video-overlay {
   position: absolute;
   inset: 0;
-  /* Ортаны ашық қалдыру: Робот анық көрінуі үшін */
+  /* Ортаны ашық қалдыратын градиент */
   background: linear-gradient(90deg, #000 0%, transparent 40%, transparent 60%, #000 100%);
 }
 
-/* LAYOUT STRUCTURE */
 .contact-section {
   position: relative;
   z-index: 10;
@@ -164,79 +172,139 @@ onMounted(() => {
 }
 
 .center-gap {
-  flex: 1.2; /* Роботқа арналған бос орын */
+  flex: 1.2;
 }
 
-/* BENTO ITEMS */
 .bento-item {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 20px;
   backdrop-filter: blur(15px);
-  transition: 0.3s ease;
+  transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   text-decoration: none;
   color: #fff;
+  cursor: default;
 }
+
 .bento-item:hover {
   background: rgba(255, 255, 255, 0.07);
   border-color: #525d8f;
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 }
 
-/* LEFT SIDE DETAILS */
+a.bento-item { cursor: pointer; }
+
 .header-card .hero-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 3rem;
-  line-height: 1;
+  line-height: 1.1;
   margin: 10px 0;
+  font-weight: 700;
 }
-.stroke-text { color: transparent; -webkit-text-stroke: 1px #525d8f; }
-.status-badge { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; color: #525d8f; font-weight: 800; }
-.pulse-dot { width: 6px; height: 6px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 8px #00ff00; animation: blink 1.5s infinite; }
 
-.location-card .city { display: block; font-size: 1.5rem; font-weight: 800; margin-top: 5px; }
-.location-card .label { font-size: 0.6rem; color: #525d8f; font-weight: 800; }
+.stroke-text {
+  color: transparent;
+  -webkit-text-stroke: 1px #525d8f;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  color: #525d8f;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #8c98d1;
+  animation: blink 1.5s infinite;
+}
+
+.location-card .city {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-top: 5px;
+}
+
+.location-card .label, .email-card .label {
+  font-size: 0.6rem;
+  color: #525d8f;
+  font-weight: 800;
+}
 
 .email-card { cursor: pointer; }
-.email-row { display: flex; justify-content: space-between; align-items: center; margin-top: 5px; }
-.email-row h3 { font-size: 1rem; margin: 0; }
-.copy-status { font-size: 0.6rem; color: #525d8f; margin-top: 5px; font-weight: 800; }
+.email-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
 
-/* RIGHT SIDE SOCIALS */
+.email-row h3 {
+  font-size: 1rem;
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.copy-status {
+  font-size: 0.6rem;
+  color: #525d8f;
+  margin-top: 8px;
+  font-weight: 800;
+}
+
 .social-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
-.social-link { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+
+.social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
 .social-link i { font-size: 1.4rem; color: #525d8f; }
 .social-link span { font-size: 0.6rem; font-weight: 800; letter-spacing: 1px; }
 
-.wide-link { grid-column: span 2; display: flex; align-items: center; gap: 15px; }
-.wide-link i { font-size: 1.2rem; color: #525d8f; }
-.wide-link .title { display: block; font-size: 0.8rem; font-weight: 800; }
-.wide-link .sub { font-size: 0.6rem; color: #666; }
-
-/* FOOTER */
-.minimal-footer {
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  padding: 0 40px;
+.wide-link {
+  grid-column: span 2;
   display: flex;
-  justify-content: space-between;
-  font-size: 0.6rem;
-  color: #333;
-  z-index: 10;
+  align-items: center;
+  gap: 15px;
 }
 
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.wide-link .title { font-weight: 800; font-size: 0.85rem; display: block; }
+.wide-link .sub { font-size: 0.6rem; color: #666; }
+
+
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
 
 /* RESPONSIVE */
 @media (max-width: 1100px) {
-  .center-gap { display: none; } /* Кіші экранда робот көрінбейді, контент жиналады */
+  .center-gap { display: none; }
   .split-wrapper { flex-direction: column; align-items: center; }
   .side-column { max-width: 100%; width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .header-card .hero-title { font-size: 2.2rem; }
+  .social-grid { grid-template-columns: 1fr; }
+  .social-link { flex-direction: row; justify-content: flex-start; padding-left: 10px; }
 }
 </style>

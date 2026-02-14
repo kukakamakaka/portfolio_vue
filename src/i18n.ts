@@ -126,6 +126,18 @@ const messages = {
                 "8": { "title": "TASK MANAGER", "desc": "Task management system with access control levels and MySQL." }
             }
         },
+        "contacts": {
+            "status": "ACTIVE_NEURAL_LINK",
+            "get_in": "GET IN",
+            "touch": "TOUCH",
+            "node": "CURRENT_NODE",
+            "astana": "ASTANA, KZ",
+            "endpoint": "PRIMARY_ENDPOINT",
+            "copy": "CLICK TO COPY",
+            "copied": "COPIED!",
+            "dev_channel": "DEV CHANNEL",
+            "student": "AITU Student"
+        },
         experience: {
             journey: "2025 — 2026 Career Journey",
             viewSource: "VIEW SOURCE",
@@ -251,6 +263,18 @@ const messages = {
                 "8": { "title": "TASK MANAGER", "desc": "Система управления задачами." }
             }
         },
+        "contacts": {
+            "status": "АКТИВНОЕ_СОЕДИНЕНИЕ",
+            "get_in": "СВЯЖИТЕСЬ",
+            "touch": "СО МНОЙ",
+            "node": "ТЕКУЩАЯ_ЛОКАЦИЯ",
+            "astana": "АСТАНА, КЗ",
+            "endpoint": "ОСНОВНАЯ_ПОЧТА",
+            "copy": "НАЖМИТЕ, ЧТОБЫ КОПИРОВАТЬ",
+            "copied": "СКОПИРОВАНО!",
+            "dev_channel": "DEV КАНАЛ",
+            "student": "Студент AITU"
+        },
         experience: {
             journey: "2025 — 2026 Карьерный путь",
             viewSource: "ИСХОДНЫЙ КОД",
@@ -375,6 +399,18 @@ const messages = {
                 "7": { "title": "DOCKERIZED ҚОСЫМША", "desc": "Nginx, SSL, Docker Compose." },
                 "8": { "title": "ТАПСЫРМАЛАР МЕНЕДЖЕРІ", "desc": "Тапсырмаларды басқару жүйесі." }
             }
+        },
+        "contacts": {
+            "status": "БЕЛСЕНДІ_БАЙЛАНЫС",
+            "get_in": "БІЗБЕН",
+            "touch": "ХАБАРЛАС",
+            "node": "АҒЫМДАҒЫ_НУКТЕ",
+            "astana": "АСТАНА, ҚЗ",
+            "endpoint": "НЕГІЗГІ_ПОШТА",
+            "copy": "КӨШІРУ ҮШІН БАСЫҢЫЗ",
+            "copied": "КӨШІРІЛДІ!",
+            "dev_channel": "DEV КАНАЛ",
+            "student": "AITU Студенті"
         },
         experience: {
             journey: "2025 — 2026 Мансап жолы",
