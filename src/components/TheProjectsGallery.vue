@@ -1,245 +1,349 @@
+<template>
+  <section id="projects" class="projects-wrapper">
+    <div class="header-v4">
+      <div class="header-info">
+        <span class="prefix">// ARCHIVE_2026</span>
+        <h2 class="main-title">SELECTED<br><span class="gradient-text">EXPERIENCE</span></h2>
+      </div>
+    </div>
+
+    <div class="projects-grid">
+      <div class="p-card active" @click="openProject(1)">
+        <div class="commercial-badge">COMMERCIAL</div>
+        <div class="card-content">
+          <div class="card-top">
+            <div class="status-indicator"><span class="pulse"></span> PRODUCTION</div>
+            <span class="index">01</span>
+          </div>
+          <div class="card-body">
+            <span class="category">MANAGEMENT_SYSTEM</span>
+            <h3 class="project-name">NS DRIVE</h3>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">PYTHON • FASTAPI • DOCKER</div>
+            <div class="explore-btn">VIEW_DETAILS <span>→</span></div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div v-for="i in 2" :key="i" class="p-card locked"></div>
+    </div>
+
+    <Teleport to="body">
+      <Transition @enter="onEnter" @leave="onLeave">
+        <div v-if="selectedProject === 1" class="modal-backdrop" @click.self="closeProject">
+          <div class="modal-window dashboard">
+
+            <button class="close-x-btn" @click="closeProject" aria-label="Close">
+              <div class="x-icon">
+                <span class="line l1"></span>
+                <span class="line l2"></span>
+              </div>
+              <span class="close-hint">ESC</span>
+            </button>
+
+            <div class="m-container">
+              <div class="m-top">
+                <div class="m-brand">
+                  <span class="m-badge">2026_STABLE</span>
+                  <h2 class="m-title">NS DRIVE</h2>
+                </div>
+                <p class="m-tagline">Автоматизация записи для автошколы (Астана)</p>
+              </div>
+
+              <div class="m-main-grid">
+                <div class="m-block stack">
+                  <label>TECHNICAL_STACK</label>
+                  <div class="stack-tags">
+                    <span>Python 3.12</span><span>FastAPI</span><span>G-Sheets API</span>
+                    <span>APScheduler</span><span>Docker</span><span>Render</span>
+                  </div>
+                </div>
+
+                <div class="m-block logic">
+                  <label>SYSTEM_FLOW</label>
+                  <div class="logic-flow">
+                    <div class="node">Telegram</div>
+                    <div class="arrow">→</div>
+                    <div class="node">FastAPI</div>
+                    <div class="arrow">→</div>
+                    <div class="node">G-Sheets</div>
+                  </div>
+                </div>
+
+                <div class="m-block features">
+                  <label>CORE_FEATURES</label>
+                  <ul class="compact-list">
+                    <li>• Запись 24/7 (полное отсутствие рутины)</li>
+                    <li>• Авто-мониторинг оплат через API</li>
+                    <li>• Мгновенные уведомления в TG/WhatsApp</li>
+                    <li>• Авто-архивация старых записей</li>
+                  </ul>
+                </div>
+
+                <div class="m-block impact">
+                  <label>BUSINESS_IMPACT</label>
+                  <div class="impact-content">
+                    <div class="stat">90%</div>
+                    <p>Снижение нагрузки на персонал. <b>Прозрачный график</b> без ошибок человеческого фактора.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-actions">
+                <a href="https://t.me/ns_drive_bot" target="_blank" class="btn-p">OPEN_BOT</a>
+                <a href="https://github.com/kukakamakaka/autoshkola-bot" target="_blank" class="btn-s">SOURCE_CODE</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
+  </section>
+</template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { gsap } from 'gsap';
 
-interface Project {
-  id: number;
-  dir: string;
-  title: string;
-  stack: string;
-  desc: string;
-  mainImg: string;
-  gallery: string[];
-  github?: string;
-  details?: string[];
-}
+const selectedProject = ref<number | null>(null);
 
-const images = (import.meta as any).glob('../assets/projects/**/*.{jpg,jpeg,png,webp}', {
-  eager: true,
-  import: 'default',
-}) as Record<string, string>;
-
-const getStaticImg = (projectDir: string, fileName: string) => {
-  const path = `../assets/projects/${projectDir}/${fileName}`;
-  return images[path] || '';
-};
-
-const projectsData = [
-  {
-    id: 1, dir: '1', title: "QAZAQGAZ SYSTEM", stack: "LARAVEL 12 // DOCKER",
-    desc: "Production-ready система, запущенная с нуля за 48 часов. Внедрена RBAC модель и CI/CD пайплайны.",
-    github: "https://github.com/kukakamakaka/qazaqgaz-test",
-    details: ["Laravel 12", "Docker", "CI/CD"]
-  },
-  {
-    id: 2, dir: '2', title: "AVTOSCHCOOLA BOT", stack: "PYTHON // AIOGRAM",
-    desc: "Асинхронный Telegram-бот для автоматизации записи. Интеграция с Google Sheets API.",
-    github: "https://github.com/kukakamakaka/avtoschool-bot",
-    details: ["Python", "Aiogram", "Google API"]
-  },
-  {
-    id: 3, dir: '3', title: "SKT ORKEN SITE", stack: "PYTHON // FLASK",
-    desc: "Корпоративный сайт для строительной компании. Реализована серверная маршрутизация.",
-    github: "https://github.com/kukakamakaka/skt-orken-site",
-    details: ["Flask", "Jinja2", "Python"]
-  },
-  {
-    id: 4, dir: '4', title: "CORE DJANGO API", stack: "PYTHON // DRF",
-    desc: "Проектирование REST API с использованием Django Rest Framework и JWT.",
-    github: "https://github.com/kukakamakaka",
-    details: ["Django", "DRF", "PostgreSQL"]
-  },
-  {
-    id: 5, dir: '5', title: "VUE 3 PORTFOLIO", stack: "VUE 3 // TS",
-    desc: "Высокопроизводительное портфолио с использованием Composition API.",
-    github: "https://github.com/kukakamakaka",
-    details: ["Vue 3", "TypeScript", "Vite"]
-  },
-  {
-    id: 6, dir: '6', title: "FASTAPI SERVICE", stack: "PYTHON // FASTAPI",
-    desc: "Микросервис для обработки данных в реальном времени.",
-    github: "https://github.com/kukakamakaka",
-    details: ["FastAPI", "Pydantic", "Redis"]
-  },
-  {
-    id: 7, dir: '7', title: "DOCKERIZED APP", stack: "DEVOPS // LINUX",
-    desc: "Настройка инфраструктуры для production: Nginx, SSL, Docker Compose.",
-    github: "https://github.com/kukakamakaka",
-    details: ["Nginx", "Docker", "Linux"]
-  },
-  {
-    id: 8, dir: '8', title: "TASK MANAGER", stack: "PHP // MYSQL",
-    desc: "Система управления задачами с разграничением прав доступа.",
-    github: "https://github.com/kukakamakaka",
-    details: ["PHP", "MySQL", "AJAX"]
-  }
-];
-
-const projects: Project[] = projectsData.map(p => ({
-  ...p,
-  mainImg: getStaticImg(p.dir, 'main.jpg'),
-  gallery: [
-    getStaticImg(p.dir, '1.jpg'),
-    getStaticImg(p.dir, '2.jpg'),
-    getStaticImg(p.dir, '3.jpg')
-  ].filter(img => img !== '')
-}));
-
-const selectedProject = ref<Project | null>(null);
-
-const openProject = (p: Project) => {
-  selectedProject.value = p;
+const openProject = (id: number) => {
+  selectedProject.value = id;
   document.body.style.overflow = 'hidden';
 };
 
 const closeProject = () => {
   selectedProject.value = null;
-  document.body.style.overflow = '';
+  document.body.style.overflow = 'auto';
+};
+
+const onEnter = (el: any) => {
+  const tl = gsap.timeline();
+  tl.fromTo(el, { opacity: 0 }, { duration: 0.3, opacity: 1 })
+      .fromTo('.modal-window', { y: 40, opacity: 0, scale: 0.95 }, { duration: 0.5, y: 0, opacity: 1, scale: 1, ease: 'expo.out' })
+      .from('.m-block', { opacity: 0, y: 20, stagger: 0.05, duration: 0.4 }, "-=0.2");
+};
+
+const onLeave = (el: any, done: any) => {
+  gsap.to(el, { duration: 0.3, opacity: 0, scale: 0.9, onComplete: done });
 };
 </script>
 
-<template>
-  <div class="portfolio-wrap">
-    <div class="projects-grid">
-      <div v-for="p in projects" :key="p.id" class="project-card" @click="openProject(p)">
-        <div class="card-visual">
-          <img :src="p.mainImg" :alt="p.title" class="main-photo" />
-          <div class="card-overlay">
-            <span class="hover-text">VIEW PROJECT</span>
-          </div>
-          <span class="floating-number">{{ p.id < 10 ? '0' + p.id : p.id }}</span>
-        </div>
-        <div class="card-details">
-          <span class="stack-text">{{ p.stack }}</span>
-          <h3 class="title-text">{{ p.title }}</h3>
-        </div>
-      </div>
-    </div>
-
-    <Transition name="overlay-fade">
-      <div v-if="selectedProject" class="project-modal" @click.self="closeProject">
-        <button class="exit-btn" @click="closeProject">
-          <span class="exit-icon">✕</span>
-          <span class="exit-text">ESC</span>
-        </button>
-
-        <div class="modal-inner">
-          <header class="modal-header">
-            <div class="header-meta">
-              <span class="m-id">CASE-0{{ selectedProject.id }}</span>
-              <span class="m-stack">{{ selectedProject.stack }}</span>
-            </div>
-            <h2 class="m-title">{{ selectedProject.title }}</h2>
-            <p class="m-description">{{ selectedProject.desc }}</p>
-
-            <div class="tech-tags" v-if="selectedProject.details">
-              <span v-for="tag in selectedProject.details" :key="tag" class="tag">{{ tag }}</span>
-            </div>
-          </header>
-
-          <div class="modal-images">
-            <div v-for="(img, i) in selectedProject.gallery" :key="i" class="m-img-wrap">
-              <img :src="img" alt="detail" loading="lazy" />
-            </div>
-          </div>
-
-          <footer class="modal-footer">
-            <div class="footer-line"></div>
-            <div class="footer-btns">
-              <a v-if="selectedProject.github" :href="selectedProject.github" target="_blank" class="github-btn">
-                VIEW GITHUB ↗
-              </a>
-            </div>
-          </footer>
-        </div>
-      </div>
-    </Transition>
-  </div>
-</template>
-
 <style scoped>
-/* Все старые стили сохраняются, добавляю только новые для ссылок и тегов */
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@900&family=Inter:wght@400;700;800&display=swap');
 
-.tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 25px;
-}
+.projects-wrapper { background: #000; padding: 100px 5vw; color: #fff; font-family: 'Inter', sans-serif; }
+.main-title { font-family: 'Unbounded'; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; line-height: 0.9; margin: 20px 0; }
+.gradient-text { background: linear-gradient(90deg, #525d8f, #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.prefix { font-size: 0.7rem; letter-spacing: 5px; color: #525d8f; font-weight: 800; }
 
-.tag {
-  font-size: 0.65rem;
-  color: #58d1ff; /* Голубой акцент */
-  border: 1px solid rgba(88, 209, 255, 0.3);
-  padding: 5px 12px;
-  border-radius: 100px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+/* GRID */
+.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.p-card { background: #080808; border: 1px solid #111; height: 380px; position: relative; cursor: pointer; transition: 0.4s; overflow: hidden; }
+.p-card:hover { border-color: #525d8f; }
 
-.footer-btns {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-}
-
-.github-btn {
-  font-size: 1rem;
-  font-weight: 700;
+.commercial-badge {
+  position: absolute;
+  top: 15px;
+  right: -35px;
+  background: #525d8f;
   color: #fff;
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 15px 40px;
-  border-radius: 4px;
-  transition: all 0.3s;
+  font-size: 0.6rem;
+  font-weight: 900;
+  padding: 5px 40px;
+  transform: rotate(45deg);
+  z-index: 5;
+  letter-spacing: 1px;
+  overflow: hidden; /* Шиммер эффектісі сыртқа шықпауы үшін */
+
+  /* Неонды жарық анимациясы */
+  box-shadow: 0 0 10px rgba(82, 93, 143, 0.5);
+  animation: badge-glow 3s infinite ease-in-out;
 }
 
-.github-btn:hover {
+/* 1. Жылтыр эффектісі (Shimmer) */
+.commercial-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+  );
+  animation: shimmer 4s infinite linear;
+}
+
+/* 2. Тыныс алу анимациясы (Glow) */
+@keyframes badge-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(82, 93, 143, 0.4);
+    background: #525d8f;
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(82, 93, 143, 0.8);
+    background: #6371ad; /* Сәл ашық түс */
+  }
+}
+
+/* 3. Жылтырдың қозғалысы */
+@keyframes shimmer {
+  0% { left: -100%; }
+  20% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* Карточкаға тышқанды апарғанда (Hover) эффектіні күшейту */
+.p-card:hover .commercial-badge {
   background: #fff;
-  color: #000;
+  color: #525d8f;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+  transition: 0.4s;
 }
 
-/* Остальные стили из твоего кода ниже... */
-.portfolio-wrap { background: #000; min-height: 100vh; padding: 100px 5%; }
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; max-width: 1300px; margin: 0 auto; }
-.project-card { cursor: pointer; position: relative; }
-.card-visual { position: relative; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 2px; background: #0a0a0a; margin-bottom: 20px; }
-.main-photo { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
-.card-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.7); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease; backdrop-filter: blur(5px); }
-.hover-text { font-size: 0.7rem; letter-spacing: 0.3em; color: #fff; border-bottom: 1px solid #fff; padding-bottom: 5px; }
-.floating-number { position: absolute; bottom: -10px; right: 10px; font-size: 5rem; font-weight: 900; color: #fff; opacity: 0.05; transition: all 0.6s ease; pointer-events: none; }
-.project-card:hover .main-photo { transform: scale(1.1); }
-.project-card:hover .card-overlay { opacity: 1; }
-.project-card:hover .floating-number { opacity: 0.15; transform: translateY(-20px); }
-.card-details { padding: 0 5px; }
-.stack-text { font-size: 0.6rem; color: #444; letter-spacing: 0.2em; text-transform: uppercase; }
-.title-text { font-size: 1rem; font-weight: 700; color: #fff; margin-top: 5px; }
+.card-content { padding: 35px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.project-name { font-family: 'Unbounded'; font-size: 1.8rem; font-weight: 900; }
 
-.project-modal { position: fixed; inset: 0; background: #000; z-index: 2000; overflow-y: auto; padding: 120px 5% 60px; }
-.exit-btn { position: fixed; top: 40px; right: 40px; background: #fff; border: none; padding: 12px 24px; display: flex; align-items: center; gap: 10px; cursor: pointer; z-index: 2100; border-radius: 100px; transition: transform 0.3s; }
-.exit-btn:hover { transform: scale(1.05); }
-.exit-icon { font-size: 1rem; color: #000; }
-.exit-text { font-size: 0.7rem; font-weight: 800; color: #000; letter-spacing: 0.1em; }
-.modal-inner { max-width: 900px; margin: 0 auto; }
-.modal-header { margin-bottom: 80px; }
-.header-meta { display: flex; gap: 20px; margin-bottom: 20px; }
-.m-id { font-family: monospace; color: #333; }
-.m-stack { color: #555; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; }
-.m-title { font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 900; line-height: 0.85; margin-bottom: 30px; }
-.m-description { font-size: 1.2rem; color: #666; line-height: 1.6; max-width: 600px; }
-.modal-images { display: flex; flex-direction: column; gap: 40px; }
-.m-img-wrap { width: 100%; border-radius: 4px; overflow: hidden; }
-.m-img-wrap img { width: 100%; display: block; }
-.modal-footer { padding: 100px 0; text-align: center; }
-.footer-line { width: 100%; height: 1px; background: #111; margin-bottom: 60px; }
-.cta-link { font-size: clamp(1.5rem, 4vw, 3rem); font-weight: 900; color: #fff; text-decoration: none; transition: opacity 0.3s; }
-.cta-link:hover { opacity: 0.6; }
-.overlay-fade-enter-active, .overlay-fade-leave-active { transition: opacity 0.6s ease, transform 0.6s ease; }
-.overlay-fade-enter-from, .overlay-fade-leave-to { opacity: 0; transform: translateY(20px); }
+/* DASHBOARD MODAL */
+.modal-backdrop { position: fixed; inset: 0; z-index: 99999; background: rgba(0,0,0,0.9); backdrop-filter: blur(20px); display: flex; align-items: center; justify-content: center; padding: 20px; }
+.modal-window.dashboard {
+  width: 100%; max-width: 950px; background: #050505; border: 1px solid #1a1a1a;
+  padding: 50px; position: relative;
+}
 
-@media (max-width: 768px) {
-  .exit-btn { top: 20px; right: 20px; padding: 10px 15px; }
-  .tech-tags { gap: 5px; }
+.m-container { display: flex; flex-direction: column; gap: 30px; }
+
+.m-top { border-bottom: 1px solid #111; padding-bottom: 20px; }
+.m-title { font-family: 'Unbounded'; font-size: 2.8rem; font-weight: 900; margin: 5px 0; }
+.m-badge { color: #525d8f; font-size: 0.65rem; font-weight: 800; letter-spacing: 2px; }
+.m-tagline { color: #555; font-size: 0.9rem; }
+
+/* DASHBOARD GRID */
+.m-main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.m-block { background: #080808; border: 1px solid #111; padding: 20px; }
+.m-block label { font-size: 0.6rem; color: #525d8f; font-weight: 900; letter-spacing: 2px; display: block; margin-bottom: 15px; }
+
+/* STACK TAGS */
+.stack-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.stack-tags span { font-size: 0.7rem; padding: 4px 10px; border: 1px solid #222; background: #000; color: #eee; }
+
+/* LOGIC FLOW */
+.logic-flow { display: flex; align-items: center; gap: 10px; font-size: 0.75rem; color: #fff; font-weight: 700; }
+.node { background: #111; padding: 8px 15px; border-radius: 2px; border: 1px solid #222; }
+.arrow { color: #525d8f; }
+
+/* COMPACT LIST */
+.compact-list { list-style: none; padding: 0; margin: 0; }
+.compact-list li { font-size: 0.8rem; color: #888; margin-bottom: 8px; }
+
+/* IMPACT STICKER STYLE */
+.impact { background: linear-gradient(135deg, rgba(82,93,143,0.1) 0%, #080808 100%); border-color: rgba(82,93,143,0.3); }
+.impact-content { display: flex; align-items: center; gap: 20px; }
+.stat { font-family: 'Unbounded'; font-size: 3rem; font-weight: 900; color: #525d8f; }
+.impact-content p { font-size: 0.85rem; color: #eee; line-height: 1.4; }
+
+/* ACTIONS */
+.m-actions { display: flex; gap: 10px; }
+.btn-p, .btn-s { flex: 1; padding: 18px; text-align: center; text-decoration: none; font-size: 0.75rem; font-weight: 900; letter-spacing: 1px; }
+.btn-p { background: #fff; color: #000; }
+.btn-s { border: 1px solid #222; color: #fff; }
+.btn-s:hover { border-color: #525d8f; }
+
+/* CLOSE BUTTON - NEON DASHBOARD STYLE */
+.close-x-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(82, 93, 143, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column; /* Элементтерді бірінің астына бірін қою */
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+  overflow: hidden;
+}
+
+/* Крест иконкасы */
+.x-icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #525d8f;
+  top: 50%;
+  left: 0;
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+.l1 { transform: translateY(-50%) rotate(45deg); }
+.l2 { transform: translateY(-50%) rotate(-45deg); }
+
+/* ESC жазуының стилі */
+.close-hint {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 0.5rem;
+  color: #525d8f;
+  font-weight: 900;
+  letter-spacing: 1px;
+  opacity: 0.5; /* Әдетте сәл көрініп тұрады */
+  transition: 0.3s;
+}
+
+/* --- HOVER EFFECTS --- */
+.close-x-btn:hover {
+  background: rgba(82, 93, 143, 0.15);
+  border-color: #fff;
+  box-shadow: 0 0 25px rgba(82, 93, 143, 0.4);
+  transform: scale(1.05);
+}
+
+.close-x-btn:hover .line {
+  background: #fff;
+  box-shadow: 0 0 10px #fff;
+}
+
+.close-x-btn:hover .x-icon {
+  transform: rotate(90deg); /* 90 градусқа айналу */
+}
+
+.close-x-btn:hover .close-hint {
+  opacity: 1;
+  color: #fff;
+  transform: translateY(-2px); /* Сәл жоғары көтеріледі */
+}
+
+/* Басқан кезде */
+.close-x-btn:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 900px) {
+  .m-main-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .modal-window.dashboard { padding: 30px; height: 95vh; overflow-y: auto; }
 }
 </style>
