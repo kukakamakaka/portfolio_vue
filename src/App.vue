@@ -165,7 +165,6 @@ onUnmounted(() => {
 
 <style>
 
-/* Используем твои переменные из сохраненной инфы */
 :root {
   --fg-bg-light: #f4f4f7;
   --fg-bg-dark: #050505;
@@ -228,13 +227,6 @@ body {
   transition: width 0.1s ease;
 }
 
-.preloader-fade-leave-active {
-  transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1);
-}
-
-.preloader-fade-leave-to {
-  transform: translateY(-100%);
-}
 
 /* --- HERO (LIGHT) --- */
 .hero {
@@ -246,13 +238,11 @@ body {
   display: flex;
   flex-direction: column;
   padding: 0 5%;
-  /* Зернистость для премиальности */
   background-image: url("https://grainy-gradients.vercel.app/noise.svg");
   background-size: 200px;
   opacity: 0.95;
 }
 
-/* Бегущий фон, который дышит при скролле */
 .bg-title-wrapper {
   position: absolute;
   top: 45%;

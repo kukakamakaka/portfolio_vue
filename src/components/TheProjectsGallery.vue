@@ -98,7 +98,7 @@
           </div>
           <div class="card-body">
             <span class="category">HEALTH_TECH // AI</span>
-            <h3 class="project-name">AIKA DETECTOR</h3>
+            <h3 class="project-name">AI DETECTOR</h3>
           </div>
           <div class="card-footer">
             <div class="tech-stack">FLASK • OPENAI • OLLAMA</div>
@@ -222,8 +222,8 @@
                 <div class="m-block impact"> <label>IMPACT</label> <div class="stat">90%</div> </div>
               </div>
               <div class="m-actions">
-                <a href="#" class="btn-p">OPEN_BOT</a>
-                <a href="#" class="btn-s">SOURCE</a>
+                <a href="https://t.me/ns_drive_bot" target="_blank" class="btn-p">OPEN_BOT</a>
+                <a href="https://github.com/kukakamakaka/autoshkola-bot" class="btn-s">SOURCE</a>
               </div>
             </div>
           </div>
@@ -242,7 +242,7 @@
                   <span class="m-badge">ENTERPRISE_SOLUTION // 2026</span>
                   <h2 class="m-title">QG HELPDESK</h2>
                 </div>
-                <p class="m-tagline">🏛️ Оптимизация внутренних процессов ТОО «QazaqGaz НТЦ»</p>
+                <p class="m-tagline"> Оптимизация внутренних процессов ТОО «QazaqGaz НТЦ»</p>
               </div>
 
               <div class="m-block slider-wrapper">
@@ -265,9 +265,9 @@
                     Система автоматизирует распределение задач между департаментами, исключая потерю данных и задержки в коммуникации.
                   </p>
                   <ul class="compact-list">
-                    <li>• Ролевая модель: Администратор, Диспетчер, Исполнитель</li>
-                    <li>• Генерация PDF-отчетов по KPI сотрудников</li>
-                    <li>• Интеграция с корпоративной почтой для уведомлений</li>
+                    <li>Ролевая модель: Администратор, Диспетчер, Исполнитель</li>
+                    <li>Генерация PDF-отчетов по KPI сотрудников</li>
+                    <li>Интеграция с корпоративной почтой для уведомлений</li>
                   </ul>
                 </div>
 
@@ -384,7 +384,7 @@
                   <span class="m-badge">CYBERSECURITY // MVP_UNDER_DEV</span>
                   <h2 class="m-title">SOC ANOMALY DETECTOR</h2>
                 </div>
-                <p class="m-tagline">🛡️ Микросервис для анализа логов безопасности в реальном времени</p>
+                <p class="m-tagline">Микросервис для анализа логов безопасности в реальном времени</p>
               </div>
 
               <div class="m-main-grid">
@@ -447,9 +447,9 @@
               <div class="m-top">
                 <div class="m-brand">
                   <span class="m-badge">AI_MEDICAL_ASSISTANT // DEMO_PROJECT</span>
-                  <h2 class="m-title">AI HEALTH DETECTOR (AIKA)</h2>
+                  <h2 class="m-title">AI HEALTH DETECTOR </h2>
                 </div>
-                <p class="m-tagline">🩺 Персональный ИИ-аналитик симптомов и состояния здоровья</p>
+                <p class="m-tagline">Персональный ИИ-аналитик симптомов и состояния здоровья</p>
               </div>
 
               <div class="m-block slider-wrapper">
@@ -473,9 +473,9 @@
                     Уникальность системы заключается в <b>Multi-Model Support</b>: приложение может переключаться между облачными GPT-4o и локальными моделями через Ollama для полной конфиденциальности данных.
                   </p>
                   <ul class="compact-list">
-                    <li>• Photo Analysis: Интеллектуальный анализ снимков с конвертацией HEIC.</li>
-                    <li>• Privacy First: Возможность работы полностью оффлайн (Mistral/SmolLM).</li>
-                    <li>• Smart Dashboard: Расчет ИМТ и персонализация советов.</li>
+                    <li>Photo Analysis: Интеллектуальный анализ снимков с конвертацией HEIC.</li>
+                    <li>Privacy First: Возможность работы полностью оффлайн (Mistral/SmolLM).</li>
+                    <li>Smart Dashboard: Расчет ИМТ и персонализация советов.</li>
                   </ul>
                 </div>
 
@@ -499,12 +499,12 @@
               </div>
 
               <div class="m-block structure-view" style="border-left: 2px solid #e74c3c;">
-                <label style="color: #e74c3c;">⚠️ MEDICAL_DISCLAIMER</label>
+                <label style="color: #e74c3c;"> MEDICAL_DISCLAIMER</label>
                 <p style="font-size: 0.75rem; color: #888;">Проект носит образовательный характер. ИИ-рекомендации не являются медицинским диагнозом. Всегда консультируйтесь с врачом.</p>
               </div>
 
               <div class="m-actions">
-                <a href="https://github.com/kukakamakaka" target="_blank" class="btn-s full-width">
+                <a href="https://github.com/kukakamakaka/ai-health" target="_blank" class="btn-s full-width">
                   EXPLORE_AI_LOGIC <span>→</span>
                 </a>
               </div>
@@ -526,7 +526,7 @@
                   <span class="m-badge">STREAMING_SERVICE // ENTERTAINMENT_HUB</span>
                   <h2 class="m-title">VIVA CINE</h2>
                 </div>
-                <p class="m-tagline">🎬 Полнофункциональная стриминговая платформа и онлайн-кинотеатр</p>
+                <p class="m-tagline">Полнофункциональная стриминговая платформа и онлайн-кинотеатр</p>
               </div>
 
               <div class="m-block slider-wrapper">
@@ -598,7 +598,7 @@
                   <span class="m-badge">HIGH_PERFORMANCE_API // CRUD_SYSTEM</span>
                   <h2 class="m-title">CAR GALLERY</h2>
                 </div>
-                <p class="m-tagline">🏎️ Стильная галерея автомобилей на базе FastAPI и SQLAlchemy</p>
+                <p class="m-tagline">Стильная галерея автомобилей на базе FastAPI и SQLAlchemy</p>
               </div>
 
               <div class="m-block slider-wrapper">
@@ -669,7 +669,7 @@
                   <span class="m-badge">HORECA_SOLUTION // VISUAL_CMS</span>
                   <h2 class="m-title">RESTAURANT WEB APP</h2>
                 </div>
-                <p class="m-tagline">🍴 Элегантная платформа для ресторанов с интерактивным меню и галереей</p>
+                <p class="m-tagline">Элегантная платформа для ресторанов с интерактивным меню и галереей</p>
               </div>
 
               <div class="m-block slider-wrapper">
@@ -693,9 +693,9 @@
                     Проект ориентирован на максимальную визуализацию бренда. Реализовано интерактивное меню с динамической подгрузкой блюд и цен, а также интеграция с PDF-модулем для скачивания меню в один клик.
                   </p>
                   <ul class="compact-list">
-                    <li>• Interactive Menu: Удобная навигация по категориям блюд.</li>
-                    <li>• Media Management: Оптимизированная галерея интерьера и кухни.</li>
-                    <li>• Scalability: Легкое добавление новых позиций через database.py.</li>
+                    <li>Interactive Menu: Удобная навигация по категориям блюд.</li>
+                    <li>Media Management: Оптимизированная галерея интерьера и кухни.</li>
+                    <li>Scalability: Легкое добавление новых позиций через database.py.</li>
                   </ul>
                 </div>
 
@@ -740,7 +740,7 @@
                   <span class="m-badge">CORPORATE_IDENTITY // BUSINESS_WEB</span>
                   <h2 class="m-title">SKT-ORKEN OFFICIAL</h2>
                 </div>
-                <p class="m-tagline">🏢 Профессиональный корпоративный сайт на базе Flask для промышленного сектора</p>
+                <p class="m-tagline">Профессиональный корпоративный сайт на базе Flask для промышленного сектора</p>
               </div>
 
               <div class="m-block slider-wrapper">
@@ -764,9 +764,9 @@
                     Разработка официального представительства компании SKT-Orken. Основной упор сделан на чистоту кода, высокую скорость загрузки и строгий корпоративный стиль. Проект полностью адаптирован под мобильные устройства.
                   </p>
                   <ul class="compact-list">
-                    <li>• Custom Routing: Настройка маршрутизации через Flask для многостраничной структуры.</li>
-                    <li>• Asset Management: Оптимизация статических ресурсов (CSS/JS) для быстрой работы.</li>
-                    <li>• Production Ready: Настройка конфигурации порта (5009) и окружения для деплоя.</li>
+                    <li>Custom Routing: Настройка маршрутизации через Flask для многостраничной структуры.</li>
+                    <li>Asset Management: Оптимизация статических ресурсов (CSS/JS) для быстрой работы.</li>
+                    <li>Production Ready: Настройка конфигурации порта (5009) и окружения для деплоя.</li>
                   </ul>
                 </div>
 
@@ -928,7 +928,38 @@ const scrollSlider = (direction: 'next' | 'prev') => {
 .m-container { display: flex; flex-direction: column; gap: 30px; }
 
 .m-top { border-bottom: 1px solid #111; padding-bottom: 20px; }
-.m-title { font-family: 'Unbounded'; font-size: 2.8rem; font-weight: 900; margin: 5px 0; }
+.m-title {
+  font-family: 'Unbounded';
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin: 10px 0;
+  display: table;
+  width: fit-content;
+  background: linear-gradient(
+      120deg,
+      #fff 0%,
+      #525d8f 50%,
+      #fff 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleGradientFlow 4s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(82, 93, 143, 0.2));
+}
+
+@keyframes titleGradientFlow {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@media (max-width: 768px) {
+  .m-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin: 5px 0 15px 0;
+  }
+}
 .m-badge { color: #525d8f; font-size: 0.65rem; font-weight: 800; letter-spacing: 2px; }
 .m-tagline { color: #555; font-size: 0.9rem; }
 
@@ -1348,5 +1379,107 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   background: #fff;
   color: #525d8f;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+/* --- MOBILE ADAPTIVE OPTIMIZATION --- */
+@media (max-width: 768px) {
+  /* 1. Жалпы сыртқы шегіністерді азайту */
+  .projects-wrapper {
+    padding: 60px 15px; /* Шеттегі бос орынды азайттық */
+  }
+
+  .main-title {
+    font-size: 2.2rem; /* Тақырыпты кішірейту */
+    line-height: 1.1;
+  }
+
+  /* 2. Grid-ті 1 бағанға қою және карточка биіктігін икемді ету */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .p-card {
+    height: 320px; /* Биіктігін сәл азайттық */
+  }
+
+  .card-content {
+    padding: 25px; /* Ішкі шегіністерді азайттық */
+  }
+
+  .project-name {
+    font-size: 1.4rem;
+  }
+
+  /* 3. МОДАЛЬДЫ ТЕРЕЗЕ (Showcase & Dashboard) ОПТИМИЗАЦИЯСЫ */
+  .modal-backdrop {
+    padding: 10px; /* Мобильде шетіне тиіп тұрмауы үшін */
+  }
+
+  .modal-window.dashboard,
+  .modal-window.showcase {
+    padding: 20px;
+    height: 92vh; /* Экранның көбін алады */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .m-title {
+    font-size: 1.6rem; /* Модаль ішіндегі тақырып */
+    line-height: 1.2;
+  }
+
+  /* 4. СЛАЙДЕР ЖӘНЕ ГАЛЕРЕЯ */
+  .gallery-slide img {
+    max-height: 40vh; /* Сурет тым үлкен болмауы үшін */
+  }
+
+  .nav-slide {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .nav-slide.prev { left: 10px; }
+  .nav-slide.next { right: 10px; }
+
+  /* 5. ИНФО-БЛОКТАРДЫ БІР БАҒАНҒА ҚОЮ */
+  .m-main-grid,
+  .m-details-row.extended {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* 6. STAT (Impact) КІШІРЕЙТУ */
+  .stat {
+    font-size: 2.2rem;
+  }
+
+  .impact-content {
+    gap: 10px;
+  }
+
+  /* 7. БАТЫРМАЛАРДЫ ЫҢҒАЙЛЫ ЕТУ */
+  .m-actions {
+    flex-direction: column; /* Батырмалар бірінің астына бірі */
+    gap: 8px;
+  }
+
+  .btn-p, .btn-s {
+    padding: 15px;
+    width: 100%; /* Толық ені */
+  }
+
+  /* 8. CLOSE BUTTON (Жабу батырмасы) */
+  .close-x-btn {
+    top: 10px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .close-hint {
+    display: none; /* Мобильде "ESC" деген жазуды алып тастаймыз */
+  }
 }
 </style>
