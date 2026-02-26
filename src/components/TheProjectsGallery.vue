@@ -84,60 +84,60 @@
             <div class="m-container">
               <div class="m-top">
                 <div class="m-brand">
-                  <span class="m-badge">ENTERPRISE_SOLUTION</span>
+                  <span class="m-badge">ENTERPRISE_SOLUTION // 2026</span>
                   <h2 class="m-title">QG HELPDESK</h2>
                 </div>
-                <p class="m-tagline">🏛️ Система техподдержки для ТОО «QazaqGaz НТЦ»</p>
+                <p class="m-tagline">🏛️ Оптимизация внутренних процессов ТОО «QazaqGaz НТЦ»</p>
               </div>
 
               <div class="m-block slider-wrapper">
-                <label>PROJECT_GALLERY // SWIPE_HORIZONTAL</label>
-
                 <div class="gallery-viewport">
-                  <div class="gallery-track">
-                    <div class="gallery-slide">
-                      <img src="../assets/projects/project1/main.jpg" alt="Dashboard Main">
-                    </div>
-                    <div class="gallery-slide">
-                      <img src="../assets/projects/project1/1.jpg" alt="Interface 01">
-                    </div>
-                    <div class="gallery-slide">
-                      <img src="../assets/projects/project1/2.jpg" alt="Interface 02">
-                    </div>
-                    <div class="gallery-slide">
-                      <img src="../assets/projects/project1/3.jpg" alt="Interface 03">
-                    </div>
-                  </div>
+                  <button class="nav-slide prev" @click="scrollSlider('prev')">‹</button>
+                  <button class="nav-slide next" @click="scrollSlider('next')">›</button>
 
-                  <div class="slider-nav-hint">
-                    <span class="arrow-icon">←</span>
-                    <span class="hint-text">SCROLL_TO_VIEW_MORE</span>
-                    <span class="arrow-icon">→</span>
+                  <div class="gallery-track" ref="projectSlider">
+                    <div class="gallery-slide"><img src="../assets/projects/project1/main.jpg" alt="Dashboard"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project1/2.jpg" alt="Stats"></div>
                   </div>
                 </div>
               </div>
 
-              <div class="m-details-row">
-                <div class="m-block stack">
-                  <label>TECHNICAL_INFRA</label>
-                  <div class="stack-tags">
-                    <span class="highlight-tag">Laravel 12</span><span>PHP 8.2</span>
-                    <span>MySQL</span><span>Tailwind</span><span>Docker</span>
-                  </div>
+              <div class="m-details-row extended">
+                <div class="m-block description">
+                  <label>PROJECT_OVERVIEW</label>
+                  <p class="long-text">
+                    Разработка кастомной экосистемы для управления техническими заявками внутри научного центра.
+                    Система автоматизирует распределение задач между департаментами, исключая потерю данных и задержки в коммуникации.
+                  </p>
+                  <ul class="compact-list">
+                    <li>• Ролевая модель: Администратор, Диспетчер, Исполнитель</li>
+                    <li>• Генерация PDF-отчетов по KPI сотрудников</li>
+                    <li>• Интеграция с корпоративной почтой для уведомлений</li>
+                  </ul>
                 </div>
 
-                <div class="m-block impact">
-                  <label>PRODUCTION_RESULT</label>
-                  <div class="impact-content">
-                    <div class="stat">48h</div>
-                    <p>Интенсивная разработка. <b>Fullstack Ready</b> код.</p>
+                <div class="m-side-info">
+                  <div class="m-block stack">
+                    <label>TECHNICAL_INFRA</label>
+                    <div class="stack-tags">
+                      <span class="highlight-tag">Laravel 12</span><span>MySQL 8.0</span>
+                      <span>Redis</span><span>Inertia.js</span><span>Docker</span>
+                    </div>
+                  </div>
+
+                  <div class="m-block impact">
+                    <label>PRODUCTION_RESULT</label>
+                    <div class="impact-content">
+                      <div class="stat">48h</div>
+                      <p>MVP за рекордные сроки. Повышение скорости обработки заявок на <b>40%</b>.</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="m-actions">
-                <a href="https://github.com/kukakamakaka" target="_blank" class="btn-s full-width">
-                  GITHUB_REPOSITORY <span>→</span>
+                <a href="https://github.com/kukakamakaka/qazaqgaz-test/tree/main/Desktop/qazaqgaz-test" target="_blank" class="btn-s full-width">
+                  EXPLORE_REPOS_STRUCTURE <span>→</span>
                 </a>
               </div>
             </div>
@@ -174,6 +174,19 @@ const onEnter = (el: any) => {
 
 const onLeave = (el: any, done: any) => {
   gsap.to(el, { duration: 0.3, opacity: 0, scale: 0.9, onComplete: done });
+};
+
+
+const projectSlider = ref<HTMLElement | null>(null);
+
+const scrollSlider = (direction: 'next' | 'prev') => {
+  if (projectSlider.value) {
+    const scrollAmount = projectSlider.value.clientWidth;
+    projectSlider.value.scrollBy({
+      left: direction === 'next' ? scrollAmount : -scrollAmount,
+      behavior: 'smooth'
+    });
+  }
 };
 </script>
 
@@ -518,6 +531,80 @@ const onLeave = (el: any, done: any) => {
   max-height: 70vh; /* Экран биіктігінің 70%-ын алады */
   object-fit: cover; /* СУРЕТТІ ТОЛЫҚ ЕНІНЕ ЖАЯДЫ (Кішкентай болмайды) */
   border-radius: 4px;
+}
+/* ROUND NAVIGATION BUTTONS */
+.nav-slide {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(82, 93, 143, 0.4);
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.nav-slide:hover {
+  background: #525d8f;
+  border-color: #fff;
+  box-shadow: 0 0 20px rgba(82, 93, 143, 0.5);
+}
+
+.nav-slide.prev { left: 20px; }
+.nav-slide.next { right: 20px; }
+
+/* EXTENDED INFO GRID */
+.m-details-row.extended {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 20px;
+}
+
+.m-side-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.long-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.compact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.compact-list li {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 10px;
+  border-left: 2px solid #525d8f;
+  padding-left: 15px;
+}
+
+.highlight-tag {
+  background: #525d8f !important;
+  color: #fff !important;
+  font-weight: 800;
+}
+
+/* Mobile Fix */
+@media (max-width: 900px) {
+  .m-details-row.extended { grid-template-columns: 1fr; }
+  .nav-slide { width: 45px; height: 45px; font-size: 1.5rem; }
 }
 
 </style>
