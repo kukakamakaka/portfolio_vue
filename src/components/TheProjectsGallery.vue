@@ -26,80 +26,124 @@
         </div>
       </div>
 
+      <div class="p-card active" @click="openProject(2)">
+        <div class="card-bg-overlay">
+          <img src="../assets/projects/project1/main.jpg" class="card-img-preview" alt="QazaqGaz Preview">
+        </div>
+        <div class="card-content">
+          <div class="card-top">
+            <div class="status-indicator"><span class="pulse orange"></span> DEPLOYED</div>
+            <span class="index">02</span>
+          </div>
+          <div class="card-body">
+            <span class="category">SERVICE_DESK</span>
+            <h3 class="project-name">QG HELPDESK</h3>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">LARAVEL • MYSQL • DOCKER</div>
+            <div class="explore-btn">VIEW_PROJECT <span>→</span></div>
+          </div>
+        </div>
+      </div>
 
-
-      <div v-for="i in 2" :key="i" class="p-card locked"></div>
+      <div v-for="i in 4" :key="i" class="p-card locked"></div>
     </div>
 
     <Teleport to="body">
       <Transition @enter="onEnter" @leave="onLeave">
+
         <div v-if="selectedProject === 1" class="modal-backdrop" @click.self="closeProject">
           <div class="modal-window dashboard">
-
-            <button class="close-x-btn" @click="closeProject" aria-label="Close">
-              <div class="x-icon">
-                <span class="line l1"></span>
-                <span class="line l2"></span>
+            <button class="close-x-btn" @click="closeProject"><div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div><span class="close-hint">ESC</span></button>
+            <div class="m-container">
+              <div class="m-top">
+                <div class="m-brand"><span class="m-badge">2026_STABLE</span><h2 class="m-title">NS DRIVE</h2></div>
+                <p class="m-tagline">Автоматизация записи для автошколы</p>
               </div>
+              <div class="m-main-grid">
+                <div class="m-block"> <label>TECH_STACK</label> <div class="stack-tags"><span>Python</span><span>FastAPI</span><span>Docker</span></div> </div>
+                <div class="m-block"> <label>LOGIC_FLOW</label> <div class="logic-flow"><div class="node">TG</div><div class="arrow">→</div><div class="node">API</div></div> </div>
+                <div class="m-block features"> <label>FEATURES</label> <ul class="compact-list"><li>• Запись 24/7</li><li>• API Monitoring</li></ul> </div>
+                <div class="m-block impact"> <label>IMPACT</label> <div class="stat">90%</div> </div>
+              </div>
+              <div class="m-actions">
+                <a href="#" class="btn-p">OPEN_BOT</a>
+                <a href="#" class="btn-s">SOURCE</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div v-else-if="selectedProject === 2" class="modal-backdrop" @click.self="closeProject">
+          <div class="modal-window showcase">
+            <button class="close-x-btn" @click="closeProject" aria-label="Close">
+              <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
               <span class="close-hint">ESC</span>
             </button>
 
             <div class="m-container">
               <div class="m-top">
                 <div class="m-brand">
-                  <span class="m-badge">2026_STABLE</span>
-                  <h2 class="m-title">NS DRIVE</h2>
+                  <span class="m-badge">ENTERPRISE_SOLUTION</span>
+                  <h2 class="m-title">QG HELPDESK</h2>
                 </div>
-                <p class="m-tagline">Автоматизация записи для автошколы (Астана)</p>
+                <p class="m-tagline">🏛️ Система техподдержки для ТОО «QazaqGaz НТЦ»</p>
               </div>
 
-              <div class="m-main-grid">
+              <div class="m-block slider-wrapper">
+                <label>PROJECT_GALLERY // SWIPE_HORIZONTAL</label>
+
+                <div class="gallery-viewport">
+                  <div class="gallery-track">
+                    <div class="gallery-slide">
+                      <img src="../assets/projects/project1/main.jpg" alt="Dashboard Main">
+                    </div>
+                    <div class="gallery-slide">
+                      <img src="../assets/projects/project1/1.jpg" alt="Interface 01">
+                    </div>
+                    <div class="gallery-slide">
+                      <img src="../assets/projects/project1/2.jpg" alt="Interface 02">
+                    </div>
+                    <div class="gallery-slide">
+                      <img src="../assets/projects/project1/3.jpg" alt="Interface 03">
+                    </div>
+                  </div>
+
+                  <div class="slider-nav-hint">
+                    <span class="arrow-icon">←</span>
+                    <span class="hint-text">SCROLL_TO_VIEW_MORE</span>
+                    <span class="arrow-icon">→</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-details-row">
                 <div class="m-block stack">
-                  <label>TECHNICAL_STACK</label>
+                  <label>TECHNICAL_INFRA</label>
                   <div class="stack-tags">
-                    <span>Python 3.12</span><span>FastAPI</span><span>G-Sheets API</span>
-                    <span>APScheduler</span><span>Docker</span><span>Render</span>
+                    <span class="highlight-tag">Laravel 12</span><span>PHP 8.2</span>
+                    <span>MySQL</span><span>Tailwind</span><span>Docker</span>
                   </div>
-                </div>
-
-                <div class="m-block logic">
-                  <label>SYSTEM_FLOW</label>
-                  <div class="logic-flow">
-                    <div class="node">Telegram</div>
-                    <div class="arrow">→</div>
-                    <div class="node">FastAPI</div>
-                    <div class="arrow">→</div>
-                    <div class="node">G-Sheets</div>
-                  </div>
-                </div>
-
-                <div class="m-block features">
-                  <label>CORE_FEATURES</label>
-                  <ul class="compact-list">
-                    <li>• Запись 24/7 (полное отсутствие рутины)</li>
-                    <li>• Авто-мониторинг оплат через API</li>
-                    <li>• Мгновенные уведомления в TG/WhatsApp</li>
-                    <li>• Авто-архивация старых записей</li>
-                  </ul>
                 </div>
 
                 <div class="m-block impact">
-                  <label>BUSINESS_IMPACT</label>
+                  <label>PRODUCTION_RESULT</label>
                   <div class="impact-content">
-                    <div class="stat">90%</div>
-                    <p>Снижение нагрузки на персонал. <b>Прозрачный график</b> без ошибок человеческого фактора.</p>
+                    <div class="stat">48h</div>
+                    <p>Интенсивная разработка. <b>Fullstack Ready</b> код.</p>
                   </div>
                 </div>
               </div>
 
               <div class="m-actions">
-                <a href="https://t.me/ns_drive_bot" target="_blank" class="btn-p">OPEN_BOT</a>
-                <a href="https://github.com/kukakamakaka/autoshkola-bot" target="_blank" class="btn-s">SOURCE_CODE</a>
+                <a href="https://github.com/kukakamakaka" target="_blank" class="btn-s full-width">
+                  GITHUB_REPOSITORY <span>→</span>
+                </a>
               </div>
             </div>
-
           </div>
         </div>
+
       </Transition>
     </Teleport>
   </section>
@@ -346,4 +390,134 @@ const onLeave = (el: any, done: any) => {
   .projects-grid { grid-template-columns: 1fr; }
   .modal-window.dashboard { padding: 30px; height: 95vh; overflow-y: auto; }
 }
+
+
+/* Карточкадағы Preview суреті */
+.card-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.3; /* Мәтін көрінуі үшін күңгірт */
+  transition: 0.5s ease;
+}
+
+.card-img-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+.p-card:hover .card-bg-overlay {
+  opacity: 0.6;
+  transform: scale(1.05);
+}
+
+.p-card:hover .card-img-preview {
+  filter: grayscale(0%);
+}
+
+/* Модальдағы суреттер торы (1 үлкен + 3 кіші) */
+.m-main-grid.with-images {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 20px;
+}
+
+.image-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.img-main {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border: 1px solid #222;
+}
+
+.img-thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.img-thumbs img {
+  width: 100%;
+  height: 60px;
+  object-fit: cover;
+  border: 1px solid #111;
+  transition: 0.3s;
+}
+
+.img-thumbs img:hover {
+  border-color: #525d8f;
+  transform: translateY(-3px);
+}
+
+/* Модальды терезенің өзі - padding-ті азайттық */
+.modal-window.showcase {
+  width: 100%;
+  max-width: 1200px; /* Сәл кеңірек қылдық */
+  max-height: 95vh;
+  background: #050505;
+  border: 1px solid #1a1a1a;
+  padding: 20px; /* Ішкі бос орынды азайттық, сурет үлкею үшін */
+  position: relative;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+/* ЖАБУ БАТЫРМАСЫ - Көрінбей тұрса, осы стильді қолдан */
+.close-x-btn {
+  position: absolute; /* Терезеге бекіту */
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #525d8f;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 999; /* Ең жоғары қабат */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Слайдер блогы */
+.slider-wrapper {
+  width: 100%;
+  padding: 0 !important; /* Бос орынды мүлдем алып тастадық */
+  background: transparent;
+  border: none;
+  margin: 40px 0 20px 0; /* Жабу батырмасымен соқтығыспауы үшін */
+}
+
+/* Суреттер жолы */
+.gallery-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 0; /* Суреттер арасындағы бос орынды жойдық */
+}
+
+/* Слайд - Максималды үлкен ен */
+.gallery-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  scroll-snap-align: center;
+}
+
+.gallery-slide img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh; /* Экран биіктігінің 70%-ын алады */
+  object-fit: cover; /* СУРЕТТІ ТОЛЫҚ ЕНІНЕ ЖАЯДЫ (Кішкентай болмайды) */
+  border-radius: 4px;
+}
+
 </style>
