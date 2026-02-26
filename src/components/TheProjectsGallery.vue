@@ -20,7 +20,7 @@
             <h3 class="project-name">NS DRIVE</h3>
           </div>
           <div class="card-footer">
-            <div class="tech-stack">PYTHON • FASTAPI • DOCKER</div>
+            <div class="tech-stack">PYTHON • FASTAPI • TELEGRAM</div>
             <div class="explore-btn">VIEW_DETAILS <span>→</span></div>
           </div>
         </div>
@@ -41,6 +41,26 @@
           </div>
           <div class="card-footer">
             <div class="tech-stack">LARAVEL • MYSQL • DOCKER</div>
+            <div class="explore-btn">VIEW_PROJECT <span>→</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-card active" @click="openProject(3)">
+        <div class="card-bg-overlay">
+          <img src="../assets/projects/project2/main.jpg" class="card-img-preview" alt="Ironn Dynasty">
+        </div>
+        <div class="card-content">
+          <div class="card-top">
+            <div class="status-indicator"><span class="pulse green"></span> MVP_STABLE</div>
+            <span class="index">03</span>
+          </div>
+          <div class="card-body">
+            <span class="category">HEALTH_TECH</span>
+            <h3 class="project-name">IRONN DYNASTY</h3>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">Python • DJANGO • SQLITE</div>
             <div class="explore-btn">VIEW_PROJECT <span>→</span></div>
           </div>
         </div>
@@ -138,6 +158,78 @@
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/qazaqgaz-test/tree/main/Desktop/qazaqgaz-test" target="_blank" class="btn-s full-width">
                   EXPLORE_REPOS_STRUCTURE <span>→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div v-else-if="selectedProject === 3" class="modal-backdrop" @click.self="closeProject">
+          <div class="modal-window showcase">
+            <button class="close-x-btn" @click="closeProject" aria-label="Close">
+              <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
+              <span class="close-hint">ESC</span>
+            </button>
+
+            <div class="m-container">
+              <div class="m-top">
+                <div class="m-brand">
+                  <span class="m-badge">FITNESS_MONITORING // LIVE_ON_PRODUCTION</span>
+                  <h2 class="m-title">IRONN DYNASTY</h2>
+                </div>
+                <p class="m-tagline">Full-stack web application for activity tracking and fitness journey</p>
+              </div>
+
+              <div class="m-block slider-wrapper">
+                <div class="gallery-viewport">
+                  <button class="nav-slide prev" @click="scrollSlider('prev')">‹</button>
+                  <button class="nav-slide next" @click="scrollSlider('next')">›</button>
+
+                  <div class="gallery-track" ref="projectSlider">
+                    <div class="gallery-slide"><img src="../assets/projects/project2/main.jpg" alt="Ironn Dashboard"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project2/1.jpg" alt="Trainer Profiles"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project2/2.jpg" alt="Progress Tracker"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project2/3.jpg" alt="Plans"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-details-row extended">
+                <div class="m-block description">
+                  <label>SYSTEM_ARCHITECTURE</label>
+                  <p class="long-text">
+                    Центральным элементом является Personal Dashboard — пространство для агрегации данных об активности пользователя, реализованное на оптимизированных Django ORM запросах.
+                  </p>
+                  <ul class="compact-list">
+                    <li>Adaptive UI: Динамическое переключение Dark/Light режимов через JS.</li>
+                    <li>User Management: Полный цикл аутентификации и защита данных (Django Permissions).</li>
+                    <li>Deployment: Проект полностью развернут и настроен на PythonAnywhere.</li>
+                  </ul>
+                </div>
+
+                <div class="m-side-info">
+                  <div class="m-block stack">
+                    <label>TECH_STACK</label>
+                    <div class="stack-tags">
+                      <span class="highlight-tag">Python 3.10</span><span>Django</span>
+                      <span>JavaScript</span><span>SQLite</span><span>WSGI</span>
+                    </div>
+                  </div>
+
+                  <div class="m-block impact">
+                    <label>LIVE_DEMO</label>
+                    <div class="impact-content">
+                      <a href="https://onege.pythonanywhere.com" target="_blank" class="live-link">
+                        onege.pythonanywhere.com 🔗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-actions">
+                <a href="https://github.com/kukakamakaka/IronnDynasty" target="_blank" class="btn-s full-width">
+                  PROJECT_STRUCTURE // VIEW_ON_GITHUB <span>→</span>
                 </a>
               </div>
             </div>
@@ -606,5 +698,25 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   .m-details-row.extended { grid-template-columns: 1fr; }
   .nav-slide { width: 45px; height: 45px; font-size: 1.5rem; }
 }
+/* Live Demo Link Style */
+.live-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #525d8f;
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 1px dashed #525d8f;
+  transition: 0.3s;
+}
 
+.live-link:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* Status Colors */
+.pulse.green {
+  background: #2ecc71;
+  box-shadow: 0 0 10px #2ecc71;
+}
 </style>
