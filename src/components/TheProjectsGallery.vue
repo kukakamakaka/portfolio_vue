@@ -85,6 +85,27 @@
         </div>
       </div>
 
+      <div class="p-card active" @click="openProject(5)">
+
+        <div class="card-bg-overlay">
+          <img src="../assets/projects/project3/main.jpg" class="card-img-preview" alt="Aika AI">
+        </div>
+
+        <div class="card-content">
+          <div class="card-top">
+            <div class="status-indicator"><span class="pulse"></span> AI_READY</div>
+            <span class="index">05</span>
+          </div>
+          <div class="card-body">
+            <span class="category">HEALTH_TECH // AI</span>
+            <h3 class="project-name">AIKA DETECTOR</h3>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">FLASK • OPENAI • OLLAMA</div>
+            <div class="explore-btn">VIEW_CASE <span>→</span></div>
+          </div>
+        </div>
+      </div>
       <div v-for="i in 4" :key="i" class="p-card locked"></div>
     </div>
 
@@ -314,6 +335,82 @@
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/soc-anomaly-app" target="_blank" class="btn-s full-width">
                   SYSTEM_ARCHITECTURE_SOURCE <span>→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div v-else-if="selectedProject === 5" class="modal-backdrop" @click.self="closeProject">
+          <div class="modal-window showcase">
+            <button class="close-x-btn" @click="closeProject" aria-label="Close">
+              <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
+              <span class="close-hint">ESC</span>
+            </button>
+
+            <div class="m-container">
+              <div class="m-top">
+                <div class="m-brand">
+                  <span class="m-badge">AI_MEDICAL_ASSISTANT // DEMO_PROJECT</span>
+                  <h2 class="m-title">AI HEALTH DETECTOR (AIKA)</h2>
+                </div>
+                <p class="m-tagline">🩺 Персональный ИИ-аналитик симптомов и состояния здоровья</p>
+              </div>
+
+              <div class="m-block slider-wrapper">
+                <div class="gallery-viewport">
+                  <button class="nav-slide prev" @click="scrollSlider('prev')">‹</button>
+                  <button class="nav-slide next" @click="scrollSlider('next')">›</button>
+
+                  <div class="gallery-track" ref="projectSlider">
+                    <div class="gallery-slide"><img src="../assets/projects/project3/main.jpg" alt="AI Chat Interface"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project3/1.jpg" alt="Health Dashboard"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project3/2.jpg" alt="Symptom History"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project3/3.jpg" alt="Photo Analysis"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-details-row extended">
+                <div class="m-block description">
+                  <label>INTELLIGENT_ENGINE</label>
+                  <p class="long-text">
+                    Уникальность системы заключается в <b>Multi-Model Support</b>: приложение может переключаться между облачными GPT-4o и локальными моделями через Ollama для полной конфиденциальности данных.
+                  </p>
+                  <ul class="compact-list">
+                    <li>• Photo Analysis: Интеллектуальный анализ снимков с конвертацией HEIC.</li>
+                    <li>• Privacy First: Возможность работы полностью оффлайн (Mistral/SmolLM).</li>
+                    <li>• Smart Dashboard: Расчет ИМТ и персонализация советов.</li>
+                  </ul>
+                </div>
+
+                <div class="m-side-info">
+                  <div class="m-block stack">
+                    <label>AI_TECH_STACK</label>
+                    <div class="stack-tags">
+                      <span class="highlight-tag">Flask</span><span class="highlight-tag">OpenAI API</span>
+                      <span>Ollama</span><span>HuggingFace</span><span>SQLAlchemy</span>
+                    </div>
+                  </div>
+
+                  <div class="m-block impact">
+                    <label>PROJECT_PURPOSE</label>
+                    <div class="impact-content">
+                      <div class="stat">AI</div>
+                      <p>Демонстрация интеграции LLM в реальные веб-интерфейсы с фокусом на <b>Data Privacy</b>.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-block structure-view" style="border-left: 2px solid #e74c3c;">
+                <label style="color: #e74c3c;">⚠️ MEDICAL_DISCLAIMER</label>
+                <p style="font-size: 0.75rem; color: #888;">Проект носит образовательный характер. ИИ-рекомендации не являются медицинским диагнозом. Всегда консультируйтесь с врачом.</p>
+              </div>
+
+              <div class="m-actions">
+                <a href="https://github.com/kukakamakaka" target="_blank" class="btn-s full-width">
+                  EXPLORE_AI_LOGIC <span>→</span>
                 </a>
               </div>
             </div>
