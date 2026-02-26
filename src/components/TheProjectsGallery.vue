@@ -66,6 +66,25 @@
         </div>
       </div>
 
+      <div class="p-card active" @click="openProject(4)">
+        <div class="project-badge in-progress">IN_PROGRESS</div>
+
+        <div class="card-content">
+          <div class="card-top">
+            <div class="status-indicator"><span class="pulse orange"></span> ANALYTICS_MVP</div>
+            <span class="index">04</span>
+          </div>
+          <div class="card-body">
+            <span class="category">CYBER_SECURITY</span>
+            <h3 class="project-name">SOC DETECTOR</h3>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">FASTAPI • ASYNC • SQLALCHEMY</div>
+            <div class="explore-btn">VIEW_LOGIC <span>→</span></div>
+          </div>
+        </div>
+      </div>
+
       <div v-for="i in 4" :key="i" class="p-card locked"></div>
     </div>
 
@@ -230,6 +249,71 @@
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/IronnDynasty" target="_blank" class="btn-s full-width">
                   PROJECT_STRUCTURE // VIEW_ON_GITHUB <span>→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div v-else-if="selectedProject === 4" class="modal-backdrop" @click.self="closeProject">
+          <div class="modal-window dashboard">
+            <button class="close-x-btn" @click="closeProject">
+              <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
+              <span class="close-hint">ESC</span>
+            </button>
+
+            <div class="m-container">
+              <div class="m-top">
+                <div class="m-brand">
+                  <span class="m-badge">CYBERSECURITY // MVP_UNDER_DEV</span>
+                  <h2 class="m-title">SOC ANOMALY DETECTOR</h2>
+                </div>
+                <p class="m-tagline">🛡️ Микросервис для анализа логов безопасности в реальном времени</p>
+              </div>
+
+              <div class="m-main-grid">
+                <div class="m-block">
+                  <label>CORE_TECHNOLOGIES</label>
+                  <div class="stack-tags">
+                    <span class="highlight-tag">FastAPI</span><span>Asynchronous Python</span>
+                    <span>SQLAlchemy</span><span>Pydantic v2</span><span>OpenAPI</span>
+                  </div>
+                </div>
+
+                <div class="m-block">
+                  <label>DATA_PIPELINE</label>
+                  <div class="logic-flow">
+                    <div class="node">TELEMETRY</div>
+                    <div class="arrow">→</div>
+                    <div class="node">INGEST</div>
+                    <div class="arrow">→</div>
+                    <div class="node">ANALYSIS</div>
+                  </div>
+                </div>
+
+                <div class="m-block features">
+                  <label>CURRENT_PROGRESS_MVP</label>
+                  <ul class="compact-list">
+                    <li>• Ingestion API: Эндпоинт /ingest для приема логов</li>
+                    <li>• Data Consistency: Строгая валидация входящих JSON</li>
+                    <li>• Storage: Автоматизация сохранения в soc.db</li>
+                  </ul>
+                </div>
+
+                <div class="m-block impact">
+                  <label>DETECTION_ENGINE</label>
+                  <div class="impact-content">
+                    <div class="stat">ASYNC</div>
+                    <p>Интегрированный модуль <b>anomaly_detector.py</b> для поиска отклонений в потоке.</p>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="m-actions">
+                <a href="https://github.com/kukakamakaka/soc-anomaly-app" target="_blank" class="btn-s full-width">
+                  SYSTEM_ARCHITECTURE_SOURCE <span>→</span>
                 </a>
               </div>
             </div>
@@ -718,5 +802,99 @@ const scrollSlider = (direction: 'next' | 'prev') => {
 .pulse.green {
   background: #2ecc71;
   box-shadow: 0 0 10px #2ecc71;
+}
+/* --- UNIVERSAL PROJECT BADGE (STEEL GRAY STYLE) --- */
+.project-badge {
+  position: absolute;
+  top: 15px;
+  right: -35px;
+  font-size: 0.6rem;
+  font-weight: 900;
+  padding: 5px 40px;
+  transform: rotate(45deg);
+  z-index: 5;
+  letter-spacing: 1px;
+  overflow: hidden;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  /* Негізгі түс: Байсалды сұр */
+  background: #1a1a1a;
+  color: #888;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 1. Жылтыр эффектісі (Silver Shimmer) */
+.project-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.1), /* Өте нәзік жылтыр */
+      transparent
+  );
+  animation: shimmer 5s infinite linear;
+}
+
+/* 2. ТҮСТЕР: Commercial (Сенің бұрынғы көк түсің, бірақ стильге сай) */
+.project-badge.commercial {
+  background: #525d8f;
+  color: #fff;
+  animation: badge-glow-blue 3s infinite ease-in-out;
+}
+
+/* 3. ТҮСТЕР: In-Progress (Сабырлы сұр неон) */
+.project-badge.in-progress {
+  background: #1a1a1a;
+  color: #777;
+  border: 1px solid #333;
+  animation: badge-glow-gray 4s infinite ease-in-out;
+}
+
+/* --- АНИМАЦИЯЛАР --- */
+
+/* Көк неон (Бұрынғыдай) */
+@keyframes badge-glow-blue {
+  0%, 100% { box-shadow: 0 0 10px rgba(82, 93, 143, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(82, 93, 143, 0.6); }
+}
+
+/* Сұр "тыныс алу" эффектісі (Soft Gray Glow) */
+@keyframes badge-glow-gray {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.05);
+    border-color: #333;
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    border-color: #444;
+    color: #999; /* Мәтін сәл жарықтанады */
+  }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  15% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* --- HOVER EFFECTS --- */
+.p-card:hover .project-badge.in-progress {
+  background: #888;
+  color: #000;
+  border-color: #fff;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+}
+
+.p-card:hover .project-badge.commercial {
+  background: #fff;
+  color: #525d8f;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
 }
 </style>
