@@ -106,6 +106,29 @@
           </div>
         </div>
       </div>
+
+      <div class="p-card active" @click="openProject(6)">
+
+        <div class="card-bg-overlay">
+          <img src="../assets/projects/project5/main.jpg" class="card-img-preview" alt="Viva Cine Preview">
+        </div>
+
+        <div class="card-content">
+          <div class="card-top">
+            <div class="status-indicator"><span class="pulse"></span> ONLINE</div>
+            <span class="index">06</span>
+          </div>
+          <div class="card-body">
+            <span class="category">ENTERTAINMENT // VOD</span>
+            <h3 class="project-name">VIVA CINE</h3>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">FLASK • SQLALCHEMY • JINJA2</div>
+            <div class="explore-btn">LAUNCH_APP <span>→</span></div>
+          </div>
+        </div>
+      </div>
+
       <div v-for="i in 4" :key="i" class="p-card locked"></div>
     </div>
 
@@ -411,6 +434,78 @@
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka" target="_blank" class="btn-s full-width">
                   EXPLORE_AI_LOGIC <span>→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div v-else-if="selectedProject === 6" class="modal-backdrop" @click.self="closeProject">
+          <div class="modal-window showcase">
+            <button class="close-x-btn" @click="closeProject" aria-label="Close">
+              <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
+              <span class="close-hint">ESC</span>
+            </button>
+
+            <div class="m-container">
+              <div class="m-top">
+                <div class="m-brand">
+                  <span class="m-badge">STREAMING_SERVICE // ENTERTAINMENT_HUB</span>
+                  <h2 class="m-title">VIVA CINE</h2>
+                </div>
+                <p class="m-tagline">🎬 Полнофункциональная стриминговая платформа и онлайн-кинотеатр</p>
+              </div>
+
+              <div class="m-block slider-wrapper">
+                <div class="gallery-viewport">
+                  <button class="nav-slide prev" @click="scrollSlider('prev')">‹</button>
+                  <button class="nav-slide next" @click="scrollSlider('next')">›</button>
+
+                  <div class="gallery-track" ref="projectSlider">
+                    <div class="gallery-slide"><img src="../assets/projects/project5/main.jpg" alt="Home Page Library"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project5/1.jpg" alt="Movie Details View"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project5/2.jpg" alt="Community Chat Interface"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project5/3.jpg" alt="User History & Profile"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-details-row extended">
+                <div class="m-block description">
+                  <label>PLATFORM_CAPABILITIES</label>
+                  <p class="long-text">
+                    Масштабный проект, включающий более <b>20+ страниц</b> уникальных шаблонов. Система объединяет онлайн-просмотр, социальное взаимодействие через Community Chat и персонализированную историю просмотров.
+                  </p>
+                  <ul class="compact-list">
+                    <li>Movie Engine: Динамический каталог с фильтрацией по жанрам и рейтингу.</li>
+                    <li>Social: Интерактивный чат на JSON-хранилище для обсуждения премьер.</li>
+                    <li>Profile: Кастомизация данных пользователя и управление аватарами.</li>
+                  </ul>
+                </div>
+
+                <div class="m-side-info">
+                  <div class="m-block stack">
+                    <label>STREAMING_STACK</label>
+                    <div class="stack-tags">
+                      <span class="highlight-tag">Flask</span><span>SQLAlchemy</span>
+                      <span>Jinja2</span><span>Python</span><span>JSON Logic</span>
+                    </div>
+                  </div>
+
+                  <div class="m-block impact">
+                    <label>SYSTEM_SCALE</label>
+                    <div class="impact-content">
+                      <div class="stat">20+</div>
+                      <p>Страниц динамических шаблонов. Полная адаптивность под <b>Cinema Mode</b>.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-actions">
+                <a href="https://github.com/kukakamakaka/viva-cine" target="_blank" class="btn-s full-width">
+                  EXPLORE_FRONTEND_STRUCTURE <span>→</span>
                 </a>
               </div>
             </div>
