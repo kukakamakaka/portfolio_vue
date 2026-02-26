@@ -114,6 +114,8 @@
         </div>
 
         <div class="card-content">
+          <div class="commercial-badge">MY_FIRST</div>
+
           <div class="card-top">
             <div class="status-indicator"><span class="pulse"></span> ONLINE</div>
             <span class="index">06</span>
@@ -129,8 +131,78 @@
         </div>
       </div>
 
-      <div v-for="i in 4" :key="i" class="p-card locked"></div>
+
+      <div class="p-card active" @click="openProject(7)">
+
+        <div class="card-bg-overlay">
+          <img src="../assets/projects/project6/main.jpg" class="card-img-preview" alt="Car Gallery Preview">
+        </div>
+
+        <div class="card-content">
+          <div class="card-top">
+            <div class="status-indicator"><span class="pulse"></span> STABLE</div>
+            <span class="index">07</span>
+          </div>
+          <div class="card-body">
+            <span class="category">AUTO_SHOWCASE // CRUD</span>
+            <h3 class="project-name">CAR GALLERY</h3>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">FASTAPI • SQLALCHEMY • UVICORN</div>
+            <div class="explore-btn">OPEN_API <span>→</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-card active" @click="openProject(8)">
+
+        <div class="card-bg-overlay">
+          <img src="../assets/projects/project4/main.jpg" class="card-img-preview" alt="Restaurant App Preview">
+        </div>
+
+        <div class="card-content">
+          <div class="card-top">
+            <div class="status-indicator"><span class="pulse"></span> PRODUCTION</div>
+            <span class="index">08</span>
+          </div>
+          <div class="card-body">
+            <span class="category">FOOD_TECH // CMS</span>
+            <h3 class="project-name">RESTAURANT APP</h3>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">FLASK • JINJA2 • SQLITE</div>
+            <div class="explore-btn">VIEW_SITE <span>→</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-card active" @click="openProject(9)">
+        <div class="project-badge commercial">CORPORATE_WEB</div>
+
+        <div class="card-bg-overlay">
+          <img src="../assets/projects/project7/main.jpg" class="card-img-preview" alt="SKT-Orken Preview">
+        </div>
+
+        <div class="card-content">
+          <div class="card-top">
+            <div class="status-indicator"><span class="pulse"></span> LIVE</div>
+            <span class="index">09</span>
+          </div>
+          <div class="card-body">
+            <span class="category">BUSINESS // INDUSTRY</span>
+            <h3 class="project-name">SKT-ORKEN</h3>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">FLASK • PYTHON 3.12 • CSS3</div>
+            <div class="explore-btn">VISIT_SITE <span>→</span></div>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+
+
 
     <Teleport to="body">
       <Transition @enter="onEnter" @leave="onLeave">
@@ -512,6 +584,219 @@
           </div>
         </div>
 
+
+        <div v-else-if="selectedProject === 7" class="modal-backdrop" @click.self="closeProject">
+          <div class="modal-window showcase">
+            <button class="close-x-btn" @click="closeProject" aria-label="Close">
+              <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
+              <span class="close-hint">ESC</span>
+            </button>
+
+            <div class="m-container">
+              <div class="m-top">
+                <div class="m-brand">
+                  <span class="m-badge">HIGH_PERFORMANCE_API // CRUD_SYSTEM</span>
+                  <h2 class="m-title">CAR GALLERY</h2>
+                </div>
+                <p class="m-tagline">🏎️ Стильная галерея автомобилей на базе FastAPI и SQLAlchemy</p>
+              </div>
+
+              <div class="m-block slider-wrapper">
+                <div class="gallery-viewport">
+                  <button class="nav-slide prev" @click="scrollSlider('prev')">‹</button>
+                  <button class="nav-slide next" @click="scrollSlider('next')">›</button>
+
+                  <div class="gallery-track" ref="projectSlider">
+                    <div class="gallery-slide"><img src="../assets/projects/project6/main.jpg" alt="Car Showcase UI"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project6/1.jpg" alt="Swagger API Docs"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project6/2.jpg" alt="Database Schema"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project6/3.jpg" alt="Admin Dashboard"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-details-row extended">
+                <div class="m-block description">
+                  <label>BACKEND_ARCHITECTURE</label>
+                  <p class="long-text">
+                    Проект демонстрирует реализацию полноценного <b>RESTful API</b>. Использование FastAPI обеспечивает высокую производительность, а SQLAlchemy ORM позволяет гибко управлять данными автомобилей в базе `cars_gallery.db`.
+                  </p>
+                  <ul class="compact-list">
+                    <li>Auto-Documentation: Полная поддержка Swagger UI и ReDoc для тестирования эндпоинтов.</li>
+                    <li>Routing Logic: Четкое разделение бизнес-логики на модули (Users & Cars).</li>
+                    <li>CRUD Cycle: Реализован полный цикл управления контентом галереи.</li>
+                  </ul>
+                </div>
+
+                <div class="m-side-info">
+                  <div class="m-block stack">
+                    <label>API_TECH_STACK</label>
+                    <div class="stack-tags">
+                      <span class="highlight-tag">FastAPI</span><span class="highlight-tag">Uvicorn</span>
+                      <span>SQLAlchemy</span><span>Jinja2</span><span>SQLite</span>
+                    </div>
+                  </div>
+
+                  <div class="m-block impact">
+                    <label>DEVELOPER_TOOLS</label>
+                    <div class="impact-content">
+                      <div class="stat">V.2</div>
+                      <p>Разделение на <b>Routers</b> для масштабируемости API структуры.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-actions">
+                <a href="https://github.com/kukakamakaka/cargallery" target="_blank" class="btn-s full-width">
+                  VIEW_API_STRUCTURE <span>→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div v-else-if="selectedProject === 8" class="modal-backdrop" @click.self="closeProject">
+          <div class="modal-window showcase">
+            <button class="close-x-btn" @click="closeProject" aria-label="Close">
+              <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
+              <span class="close-hint">ESC</span>
+            </button>
+
+            <div class="m-container">
+              <div class="m-top">
+                <div class="m-brand">
+                  <span class="m-badge">HORECA_SOLUTION // VISUAL_CMS</span>
+                  <h2 class="m-title">RESTAURANT WEB APP</h2>
+                </div>
+                <p class="m-tagline">🍴 Элегантная платформа для ресторанов с интерактивным меню и галереей</p>
+              </div>
+
+              <div class="m-block slider-wrapper">
+                <div class="gallery-viewport">
+                  <button class="nav-slide prev" @click="scrollSlider('prev')">‹</button>
+                  <button class="nav-slide next" @click="scrollSlider('next')">›</button>
+
+                  <div class="gallery-track" ref="projectSlider">
+                    <div class="gallery-slide"><img src="../assets/projects/project4/main.jpg" alt="Main Landing Page"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project4/1.jpg" alt="Interactive Menu View"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project4/2.jpg" alt="Dish Gallery"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project4/3.jpg" alt="PDF Menu Integration"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-details-row extended">
+                <div class="m-block description">
+                  <label>USER_EXPERIENCE</label>
+                  <p class="long-text">
+                    Проект ориентирован на максимальную визуализацию бренда. Реализовано интерактивное меню с динамической подгрузкой блюд и цен, а также интеграция с PDF-модулем для скачивания меню в один клик.
+                  </p>
+                  <ul class="compact-list">
+                    <li>• Interactive Menu: Удобная навигация по категориям блюд.</li>
+                    <li>• Media Management: Оптимизированная галерея интерьера и кухни.</li>
+                    <li>• Scalability: Легкое добавление новых позиций через database.py.</li>
+                  </ul>
+                </div>
+
+                <div class="m-side-info">
+                  <div class="m-block stack">
+                    <label>RESTO_STACK</label>
+                    <div class="stack-tags">
+                      <span class="highlight-tag">Flask</span><span>Jinja2</span>
+                      <span>SQLite</span><span>Python</span><span>PDF_Integration</span>
+                    </div>
+                  </div>
+
+                  <div class="m-block impact">
+                    <label>FRONTEND_FLOW</label>
+                    <div class="impact-content">
+                      <div class="stat">UI</div>
+                      <p>Чистый и современный дизайн с упором на <b>Conversion Rate</b> и эстетику.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-actions">
+                <a href="https://github.com/kukakamakaka/restaurant" target="_blank" class="btn-s full-width">
+                  EXPLORE_RESTAURANT_LOGIC <span>→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div v-else-if="selectedProject === 9" class="modal-backdrop" @click.self="closeProject">
+          <div class="modal-window showcase">
+            <button class="close-x-btn" @click="closeProject" aria-label="Close">
+              <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
+              <span class="close-hint">ESC</span>
+            </button>
+
+            <div class="m-container">
+              <div class="m-top">
+                <div class="m-brand">
+                  <span class="m-badge">CORPORATE_IDENTITY // BUSINESS_WEB</span>
+                  <h2 class="m-title">SKT-ORKEN OFFICIAL</h2>
+                </div>
+                <p class="m-tagline">🏢 Профессиональный корпоративный сайт на базе Flask для промышленного сектора</p>
+              </div>
+
+              <div class="m-block slider-wrapper">
+                <div class="gallery-viewport">
+                  <button class="nav-slide prev" @click="scrollSlider('prev')">‹</button>
+                  <button class="nav-slide next" @click="scrollSlider('next')">›</button>
+
+                  <div class="gallery-track" ref="projectSlider">
+                    <div class="gallery-slide"><img src="../assets/projects/project7/main.jpg" alt="Corporate Home Page"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project7/1.jpg" alt="Services Section"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project7/2.jpg" alt="Responsive Mobile View"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project7/3.jpg" alt="Contact & Location Map"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-details-row extended">
+                <div class="m-block description">
+                  <label>BUSINESS_SOLUTION</label>
+                  <p class="long-text">
+                    Разработка официального представительства компании SKT-Orken. Основной упор сделан на чистоту кода, высокую скорость загрузки и строгий корпоративный стиль. Проект полностью адаптирован под мобильные устройства.
+                  </p>
+                  <ul class="compact-list">
+                    <li>• Custom Routing: Настройка маршрутизации через Flask для многостраничной структуры.</li>
+                    <li>• Asset Management: Оптимизация статических ресурсов (CSS/JS) для быстрой работы.</li>
+                    <li>• Production Ready: Настройка конфигурации порта (5009) и окружения для деплоя.</li>
+                  </ul>
+                </div>
+
+                <div class="m-side-info">
+                  <div class="m-block stack">
+                    <label>CORP_STACK</label>
+                    <div class="stack-tags">
+                      <span class="highlight-tag">Python 3.12</span><span class="highlight-tag">Flask</span>
+                      <span>HTML5/CSS3</span><span>JavaScript</span><span>Virtualenv</span>
+                    </div>
+                  </div>
+
+                  <div class="m-block impact">
+                    <label>PROJECT_FOCUS</label>
+                    <div class="impact-content">
+                      <div class="stat">UX</div>
+                      <p>Акцент на информативность и удобную навигацию для B2B сегмента.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-actions">
+                <a href="https://github.com/kukakamakaka/skt-orken-site" target="_blank" class="btn-s full-width">
+                  VIEW_CORPORATE_CODE <span>→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </Transition>
     </Teleport>
   </section>
@@ -583,14 +868,12 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   transform: rotate(45deg);
   z-index: 5;
   letter-spacing: 1px;
-  overflow: hidden; /* Шиммер эффектісі сыртқа шықпауы үшін */
+  overflow: hidden;
 
-  /* Неонды жарық анимациясы */
   box-shadow: 0 0 10px rgba(82, 93, 143, 0.5);
   animation: badge-glow 3s infinite ease-in-out;
 }
 
-/* 1. Жылтыр эффектісі (Shimmer) */
 .commercial-badge::before {
   content: '';
   position: absolute;
@@ -607,7 +890,6 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   animation: shimmer 4s infinite linear;
 }
 
-/* 2. Тыныс алу анимациясы (Glow) */
 @keyframes badge-glow {
   0%, 100% {
     box-shadow: 0 0 10px rgba(82, 93, 143, 0.4);
@@ -619,14 +901,13 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   }
 }
 
-/* 3. Жылтырдың қозғалысы */
+
 @keyframes shimmer {
   0% { left: -100%; }
   20% { left: 100%; }
   100% { left: 100%; }
 }
 
-/* Карточкаға тышқанды апарғанда (Hover) эффектіні күшейту */
 .p-card:hover .commercial-badge {
   background: #fff;
   color: #525d8f;
@@ -705,7 +986,7 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   overflow: hidden;
 }
 
-/* Крест иконкасы */
+
 .x-icon {
   width: 24px;
   height: 24px;
@@ -727,14 +1008,14 @@ const scrollSlider = (direction: 'next' | 'prev') => {
 .l1 { transform: translateY(-50%) rotate(45deg); }
 .l2 { transform: translateY(-50%) rotate(-45deg); }
 
-/* ESC жазуының стилі */
+/* ESC */
 .close-hint {
   font-family: 'Unbounded', sans-serif;
   font-size: 0.5rem;
   color: #525d8f;
   font-weight: 900;
   letter-spacing: 1px;
-  opacity: 0.5; /* Әдетте сәл көрініп тұрады */
+  opacity: 0.5;
   transition: 0.3s;
 }
 
@@ -752,13 +1033,13 @@ const scrollSlider = (direction: 'next' | 'prev') => {
 }
 
 .close-x-btn:hover .x-icon {
-  transform: rotate(90deg); /* 90 градусқа айналу */
+  transform: rotate(90deg); /* 90 градус */
 }
 
 .close-x-btn:hover .close-hint {
   opacity: 1;
   color: #fff;
-  transform: translateY(-2px); /* Сәл жоғары көтеріледі */
+  transform: translateY(-2px);
 }
 
 /* Басқан кезде */
@@ -773,7 +1054,7 @@ const scrollSlider = (direction: 'next' | 'prev') => {
 }
 
 
-/* Карточкадағы Preview суреті */
+/* PREVIEW PHOTO */
 .card-bg-overlay {
   position: absolute;
   inset: 0;
@@ -799,31 +1080,13 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   filter: grayscale(0%);
 }
 
-/* Модальдағы суреттер торы (1 үлкен + 3 кіші) */
+
 .m-main-grid.with-images {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   gap: 20px;
 }
 
-.image-showcase {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.img-main {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border: 1px solid #222;
-}
-
-.img-thumbs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
 
 .img-thumbs img {
   width: 100%;
@@ -838,22 +1101,22 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   transform: translateY(-3px);
 }
 
-/* Модальды терезенің өзі - padding-ті азайттық */
+
 .modal-window.showcase {
   width: 100%;
-  max-width: 1200px; /* Сәл кеңірек қылдық */
+  max-width: 1200px;
   max-height: 95vh;
   background: #050505;
   border: 1px solid #1a1a1a;
-  padding: 20px; /* Ішкі бос орынды азайттық, сурет үлкею үшін */
+  padding: 20px;
   position: relative;
   overflow-y: auto;
   z-index: 100;
 }
 
-/* ЖАБУ БАТЫРМАСЫ - Көрінбей тұрса, осы стильді қолдан */
+/* КНОПКА ЗАКРЫТИЯ */
 .close-x-btn {
-  position: absolute; /* Терезеге бекіту */
+  position: absolute;
   top: 15px;
   right: 15px;
   width: 50px;
@@ -862,31 +1125,31 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   border: 1px solid #525d8f;
   border-radius: 8px;
   cursor: pointer;
-  z-index: 999; /* Ең жоғары қабат */
+  z-index: 999;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-/* Слайдер блогы */
+/* БЛОК СЛАЙДЕРОВ */
 .slider-wrapper {
   width: 100%;
-  padding: 0 !important; /* Бос орынды мүлдем алып тастадық */
+  padding: 0 !important;
   background: transparent;
   border: none;
-  margin: 40px 0 20px 0; /* Жабу батырмасымен соқтығыспауы үшін */
+  margin: 40px 0 20px 0;
 }
 
-/* Суреттер жолы */
+
 .gallery-track {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  gap: 0; /* Суреттер арасындағы бос орынды жойдық */
+  gap: 0;
 }
 
-/* Слайд - Максималды үлкен ен */
+
 .gallery-slide {
   flex: 0 0 100%;
   width: 100%;
@@ -896,10 +1159,11 @@ const scrollSlider = (direction: 'next' | 'prev') => {
 .gallery-slide img {
   width: 100%;
   height: auto;
-  max-height: 70vh; /* Экран биіктігінің 70%-ын алады */
-  object-fit: cover; /* СУРЕТТІ ТОЛЫҚ ЕНІНЕ ЖАЯДЫ (Кішкентай болмайды) */
+  max-height: 70vh;
+  object-fit: cover;
   border-radius: 4px;
 }
+
 /* ROUND NAVIGATION BUTTONS */
 .nav-slide {
   position: absolute;
@@ -1010,14 +1274,14 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   text-transform: uppercase;
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 
-  /* Негізгі түс: Байсалды сұр */
+
   background: #1a1a1a;
   color: #888;
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* 1. Жылтыр эффектісі (Silver Shimmer) */
+/* (Silver Shimmer) */
 .project-badge::before {
   content: '';
   position: absolute;
@@ -1034,14 +1298,12 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   animation: shimmer 5s infinite linear;
 }
 
-/* 2. ТҮСТЕР: Commercial (Сенің бұрынғы көк түсің, бірақ стильге сай) */
 .project-badge.commercial {
   background: #525d8f;
   color: #fff;
   animation: badge-glow-blue 3s infinite ease-in-out;
 }
 
-/* 3. ТҮСТЕР: In-Progress (Сабырлы сұр неон) */
 .project-badge.in-progress {
   background: #1a1a1a;
   color: #777;
@@ -1049,15 +1311,13 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   animation: badge-glow-gray 4s infinite ease-in-out;
 }
 
-/* --- АНИМАЦИЯЛАР --- */
 
-/* Көк неон (Бұрынғыдай) */
 @keyframes badge-glow-blue {
   0%, 100% { box-shadow: 0 0 10px rgba(82, 93, 143, 0.3); }
   50% { box-shadow: 0 0 20px rgba(82, 93, 143, 0.6); }
 }
 
-/* Сұр "тыныс алу" эффектісі (Soft Gray Glow) */
+
 @keyframes badge-glow-gray {
   0%, 100% {
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.05);
@@ -1066,7 +1326,7 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   50% {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     border-color: #444;
-    color: #999; /* Мәтін сәл жарықтанады */
+    color: #999;
   }
 }
 
