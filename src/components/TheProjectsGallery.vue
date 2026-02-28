@@ -78,7 +78,10 @@ const scrollSlider = (direction: 'next' | 'prev') => {
         <div class="commercial-badge">COMMERCIAL</div>
         <div class="card-content">
           <div class="card-top">
-            <div class="status-indicator"><span class="pulse"></span> PRODUCTION</div>
+            <div class="status-indicator">
+              <span class="pulse"></span>
+              {{ locale.t('projects.production') }}
+            </div>
             <span class="index">01</span>
           </div>
           <div class="card-body">
@@ -287,23 +290,26 @@ const scrollSlider = (direction: 'next' | 'prev') => {
               </div>
               <div class="m-main-grid">
                 <div class="m-block">
-                  <label>TECH_STACK</label>
+                  <label>{{ locale.t('projects.tech_stack') }}</label>
                   <div class="stack-tags">
                     <span v-for="t in locale.t('projects.items.1.tech')" :key="t">{{ t }}</span>
                   </div>
                 </div>
+
                 <div class="m-block">
-                  <label>LOGIC_FLOW</label>
+                  <label>{{ locale.t('projects.logic_flow') }}</label>
                   <div class="logic-flow">
                     <div class="node">TG</div><div class="arrow">→</div><div class="node">API</div>
                   </div>
                 </div>
+
                 <div class="m-block features">
-                  <label>FEATURES</label>
+                  <label>{{ locale.t('projects.features') }}</label>
                   <ul class="compact-list">
                     <li v-for="f in locale.t('projects.items.1.features')" :key="f">{{ f }}</li>
                   </ul>
                 </div>
+
                 <div class="m-block impact">
                   <label>{{ locale.t('projects.items.1.impact_label') }}</label>
                   <div class="stat">{{ locale.t('projects.items.1.impact_stat') }}</div>

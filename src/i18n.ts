@@ -115,6 +115,13 @@ const messages = {
             hint: 'GALLERY // VOL. 2026',
             viewProject: "VIEW PROJECT",
             viewGithub: "VIEW GITHUB",
+            view_details: "VIEW_DETAILS",
+            production: "PRODUCTION",
+            tech_stack: "TECH_STACK",
+            logic_flow: "LOGIC_FLOW",
+            open_bot: "OPEN_BOT",
+            source: "SOURCE",
+            features: "FEATURES",
             items: {
                 "1": {
                     title: "NS DRIVE",
@@ -129,7 +136,7 @@ const messages = {
                         "Admin Dashboard for scheduling",
                         "Real-time Telegram notifications"
                     ],
-                    tech: ["Python", "FastAPI", "PostgreSQL", "Aiogram 3.x", "Docker"]
+                    tech: ["Python 3.10+", "python-telegram-bot (v20.7)", "FastAPI + Uvicorn", "Gspread", "APScheduler"]
                 },
             }
         },
@@ -271,6 +278,14 @@ const messages = {
             hint: 'ГАЛЕРЕЯ // 2026',
             viewProject: "СМОТРЕТЬ ПРОЕКТ",
             viewGithub: "СМОТРЕТЬ GITHUB",
+            archive: "// АРХИВ_2026",
+            view_details: "ПОДРОБНЕЕ",
+            production: "В ПРОДАКШНЕ",
+            tech_stack: "СТЕК ТЕХНОЛОГИЙ",
+            logic_flow: "ЛОГИКА РАБОТЫ",
+            open_bot: "ОТКРЫТЬ БОТА",
+            source: "ИСХОДНЫЙ КОД",
+            features: "ФУНКЦИИ",
             items: {
                 "1": {
                     title: "NS DRIVE",
@@ -285,7 +300,7 @@ const messages = {
                         "Админ-панель для расписания",
                         "Уведомления в Telegram в реальном времени"
                     ],
-                    tech: ["Python", "FastAPI", "PostgreSQL", "Aiogram 3.x", "Docker"]
+                    tech: ["Python 3.10+", "python-telegram-bot (v20.7)", "FastAPI + Uvicorn", "Gspread", "APScheduler"]
                 },
             }
         },
@@ -424,9 +439,15 @@ const messages = {
         projects: {
             title1: 'ТАҢДАУЛЫ',
             title2: 'ЖҰМЫСТАР',
-            hint: 'ГАЛЕРЕЯ // 2026',
+            archive: "// МҰРАҒАТ_2026",
+            view_details: "ТОЛЫҒЫРАҚ",
+            production: "ӨНДІРІСТЕ",
+            tech_stack: "ТЕХНОЛОГИЯЛАР",
+            logic_flow: "ЖҰМЫС ЛОГИКАСЫ",
+            open_bot: "БОТТЫ АШУ",
+            source: "БАСТАПҚЫ КОД",
+            features: "МҮМКІНДІКТЕР",
             viewProject: "ЖОБАҒА ҚАРАУ",
-            viewGithub: "GITHUB-ТЫ ҚАРАУ",
             items: {
                 "1": {
                     title: "NS DRIVE",
@@ -441,7 +462,7 @@ const messages = {
                         "Кестеге арналған админ-панель",
                         "Telegram арқылы нақты уақыттағы хабарламалар"
                     ],
-                    tech: ["Python", "FastAPI", "PostgreSQL", "Aiogram 3.x", "Docker"]
+                    tech: ["Python 3.10+", "python-telegram-bot (v20.7)", "FastAPI + Uvicorn", "Gspread", "APScheduler"]
                 },
             }
         },
