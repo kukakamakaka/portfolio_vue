@@ -150,20 +150,27 @@ const scrollSlider = (direction: 'next' | 'prev') => {
       </div>
 
       <div class="p-card active" @click="openProject(4)">
-        <div class="project-badge in-progress">IN_PROGRESS</div>
+        <div class="project-badge in-progress">
+          {{ locale.t('projects.items.4.badge_status') }}
+        </div>
 
         <div class="card-content">
           <div class="card-top">
-            <div class="status-indicator"><span class="pulse orange"></span> ANALYTICS_MVP</div>
+            <div class="status-indicator">
+              <span class="pulse orange"></span>
+              {{ locale.t('projects.items.4.status') }}
+            </div>
             <span class="index">04</span>
           </div>
           <div class="card-body">
-            <span class="category">CYBER_SECURITY</span>
-            <h3 class="project-name">SOC DETECTOR</h3>
+            <span class="category">{{ locale.t('projects.items.4.category') }}</span>
+            <h3 class="project-name">{{ locale.t('projects.items.4.title') }}</h3>
           </div>
           <div class="card-footer">
-            <div class="tech-stack">FASTAPI • ASYNC • SQLALCHEMY</div>
-            <div class="explore-btn">VIEW_LOGIC <span>→</span></div>
+            <div class="tech-stack">
+              {{ locale.t('projects.items.4.tech').slice(0, 3).join(' • ') }}
+            </div>
+            <div class="explore-btn">{{ locale.t('projects.view_details') }} <span>→</span></div>
           </div>
         </div>
       </div>
@@ -482,23 +489,26 @@ const scrollSlider = (direction: 'next' | 'prev') => {
             <div class="m-container">
               <div class="m-top">
                 <div class="m-brand">
-                  <span class="m-badge">CYBERSECURITY // MVP_UNDER_DEV</span>
-                  <h2 class="m-title">SOC ANOMALY DETECTOR</h2>
+                  <span class="m-badge">{{ locale.t('projects.items.4.badge') }}</span>
+                  <h2 class="m-title">{{ locale.t('projects.items.4.title') }}</h2>
                 </div>
-                <p class="m-tagline">Микросервис для анализа логов безопасности в реальном времени</p>
+                <p class="m-tagline">{{ locale.t('projects.items.4.tagline') }}</p>
               </div>
 
               <div class="m-main-grid">
                 <div class="m-block">
-                  <label>CORE_TECHNOLOGIES</label>
+                  <label>{{ locale.t('projects.items.4.tech_label') }}</label>
                   <div class="stack-tags">
-                    <span class="highlight-tag">FastAPI</span><span>Asynchronous Python</span>
-                    <span>SQLAlchemy</span><span>Pydantic v2</span><span>OpenAPI</span>
+          <span v-for="(t, index) in locale.t('projects.items.4.tech')"
+                :key="t"
+                :class="{ 'highlight-tag': index === 0 }">
+            {{ t }}
+          </span>
                   </div>
                 </div>
 
                 <div class="m-block">
-                  <label>DATA_PIPELINE</label>
+                  <label>{{ locale.t('projects.items.4.pipeline_label') }}</label>
                   <div class="logic-flow">
                     <div class="node">TELEMETRY</div>
                     <div class="arrow">→</div>
@@ -509,29 +519,30 @@ const scrollSlider = (direction: 'next' | 'prev') => {
                 </div>
 
                 <div class="m-block features">
-                  <label>CURRENT_PROGRESS_MVP</label>
+                  <label>{{ locale.t('projects.items.4.features_label') }}</label>
                   <ul class="compact-list">
-                    <li>• Ingestion API: Эндпоинт /ingest для приема логов</li>
-                    <li>• Data Consistency: Строгая валидация входящих JSON</li>
-                    <li>• Storage: Автоматизация сохранения в soc.db</li>
+                    <li v-for="f in locale.t('projects.items.4.features')" :key="f">
+                      • {{ f }}
+                    </li>
                   </ul>
                 </div>
 
                 <div class="m-block impact">
-                  <label>DETECTION_ENGINE</label>
+                  <label>{{ locale.t('projects.items.4.impact_label') }}</label>
                   <div class="impact-content">
-                    <div class="stat">ASYNC</div>
-                    <p>Интегрированный модуль <b>anomaly_detector.py</b> для поиска отклонений в потоке.</p>
+                    <div class="stat">{{ locale.t('projects.items.4.impact_stat') }}</div>
+                    <p v-html="locale.t('projects.items.4.impact_desc')"></p>
                   </div>
                 </div>
               </div>
 
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/soc-anomaly-app" target="_blank" class="btn-s full-width">
-                  SYSTEM_ARCHITECTURE_SOURCE <span>→</span>
+                  {{ locale.t('projects.items.4.action_btn') }} <span>→</span>
                 </a>
               </div>
-            </div> </div>
+            </div>
+          </div>
 
           <div v-else-if="selectedProject === 5" class="modal-window showcase">
             <button class="close-x-btn" @click="closeProject" aria-label="Close">

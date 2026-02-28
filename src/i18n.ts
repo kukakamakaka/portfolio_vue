@@ -176,6 +176,26 @@ const messages = {
                     demo_label: "LIVE_DEMO",
                     action_btn: "PROJECT_STRUCTURE // VIEW_ON_GITHUB"
                 },
+                "4": {
+                    title: "SOC DETECTOR",
+                    category: "CYBER_SECURITY",
+                    status: "PROJECT",
+                    badge_status: "IN_PROGRESS",
+                    tagline: "Microservice for real-time security log analysis",
+                    badge: "CYBERSECURITY // MVP_UNDER_DEV",
+                    tech_label: "CORE_TECHNOLOGIES",
+                    tech: ["FastAPI", "Asynchronous Python", "SQLAlchemy + SQLite (soc.db)", "Pydantic v2", "OpenAPI (Swagger)"],                    pipeline_label: "DATA_PIPELINE",
+                    features_label: "CURRENT_PROGRESS_MVP",
+                    features: [
+                        "Ingestion API: /ingest endpoint for log reception",
+                        "Data Consistency: Strict validation of incoming JSON",
+                        "Storage: Automated saving to soc.db"
+                    ],
+                    impact_label: "DETECTION_ENGINE",
+                    impact_stat: "ASYNC",
+                    impact_desc: "Integrated <b>anomaly_detector.py</b> module for stream deviation search.",
+                    action_btn: "SYSTEM_ARCHITECTURE_SOURCE"
+                },
             }
         },
         contacts: {
@@ -362,7 +382,7 @@ const messages = {
                 },
                 "3": {
                     title: "IRONN DYNASTY",
-                    category: "HEALTH_TECH",
+                    category: "ФИТНЕС_САЙТ",
                     status: "ПРОЕКТ",
                     tagline: "Full-stack веб-приложение для отслеживания активности и фитнеса",
                     badge: "МОНИТОРИНГ ФИТНЕСА // LIVE_ON_PRODUCTION",
@@ -377,6 +397,26 @@ const messages = {
                     tech: ["Python 3.10", "Django", "JS & Node.js", "SQLite", "WSGI", "HTTPS"],
                     demo_label: "ДЕМО ЗАПУСК",
                     action_btn: "СТРУКТУРА ПРОЕКТА // НА GITHUB"
+                },
+                "4": {
+                    title: "SOC DETECTOR",
+                    category: "КИБЕРБЕЗОПАСНОСТЬ",
+                    status: "ПРОЕКТ",
+                    badge_status: "В РАЗРАБОТКЕ",
+                    tagline: "Микросервис для анализа логов безопасности в реальном времени",
+                    badge: "CYBERSECURITY // MVP_UNDER_DEV",
+                    tech_label: "ОСНОВНЫЕ ТЕХНОЛОГИИ",
+                    tech: ["FastAPI", "Asynchronous Python", "SQLAlchemy + SQLite (soc.db)", "Pydantic v2", "OpenAPI (Swagger)"],                    pipeline_label: "КОНВЕЙЕР ДАННЫХ",
+                    features_label: "ТЕКУЩИЙ ПРОГРЕСС MVP",
+                    features: [
+                        "Ingestion API: Эндпоинт /ingest для приема логов",
+                        "Data Consistency: Строгая валидация входящих JSON",
+                        "Storage: Автоматизация сохранения в soc.db"
+                    ],
+                    impact_label: "ДВИЖОК ОБНАРУЖЕНИЯ",
+                    impact_stat: "ASYNC",
+                    impact_desc: "Интегрированный модуль <b>anomaly_detector.py</b> для поиска отклонений в потоке.",
+                    action_btn: "ИСХОДНЫЙ КОД АРХИТЕКТУРЫ"
                 },
             }
         },
@@ -562,7 +602,7 @@ const messages = {
                 },
                 "3": {
                     title: "IRONN DYNASTY",
-                    category: "ДЕНСАУЛЫҚ_ТЕХ",
+                    category: "ФИТНЕС_САЙТ",
                     status: "ПРОЕКТ",
                     tagline: "Белсенділік пен фитнесті бақылауға арналған Full-stack веб-қосымша",
                     badge: "ФИТНЕС МОНИТОРИНГІ // ӨНДІРІСТЕ",
@@ -577,6 +617,27 @@ const messages = {
                     tech: ["Python 3.10", "Django", "JS & Node.js", "SQLite", "WSGI", "HTTPS"],
                     demo_label: "ДЕМО НҰСҚА",
                     action_btn: "ЖОБА ҚҰРЫЛЫМЫ // GITHUB-ТА ҚАРАУ"
+                },
+                "4": {
+                    title: "SOC DETECTOR",
+                    category: "КИБЕРҚАУІПСІЗДІК",
+                    status: "ПРОЕКТ",
+                    badge_status: "ӘЗІРЛЕУ ҮСТІНДЕ",
+                    tagline: "Қауіпсіздік логтарын нақты уақытта талдауға арналған микросервис",
+                    badge: "CYBERSECURITY // MVP_UNDER_DEV",
+                    tech_label: "НЕГІЗГІ ТЕХНОЛОГИЯЛАР",
+                    tech: ["FastAPI", "Asynchronous Python", "SQLAlchemy + SQLite (soc.db)", "Pydantic v2", "OpenAPI (Swagger)"],
+                    pipeline_label: "ДЕРЕКТЕР КОНВЕЙЕРІ",
+                    features_label: "MVP-ТЫҢ АҒЫМДАҒЫ ПРОГРЕСІ",
+                    features: [
+                        "Ingestion API: Логтарды қабылдауға арналған /ingest эндпоинті",
+                        "Data Consistency: Кіріс JSON деректерін қатаң валидациялау",
+                        "Storage: soc.db базасына автоматты түрде сақтау"
+                    ],
+                    impact_label: "АНЫҚТАУ МОТОРЫ",
+                    impact_stat: "ASYNC",
+                    impact_desc: "Ағындағы ауытқуларды іздеуге арналған интеграцияланған <b>anomaly_detector.py</b> модулі.",
+                    action_btn: "ЖҮЙЕ АРХИТЕКТУРАСЫНЫҢ КОДЫ"
                 },
             }
         },
