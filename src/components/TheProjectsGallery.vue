@@ -103,16 +103,23 @@ const scrollSlider = (direction: 'next' | 'prev') => {
         </div>
         <div class="card-content">
           <div class="card-top">
-            <div class="status-indicator"><span class="pulse orange"></span> DEPLOYED</div>
+            <div class="status-indicator">
+              <span class="pulse orange"></span>
+              {{ locale.t('projects.items.2.status') || 'DEPLOYED' }}
+            </div>
             <span class="index">02</span>
           </div>
           <div class="card-body">
-            <span class="category">SERVICE_DESK</span>
-            <h3 class="project-name">QG HELPDESK</h3>
+            <span class="category">{{ locale.t('projects.items.2.category') }}</span>
+            <h3 class="project-name">{{ locale.t('projects.items.2.title') }}</h3>
           </div>
           <div class="card-footer">
-            <div class="tech-stack">LARAVEL • MYSQL • DOCKER</div>
-            <div class="explore-btn">VIEW_PROJECT <span>→</span></div>
+            <div class="tech-stack">
+              {{ locale.t('projects.items.2.tech').join(' • ') }}
+            </div>
+            <div class="explore-btn">
+              {{ locale.t('projects.viewProject') }} <span>→</span>
+            </div>
           </div>
         </div>
       </div>
@@ -336,61 +343,61 @@ const scrollSlider = (direction: 'next' | 'prev') => {
             <div class="m-container">
               <div class="m-top">
                 <div class="m-brand">
-                  <span class="m-badge">ENTERPRISE_SOLUTION // 2026</span>
-                  <h2 class="m-title">QG HELPDESK</h2>
+                  <span class="m-badge">{{ locale.t('projects.items.2.badge') }}</span>
+                  <h2 class="m-title">{{ locale.t('projects.items.2.title') }}</h2>
                 </div>
-                <p class="m-tagline">Оптимизация внутренних процессов ТОО «QazaqGaz НТЦ»</p>
+                <p class="m-tagline">{{ locale.t('projects.items.2.tagline') }}</p>
               </div>
 
               <div class="m-block slider-wrapper">
                 <div class="gallery-viewport">
                   <button class="nav-slide prev" @click="scrollSlider('prev')">‹</button>
                   <button class="nav-slide next" @click="scrollSlider('next')">›</button>
-
                   <div class="gallery-track" ref="projectSlider">
                     <div class="gallery-slide"><img src="../assets/projects/project1/main.jpg" alt="Dashboard"></div>
                     <div class="gallery-slide"><img src="../assets/projects/project1/2.jpg" alt="Stats"></div>
                   </div>
                 </div>
-              </div> <div class="m-details-row extended">
-              <div class="m-block description">
-                <label>PROJECT_OVERVIEW</label>
-                <p class="long-text">
-                  Разработка кастомной экосистемы для управления техническими заявками внутри научного центра.
-                  Система автоматизирует распределение задач между департаментами.
-                </p>
-                <ul class="compact-list">
-                  <li>Ролевая модель: Администратор, Диспетчер, Исполнитель</li>
-                  <li>Генерация PDF-отчетов по KPI сотрудников</li>
-                  <li>Интеграция с корпоративной почтой</li>
-                </ul>
               </div>
 
-              <div class="m-side-info">
-                <div class="m-block stack">
-                  <label>TECHNICAL_INFRA</label>
-                  <div class="stack-tags">
-                    <span class="highlight-tag">Laravel 12</span><span>MySQL 8.0</span>
-                    <span>Redis</span><span>Inertia.js</span><span>Docker</span>
-                  </div>
+              <div class="m-details-row extended">
+                <div class="m-block description">
+                  <label>{{ locale.t('projects.items.2.overview_label') }}</label>
+                  <p class="long-text">{{ locale.t('projects.items.2.description') }}</p>
+                  <ul class="compact-list">
+                    <li v-for="f in locale.t('projects.items.2.features')" :key="f">{{ f }}</li>
+                  </ul>
                 </div>
 
-                <div class="m-block impact">
-                  <label>PRODUCTION_RESULT</label>
-                  <div class="impact-content">
-                    <div class="stat">48h</div>
-                    <p>MVP за рекордные сроки. Повышение скорости обработки заявок на <b>40%</b>.</p>
+                <div class="m-side-info">
+                  <div class="m-block stack">
+                    <label>{{ locale.t('projects.items.2.tech_label') }}</label>
+                    <div class="stack-tags">
+            <span v-for="(t, index) in locale.t('projects.items.2.tech')"
+                  :key="t"
+                  :class="{ 'highlight-tag': index === 0 }">
+              {{ t }}
+            </span>
+                    </div>
+                  </div>
+
+                  <div class="m-block impact">
+                    <label>{{ locale.t('projects.items.2.impact_label') }}</label>
+                    <div class="impact-content">
+                      <div class="stat">{{ locale.t('projects.items.2.impact_stat') }}</div>
+                      <p v-html="locale.t('projects.items.2.impact_desc')"></p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/qazaqgaz-test" target="_blank" class="btn-s full-width">
-                  EXPLORE_REPOS_STRUCTURE <span>→</span>
+                  {{ locale.t('projects.items.2.action_btn') }} <span>→</span>
                 </a>
               </div>
-            </div> </div>
+            </div>
+          </div>
 
           <div v-else-if="selectedProject === 3" class="modal-window showcase">
             <button class="close-x-btn" @click="closeProject" aria-label="Close">

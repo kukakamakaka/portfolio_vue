@@ -116,7 +116,7 @@ const messages = {
             viewProject: "VIEW PROJECT",
             viewGithub: "VIEW GITHUB",
             view_details: "VIEW_DETAILS",
-            production: "PRODUCTION",
+            production: "PROJECT",
             tech_stack: "TECH_STACK",
             logic_flow: "LOGIC_FLOW",
             open_bot: "OPEN_BOT",
@@ -125,7 +125,7 @@ const messages = {
             items: {
                 "1": {
                     title: "NS DRIVE",
-                    category: "MANAGEMENT_SYSTEM",
+                    category: "TELEGRAM BOT",
                     tagline: "Automated booking system for driving school",
                     badge: "2026_STABLE // COMMERCIAL",
                     impact_label: "OPERATIONAL_EFFICIENCY",
@@ -137,6 +137,26 @@ const messages = {
                         "Real-time Telegram notifications"
                     ],
                     tech: ["Python 3.10+", "python-telegram-bot (v20.7)", "FastAPI + Uvicorn", "Gspread", "APScheduler"]
+                },
+                "2": {
+                    title: "QG HELPDESK",
+                    status: "PROJECT",
+                    category: "SERVICE_DESK",
+                    tagline: "Internal process optimization for QazaqGaz NTC",
+                    badge: "ENTERPRISE_SOLUTION // 2026",
+                    overview_label: "PROJECT_OVERVIEW",
+                    description: "Development of a custom ecosystem for managing technical requests within the research center. The system automates task distribution between departments.",
+                    features: [
+                        "Role model: Administrator, Dispatcher, Executor",
+                        "PDF report generation for employee KPI",
+                        "Integration with corporate mail"
+                    ],
+                    tech_label: "TECHNICAL_INFRA",
+                    tech: ["Laravel 12", "MySQL", "Docker", "Tailwind CSS", "Alpine.js", "CI/CD"],
+                    impact_label: "PRODUCTION_RESULT",
+                    impact_stat: "48h",
+                    impact_desc: "MVP in record time. Increased request processing speed by <b>40%</b>.",
+                    action_btn: "EXPLORE_REPOS_STRUCTURE"
                 },
             }
         },
@@ -280,7 +300,7 @@ const messages = {
             viewGithub: "СМОТРЕТЬ GITHUB",
             archive: "// АРХИВ_2026",
             view_details: "ПОДРОБНЕЕ",
-            production: "В ПРОДАКШНЕ",
+            production: "ПРОЕКТ",
             tech_stack: "СТЕК ТЕХНОЛОГИЙ",
             logic_flow: "ЛОГИКА РАБОТЫ",
             open_bot: "ОТКРЫТЬ БОТА",
@@ -289,7 +309,7 @@ const messages = {
             items: {
                 "1": {
                     title: "NS DRIVE",
-                    category: "СИСТЕМА УПРАВЛЕНИЯ",
+                    category: "ТЕЛЕГРАМ БОТ",
                     tagline: "Автоматизация записи для автошколы",
                     badge: "СТАБИЛЬНО 2026 // КОММЕРЧЕСКИЙ",
                     impact_label: "ЭФФЕКТИВНОСТЬ",
@@ -301,6 +321,26 @@ const messages = {
                         "Уведомления в Telegram в реальном времени"
                     ],
                     tech: ["Python 3.10+", "python-telegram-bot (v20.7)", "FastAPI + Uvicorn", "Gspread", "APScheduler"]
+                },
+                "2": {
+                    title: "QG HELPDESK",
+                    status: "ПРОЕКТ",
+                    category: "СЛУЖБА_ПОДДЕРЖКИ",
+                    tagline: "Оптимизация внутренних процессов ТОО «QazaqGaz НТЦ»",
+                    badge: "ENTERPRISE_SOLUTION // 2026",
+                    overview_label: "ОБЗОР ПРОЕКТА",
+                    description: "Разработка кастомной экосистемы для управления техническими заявками внутри научного центра. Система автоматизирует распределение задач между департаментами.",
+                    features: [
+                        "Ролевая модель: Администратор, Диспетчер, Исполнитель",
+                        "Генерация PDF-отчетов по KPI сотрудников",
+                        "Интеграция с корпоративной почтой"
+                    ],
+                    tech_label: "ТЕХНИЧЕСКАЯ ИНФРА",
+                    tech: ["Laravel 12", "MySQL", "Docker", "Tailwind CSS", "Alpine.js", "CI/CD"],
+                    impact_label: "РЕЗУЛЬТАТ",
+                    impact_stat: "48ч",
+                    impact_desc: "MVP за рекордные сроки. Повышение скорости обработки заявок на <b>40%</b>.",
+                    action_btn: "СТРУКТУРА РЕПОЗИТОРИЯ"
                 },
             }
         },
@@ -441,7 +481,7 @@ const messages = {
             title2: 'ЖҰМЫСТАР',
             archive: "// МҰРАҒАТ_2026",
             view_details: "ТОЛЫҒЫРАҚ",
-            production: "ӨНДІРІСТЕ",
+            production: "ПРОЕКТ",
             tech_stack: "ТЕХНОЛОГИЯЛАР",
             logic_flow: "ЖҰМЫС ЛОГИКАСЫ",
             open_bot: "БОТТЫ АШУ",
@@ -451,8 +491,8 @@ const messages = {
             items: {
                 "1": {
                     title: "NS DRIVE",
-                    category: "БАСҚАРУ ЖҮЙЕСІ",
-                    tagline: "Автомектепке жазылуды автоматтандыру",
+                    category: "ТЕЛЕГРАМ БОТ",
+                    tagline: "Автомектептегі сабақтарға жазылуды автоматтандыру",
                     badge: "ТҰРАҚТЫ 2026 // КОММЕРЦИЯЛЫҚ",
                     impact_label: "ТИІМДІЛІК",
                     impact_stat: "90%",
@@ -463,6 +503,26 @@ const messages = {
                         "Telegram арқылы нақты уақыттағы хабарламалар"
                     ],
                     tech: ["Python 3.10+", "python-telegram-bot (v20.7)", "FastAPI + Uvicorn", "Gspread", "APScheduler"]
+                },
+                "2": {
+                    title: "QG HELPDESK",
+                category: "ҚЫЗМЕТ КӨРСЕТУ_ҮСТЕЛІ",
+                    status: "ПРОЕКТ",
+                    tagline: "«QazaqGaz ҒТЦ» ЖШС ішкі процестерін оңтайландыру",
+                    badge: "КӘСІПОРЫН ШЕШІМІ // 2026",
+                    overview_label: "ЖОБАҒА ШОЛУ",
+                    description: "Ғылыми орталық ішінде техникалық өтінімдерді басқаруға арналған экожүйені әзірлеу. Жүйе департаменттер арасындағы тапсырмаларды бөлуді автоматтандырады.",
+                    features: [
+                        "Рөлдік модель: Әкімші, Диспетчер, Орындаушы",
+                        "Қызметкерлердің KPI бойынша PDF есептерін жасау",
+                        "Корпоративтік поштамен интеграция"
+                    ],
+                    tech_label: "ТЕХНИКАЛЫҚ ИНФРА",
+                    tech: ["Laravel 12", "MySQL", "Docker", "Tailwind CSS", "Alpine.js", "CI/CD"],
+                    impact_label: "ӨНДІРІСТІК НӘТИЖЕ",
+                    impact_stat: "48с",
+                    impact_desc: "Рекордтық мерзімде MVP. Өтінімдерді өңдеу жылдамдығын <b>40%</b>-ға арттыру.",
+                    action_btn: "РЕПОЗИТОРИЙ ҚҰРЫЛЫМЫ"
                 },
             }
         },
