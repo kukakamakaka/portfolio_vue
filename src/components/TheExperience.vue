@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { locale } from '../i18n'; // Путь к твоему файлу i18n
+import { locale } from '../i18n';
 
-// Используем только твой кастомный locale.t
+
 const localizedExperience = computed(() => {
   const data = locale.t('experience.items');
   return Array.isArray(data) ? data : [];
 });
 
-// Статические данные (не зависят от языка)
+
 const jobLinks = [
   "https://github.com/kukakamakaka/qazaqgaz-test",
   "https://github.com/kukakamakaka/autoshkola-bot",
@@ -264,42 +264,42 @@ const jobStacks = [
   margin-top: 15px;
   display: flex;
   gap: 6px;
-  opacity: 0.4; /* Делаем его очень неявным */
+  opacity: 0.4;
   transition: opacity 0.3s ease;
 }
 
 .comment-symbol {
   font-family: monospace;
-  color: #525d8f; /* Твой акцентный цвет только на символе // */
+  color: #525d8f;
 }
 
 .comment-text {
-  font-size: 0.75rem; /* Маленький размер */
+  font-size: 0.75rem;
   font-family: monospace;
   line-height: 1.4;
   color: #fff;
 }
 
-/* При наведении на карточку */
+
 .exp-card:hover .personal-note {
-  opacity: 1; /* Проявляется только при наведении */
+  opacity: 1;
 }
 
 .exp-card:hover .comment-text {
-  color: #555; /* На белом фоне становится темно-серым, не черным */
+  color: #555;
 }
 
 .exp-card:hover .comment-symbol {
-  color: #000; /* Символ // становится черным */
+  color: #000;
 }
 /* МОБИЛЬНАЯ АДАПТАЦИЯ (КОМПАКТНАЯ) */
 @media (max-width: 900px) {
   .experience-section {
-    padding: 60px 0; /* Меньше отступы секции */
+    padding: 60px 0;
   }
 
   .section-title {
-    font-size: 3.5rem; /* Уменьшили фоновый текст */
+    font-size: 3.5rem;
     margin-bottom: -15px;
   }
 
@@ -307,21 +307,21 @@ const jobStacks = [
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding: 20px 5%; /* Отступы по бокам, чтобы первая карточка стояла ровно */
+    padding: 20px 5%;
     gap: 12px;
     -webkit-overflow-scrolling: touch;
-    margin: 0 -5%; /* Компенсируем padding контейнера для скролла в край */
+    margin: 0 -5%;
   }
 
   .exp-card {
-    min-width: 75vw; /* Еще меньше ширина (75% экрана) */
-    padding: 25px 20px; /* Компактные внутренние отступы */
-    min-height: 380px; /* Ограничили высоту */
+    min-width: 75vw;
+    padding: 25px 20px;
+    min-height: 380px;
     scroll-snap-align: center;
   }
 
   .company {
-    font-size: 1.5rem; /* Уменьшили название компании */
+    font-size: 1.5rem;
     margin: 10px 0 5px;
   }
 
@@ -331,7 +331,7 @@ const jobStacks = [
   }
 
   .ach-text {
-    font-size: 0.85rem; /* Мелкий текст для описания */
+    font-size: 0.85rem;
     line-height: 1.3;
   }
 
@@ -348,7 +348,6 @@ const jobStacks = [
     padding-top: 20px;
   }
 
-  /* Прячем скроллбар */
   .experience-grid::-webkit-scrollbar {
     display: none;
   }

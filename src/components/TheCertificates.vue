@@ -13,7 +13,7 @@ const certFiles = [
   new URL('../assets/ccna_cert.pdf', import.meta.url).href
 ];
 
-// Тінтуірдің қозғалысына фондық жарықтың жауап беруі
+
 const mouseX = ref(0);
 const mouseY = ref(0);
 const updateMouse = (e: MouseEvent) => {
@@ -329,59 +329,57 @@ onMounted(() => window.addEventListener('mousemove', updateMouse));
 .cert-link:hover .hover-glow-effect { left: 100%; }
 
 @media (max-width: 1100px) {
-  /* 1. Секция биіктігін экранға байламай, контентке қарай икемдеу */
   .cert-section {
     min-height: auto;
-    padding: 0px 0; /* Үсті-астынан бос орынды азайттық */
+    padding: 0px 0;
   }
 
   .split-display {
     flex-direction: column;
-    gap: 0px; /* Тақырып пен тізім арасындағы қашықтық */
+    gap: 0px;
   }
 
-  /* 2. Тақырыпты көлденең қылу, бірақ өлшемін үлкен сақтау */
+
   .vertical-content {
     writing-mode: horizontal-tb;
     transform: none !important;
     animation: none;
-    position: static; /* Sticky-ді алып тастаймыз */
+    position: static;
   }
 
   .main-title {
-    /* Тақырып үлкен болып қалады, бірақ экраннан шығып кетпеуі үшін clamp қолданамыз */
     font-size: clamp(3rem, 12vw, 5rem);
     line-height: 2.1;
     text-align: center;
     margin-bottom: 10px;
   }
 
-  /* 3. Қалған мәтіндерді (сертификаттарды) кішірейту */
+
   .list-column {
     flex: auto;
     width: 100%;
   }
 
   .entry-title {
-    font-size: 1.2rem; /* Сертификат аты кішірейді */
+    font-size: 1.2rem;
     margin-bottom: 8px;
   }
 
   .desc {
-    font-size: 0.8rem; /* Сипаттамасы кішірейді */
+    font-size: 0.8rem;
     line-height: 1.4;
   }
 
   .cert-link {
-    padding: 20px 0; /* Карточкалардың арасын тығыздау */
+    padding: 20px 0;
   }
 
-  /* 4. Артық детальдарды жасыру */
+
   .interactive-glow, .floating-elements {
     display: none;
   }
 
-  /* Домалақ батырманы мобайлда кішірек қылу (кесілмеуі үшін) */
+
   .magnetic-circle {
     width: 50px;
     height: 50px;

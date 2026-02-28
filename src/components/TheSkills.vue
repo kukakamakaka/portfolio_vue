@@ -178,7 +178,6 @@ onMounted(() => {
 
 .card-content { padding: 50px; position: relative; z-index: 2; }
 
-/* Внутренние элементы */
 .card-header-flex { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 25px; }
 
 .status-badge {
@@ -214,10 +213,9 @@ onMounted(() => {
 
 @media (max-width: 1024px) {
   .skills-section {
-    padding: 20px 0 80px; /* Еще сильнее прижимаем к About на планшетах/моб */
+    padding: 20px 0 80px;
   }
 
-  /* Лента на мобилках должна быть чуть меньше, чтобы не перекрывать всё */
   .marquee-wrapper {
     margin-bottom: 40px;
     padding: 12px 0;
@@ -228,12 +226,11 @@ onMounted(() => {
 
   .skills-grid {
     grid-template-columns: 1fr;
-    gap: 15px; /* Уменьшаем расстояние между карточками */
+    gap: 15px;
   }
 
   .wide { grid-column: span 1; }
 
-  /* Названия секций — делаем компактнее */
   .main-title {
     font-size: 2rem;
     margin-bottom: 25px;
@@ -244,12 +241,10 @@ onMounted(() => {
     margin-bottom: 15px;
   }
 
-  /* Контент внутри карточек */
   .card-content {
-    padding: 25px 20px; /* Меньше внутренние отступы */
+    padding: 25px 20px;
   }
 
-  /* Сетка навыков внутри Backend карточки */
   .expertise-grid {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -260,25 +255,21 @@ onMounted(() => {
     margin-bottom: 8px;
   }
 
-  /* Прячем громоздкий декор, который мешает на маленьких экранах */
   .card-decor-box, .bg-glow-circle {
     display: none;
   }
 
-  /* Тех-списки делаем плотнее */
   .tech-list li {
     font-size: 0.9rem;
     margin-bottom: 8px;
   }
 
-  /* Сетка фона — на мобилках делаем её мельче или убираем, чтобы не рябило */
   .bg-grid-decor {
     background-size: 50px 50px;
     opacity: 0.5;
   }
 }
 
-/* Дополнительная полировка для совсем маленьких экранов (iPhone SE и т.д.) */
 @media (max-width: 480px) {
   .main-title { font-size: 1.8rem; }
   .card-content { padding: 20px 15px; }

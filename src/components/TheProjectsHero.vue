@@ -145,30 +145,24 @@ onMounted(() => render());
   user-select: none;
   display: flex;
   flex-direction: column;
-  /* Добавляем безопасные отступы по бокам */
   padding: 0 5vw;
   width: 100%;
   box-sizing: border-box;
 }
 
 .main-title {
-  /* Уменьшаем верхний порог с 15rem до 11rem, чтобы длинные слова влезали */
   font-size: clamp(3rem, 12vw, 11rem);
   font-weight: 950;
   line-height: 0.9;
   color: #ffffff;
   text-transform: uppercase;
-  /* Убираем отрицательный letter-spacing, он "съедает" место */
   letter-spacing: 0.02em;
-  /* Разрешаем перенос, если слово ну совсем гигантское */
   word-break: break-word;
-  /* Убираем nowrap, чтобы слова могли встать друг под другом на узких экранах */
   white-space: normal;
 }
 
 .row {
   display: block;
-  /* Предотвращает обрезку букв типа "S" или "Ж" */
   padding: 0 0.1em;
 }
 
@@ -199,10 +193,9 @@ onMounted(() => render());
   left: 0;
   opacity: 0;
   will-change: transform, filter;
-  border-radius: 4px; /* Оставил легкое закругление */
+  border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
-  /* Самый важный момент — фото без белого налета */
 }
 
 .img-inner {
@@ -210,7 +203,7 @@ onMounted(() => render());
   height: 100%;
   background-size: cover;
   background-position: center;
-  transform: scale(1.05); /* Легкий кроп, чтобы избежать краев при анимации */
+  transform: scale(1.05);
 }
 
 .noise {

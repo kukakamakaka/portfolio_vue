@@ -340,13 +340,6 @@ onUnmounted(() => {
   filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
 }
 
-/* АНИМАЦИЯ ПОЯВЛЕНИЯ (SPRING EFFECT) */
-.dropdown-anime-enter-active {
-  animation: spring-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.dropdown-anime-leave-active {
-  animation: spring-in 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) reverse;
-}
 
 @keyframes spring-in {
   0% { opacity: 0; transform: scale(0.8) translateY(-10px); }
@@ -369,10 +362,6 @@ onUnmounted(() => {
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
 }
 
-/* АНИМАЦИИ ВЫПАДЕНИЯ */
-.fade-slide-enter-active, .fade-slide-leave-active { transition: all 0.3s ease; }
-.fade-slide-enter-from, .fade-slide-leave-to { opacity: 0; transform: translateY(-10px); }
-
 @media (max-width: 850px) {
   .navbar { display: none; }
 }
@@ -388,7 +377,7 @@ onUnmounted(() => {
   backdrop-filter: blur(25px) saturate(160%);
   -webkit-backdrop-filter: blur(25px) saturate(160%);
 
-  /* Двойная рамка для эффекта объема */
+
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow:
       0 20px 40px rgba(0, 0, 0, 0.6),
@@ -422,13 +411,13 @@ onUnmounted(() => {
   flex-shrink: 0;
 }
 
-/* Эффект при нажатии пальцем */
+
 .tab-item:active {
   transform: scale(0.9);
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* Активная вкладка — мягкое свечение */
+
 .tab-item.is-active {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
@@ -450,7 +439,7 @@ onUnmounted(() => {
   transform: scale(1.1);
 }
 
-/* Текст вкладки */
+
 .tab-label {
   font-size: 0.75rem;
   font-weight: 700;
@@ -483,15 +472,15 @@ onUnmounted(() => {
   padding-left: 12px;
   border-left: 1px solid rgba(255, 255, 255, 0.15);
   height: 28px;
-  flex-shrink: 0; /* Чтобы вся группа не сжималась */
+  flex-shrink: 0;
 }
 
 .util-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px; /* Фиксируем ширину */
-  height: 44px; /* Фиксируем высоту */
+  width: 44px;
+  height: 44px;
   min-width: 44px;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -508,14 +497,14 @@ onUnmounted(() => {
   display: flex;
   align-items: flex-end;
   gap: 2px;
-  height: 14px; /* Высота контейнера */
-  width: 14px; /* Ширина контейнера */
-  pointer-events: none; /* Чтобы клик шел на родителя */
+  height: 14px;
+  width: 14px;
+  pointer-events: none;
 }
 
 .visualizer-mini span {
   width: 2px;
-  height: 4px; /* Минимальная высота, чтобы полоски были видны всегда */
+  height: 4px;
   background: #fff;
   border-radius: 1px;
   display: block;

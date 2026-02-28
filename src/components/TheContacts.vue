@@ -89,10 +89,10 @@ import { ref, onMounted, watch } from 'vue';
 import { locale } from '../i18n';
 
 const currentTime = ref('');
-// Бастапқы мәнді сенің locale.t арқылы аламыз
+
 const copyMessage = ref(locale.t('contacts.copy'));
 
-// Тіл өзгергенде хабарламаны автоматты түрде жаңарту
+
 watch(() => locale.current, () => {
   copyMessage.value = locale.t('contacts.copy');
 });
@@ -140,7 +140,6 @@ onMounted(() => {
 .video-overlay {
   position: absolute;
   inset: 0;
-  /* Ортаны ашық қалдыратын градиент */
   background: linear-gradient(90deg, #000 0%, transparent 40%, transparent 60%, #000 100%);
 }
 

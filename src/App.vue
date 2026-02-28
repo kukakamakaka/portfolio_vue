@@ -2,7 +2,7 @@
 import { onMounted, onUnmounted, ref } from 'vue';
 import { locale } from './i18n';
 
-// Импорты компонентов
+
 import TheNavbar from './components/TheNavbar.vue'
 import TheSkills from './components/TheSkills.vue'
 import TheProjectsHero from './components/TheProjectsHero.vue';
@@ -228,7 +228,7 @@ body {
 }
 
 
-/* --- HERO (LIGHT) --- */
+/* --- HERO --- */
 .hero {
   height: 100vh;
   background-color: var(--fg-bg-light);
@@ -261,7 +261,7 @@ body {
 .bg-title {
   font-size: 25vw;
   font-weight: 900;
-  color: rgba(0,0,0,0.02); /* Почти невидимый, но создает объем */
+  color: rgba(0,0,0,0.02);
   margin: 0;
   text-transform: uppercase;
 }
@@ -275,7 +275,6 @@ body {
   z-index: 2;
 }
 
-/* Информация сверху с анимацией проявления */
 .hero-info {
   display: flex;
   justify-content: space-between;
@@ -296,13 +295,13 @@ body {
   margin-bottom: 8px;
 }
 
-/* ГЛАВНЫЙ ВИЗУАЛ */
+
 .hero-visual {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 1000px; /* Для 3D эффекта */
+  perspective: 1000px;
 }
 
 .visual-main {
@@ -325,7 +324,7 @@ body {
   transition: transform 0.3s ease-out;
 }
 
-/* Эффект контура, который переливается */
+
 .outline {
   -webkit-text-stroke: 1.5px var(--fg-text-dark);
   color: transparent;
@@ -337,7 +336,7 @@ body {
   -webkit-text-stroke: 1.5px transparent;
 }
 
-/* ДЫШАЩИЕ СФЕРЫ */
+
 .floating-circle {
   position: absolute;
   width: 35vw;
@@ -392,7 +391,7 @@ body {
   100% { transform: translateY(100%); }
 }
 
-/* МОБИЛЬНАЯ АДАПТАЦИЯ HERO */
+
 @media (max-width: 768px) {
   .hero-info {
     flex-direction: column;
@@ -417,7 +416,7 @@ body {
   view-timeline-name: --section;
 }
 
-/* Эффект шума (Film Grain) на фоне — придает текстуру */
+
 .about::before {
   content: "";
   position: absolute;
@@ -428,7 +427,7 @@ body {
   z-index: 1;
 }
 
-/* Бегущая строка на заднем плане (скрытая деталь) */
+
 .about::after {
   content: "CREATIVE EXPERIENCE • STRATEGIC DESIGN • FULLSTACK DEVELOPMENT •";
   position: absolute;
@@ -449,16 +448,16 @@ body {
 
 .about-container {
   position: relative;
-  z-index: 2; /* Выше шума и бегущей строки */
+  z-index: 2;
 }
 
-/* ФОТО: Глитч-эффект при наведении и плавание */
+
 .about-visual {
   max-width: 420px;
   justify-self: center;
   position: relative;
   animation: float 6s ease-in-out infinite, revealUp both;
-  animation-timeline: auto, --section; /* float работает всегда, revealUp от скролла */
+  animation-timeline: auto, --section;
   animation-range: auto, entry 25% cover 50%;
 }
 
@@ -490,10 +489,10 @@ body {
 }
 
 .about-visual:hover::before {
-  opacity: 0.2; /* Мягкое свечение при наведении */
+  opacity: 0.2;
 }
 
-/* ТЕКСТ: Эффект "появления букв" */
+
 .about-lead {
   font-size: clamp(1.8rem, 4vw, 3.2rem);
   line-height: 1.1;
@@ -502,7 +501,7 @@ body {
   letter-spacing: -0.03em;
 }
 
-/* Анимированный градиент на хайлайтах */
+
 .highlight {
   background: linear-gradient(120deg, #fff 0%, var(--fg-accent) 50%, #fff 100%);
   background-size: 200% auto;
@@ -516,7 +515,7 @@ body {
   to { background-position: 200% center; }
 }
 
-/* Описание с эффектом размытия при наведении */
+
 .about-description {
   font-size: 1.2rem;
   color: rgba(255,255,255,0.5);
@@ -530,7 +529,7 @@ body {
   cursor: default;
 }
 
-/* КНОПКА: Эффект "магнита" */
+/* КНОПКА */
 .circle-btn {
   width: 160px;
   height: 160px;
@@ -572,33 +571,32 @@ body {
 }
 .about-img {
   width: 100%;
-  height: 120%; /* Уменьшили со 130, чтобы не так сильно улетало */
+  height: 120%;
   object-fit: cover;
-  /* ОБЯЗАТЕЛЬНО ДОБАВЬ ЭТО: */
-  object-position: center 20%; /* 20% поднимет картинку, чтобы лицо было в кадре */
+  object-position: center 20%;
 
   filter: grayscale(100%) brightness(0.8);
   transition: filter 0.5s ease;
 
-  /* Параллакс оставляем, но чуть спокойнее */
+
   animation: parallaxScroll linear both;
   animation-timeline: --section;
   animation-range: entry 0% exit 100%;
 }
 
 @keyframes parallaxScroll {
-  from { transform: translateY(-5%); } /* Меньше смещение */
+  from { transform: translateY(-5%); }
   to { transform: translateY(5%); }
 }
 @media (max-width: 768px) {
   .about {
     min-height: auto;
-    padding: 160px 10% 0 10%; /* Увеличили нижний паддинг для кнопки */
+    padding: 160px 10% 0 10%;
     display: flex;
     flex-direction: column;
     background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
     background-size: 30px 30px;
-    gap: 0; /* Убираем стандартный гэп, будем рулить маржинами */
+    gap: 0;
   }
 
   .about::before {
@@ -607,13 +605,13 @@ body {
     opacity: 0.02;
   }
 
-  /* --- ФОТО: Чуть меньше, чтобы дать место тексту --- */
+  /* --- ФОТО --- */
   .about-visual {
-    width: 75%; /* Вместо фиксированных 280px используем % */
+    width: 75%;
     max-width: 260px;
     align-self: flex-start;
     margin-left: 0;
-    margin-bottom: 20px; /* Даем отступ до текста */
+    margin-bottom: 20px;
     z-index: 1;
   }
 
@@ -621,20 +619,20 @@ body {
     aspect-ratio: 4/5;
   }
 
-  /* --- ТЕКСТ: Убираем сильный нахлест --- */
+
   .about-content {
     align-self: flex-end;
     width: 90%;
-    margin-top: -20px; /* Уменьшили нахлест, чтобы не закрывать лицо */
+    margin-top: -20px;
     z-index: 2;
     text-align: right;
   }
 
   .about-lead {
-    font-size: 1.5rem; /* Чуть меньше размер, чтобы не в 3 этажа */
+    font-size: 1.5rem;
     line-height: 1.1;
     margin-bottom: 15px;
-    background: #000; /* Добавим черный фон-подложку, если текст наезжает на фото */
+    background: #000;
     display: inline;
     padding: 5px 0;
     box-shadow: 10px 0 0 #000, -10px 0 0 #000;
@@ -648,11 +646,11 @@ body {
     max-width: 100%;
   }
 
-  /* --- КНОПКА: Фиксируем снизу, чтобы не плавала поверх букв --- */
+  /* --- КНОПКА --- */
   .about-action {
-    position: relative; /* Меняем с absolute на relative для мобилок */
+    position: relative;
     margin-top: 40px;
-    align-self: flex-start; /* Ставим слева, как и хотели */
+    align-self: flex-start;
     left: 0;
     bottom: 0;
   }
@@ -661,7 +659,6 @@ body {
     width: 90px;
     height: 90px;
     font-size: 0.55rem;
-    /* Убираем лишнюю яркость, если мешает */
     background: rgba(var(--fg-accent-rgb), 0.9);
   }
 }
