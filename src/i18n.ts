@@ -218,6 +218,27 @@ const messages = {
                     disclaimer_text: "The project is for educational purposes. AI recommendations are not a medical diagnosis.",
                     action_btn: "EXPLORE_AI_LOGIC"
                 },
+                "6": {
+                    "title": "VIVA CINE",
+                    "category": "CINEMA SITE // VOD",
+                    "status": "PROJECT",
+                    "first_badge": "MY_FIRST",
+                    "tagline": "Full-featured streaming platform and online cinema",
+                    "badge": "STREAMING_SERVICE // ENTERTAINMENT_HUB",
+                    "cap_label": "PLATFORM_CAPABILITIES",
+                    "description": "A large-scale project featuring over <b>20+ pages</b> of unique templates. The system combines online viewing with social interaction via Community Chat.",
+                    "features": [
+                        "Movie Engine: Dynamic catalog with genre filtering.",
+                        "Social: Interactive chat powered by JSON storage.",
+                        "Profile: Customization of user data and avatars."
+                    ],
+                    "tech_label": "STREAMING_STACK",
+                    "tech": ["Flask", "SQLAlchemy", "Jinja2", "Python", "JSON Logic"],
+                    "scale_label": "SYSTEM_SCALE",
+                    "scale_stat": "20+",
+                    "scale_desc": "Dynamic template pages. Adaptability for <b>Cinema Mode</b>.",
+                    "action_btn": "VIEW PROJECT"
+                },
             }
         },
         contacts: {
@@ -462,6 +483,27 @@ const messages = {
                     disclaimer_text: "Проект носит образовательный характер. ИИ-рекомендации не являются медицинским диагнозом.",
                     action_btn: "ИЗУЧИТЬ ЛОГИКУ ИИ"
                 },
+                "6": {
+                    "title": "VIVA CINE",
+                    "category": "КИНО САЙТ // VOD",
+                    "status": "ПРОЕКТ",
+                    "first_badge": "ПЕРВЫЙ",
+                    "tagline": "Полнофункциональная стриминговая платформа и онлайн-кинотеатр",
+                    "badge": "STREAMING_SERVICE // ENTERTAINMENT_HUB",
+                    "cap_label": "ВОЗМОЖНОСТИ ПЛАТФОРМЫ",
+                    "description": "Масштабный проект, включающий более <b>20+ страниц</b> уникальных шаблонов. Система объединяет онлайн-просмотр и социальное взаимодействие через Community Chat.",
+                    "features": [
+                        "Movie Engine: Динамический каталог с фильтрацией по жанрам.",
+                        "Social: Интерактивный чат на JSON-хранилище.",
+                        "Profile: Кастомизация данных пользователя и аватаров."
+                    ],
+                    "tech_label": "СТЕК ТЕХНОЛОГИЙ",
+                    "tech": ["Flask", "SQLAlchemy", "Jinja2", "Python", "JSON Logic"],
+                    "scale_label": "МАСШТАБ СИСТЕМЫ",
+                    "scale_stat": "20+",
+                    "scale_desc": "Страниц динамических шаблонов. Адаптивность под <b>Cinema Mode</b>.",
+                    "action_btn": "ПОКАЗАТЬ ПРОЕКТ"
+                },
             }
         },
         contacts: {
@@ -626,7 +668,7 @@ const messages = {
                 },
                 "2": {
                     title: "QG HELPDESK",
-                category: "ҚЫЗМЕТ КӨРСЕТУ_ҮСТЕЛІ",
+                    category: "ҚЫЗМЕТ КӨРСЕТУ_ҮСТЕЛІ",
                     status: "ПРОЕКТ",
                     tagline: "«QazaqGaz ҒТЦ» ЖШС ішкі процестерін оңтайландыру",
                     badge: "КӘСІПОРЫН ШЕШІМІ // 2026",
@@ -700,10 +742,31 @@ const messages = {
                     tech: ["Flask", "OpenAI API", "Ollama", "HuggingFace", "SQLAlchemy"],
                     impact_label: "ЖОБА МАЗМҰНЫ",
                     impact_stat: "AI",
-                    impact_desc: "LLM модельдерін нақты веб-интерфейстерге <b>Деректер құпиялылығына</b> назар аудара отырып интеграциялау демосы.",
+                    impact_desc: "LLM модельдерін нақты веб-интерфейстерге <b>Деректер құпиялылығына</b> Назар аудара отырып интеграциялау демосы.",
                     disclaimer_label: "МЕДИЦИНАЛЫҚ ЕСКЕРТУ",
                     disclaimer_text: "Жоба білім беру сипатына ие. ИИ ұсыныстары медициналық диагноз болып табылмайды.",
                     action_btn: "ИИ ЛОГИКАСЫН ЗЕРТТЕУ"
+                },
+                "6": {
+                    "title": "VIVA CINE",
+                    "category": "КИНО САЙТ // VOD",
+                    "status": "ПРОЕКТ",
+                    "first_badge": "АЛҒАШҚЫ",
+                    "tagline": "Толық функционалды стримингтік платформа және онлайн-кинотеатр",
+                    "badge": "СТРИМИНГ ҚЫЗМЕТІ // ENTERTAINMENT_HUB",
+                    "cap_label": "ПЛАТФОРМА МҮМКІНДІКТЕРІ",
+                    "description": "<b>20-дан астам</b> бірегей шаблондарды қамтитын ауқымды жоба. Жүйе онлайн көру мен Community Chat арқылы әлеуметтік өзара әрекеттесуді біріктіреді.",
+                    "features": [
+                        "Movie Engine: Жанрлар бойынша сүзуі бар динамикалық каталог.",
+                        "Social: JSON сақтау орнындағы интерактивті чат.",
+                        "Profile: Пайдаланушы деректері мен аватарларын теңшеу."
+                    ],
+                    "tech_label": "ТЕХНОЛОГИЯЛАР ТІЗБЕГІ",
+                    "tech": ["Flask", "SQLAlchemy", "Jinja2", "Python", "JSON Logic"],
+                    "scale_label": "ЖҮЙЕ АУҚЫМЫ",
+                    "scale_stat": "20+",
+                    "scale_desc": "Динамикалық шаблон беттері. <b>Cinema Mode</b> режиміне бейімділік.",
+                    "action_btn": "ЖОБАҒА ҚАРАУ"
                 },
             }
         },
