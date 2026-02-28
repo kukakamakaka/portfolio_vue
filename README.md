@@ -1,5 +1,47 @@
-# Vue 3 + TypeScript + Vite
+# ⚡ Modern Portfolio Template (Vue 3 + Vite)
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+[![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)](https://vuejs.org/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+Профессиональное интерактивное портфолио, созданное с фокусом на высокую производительность, адаптивность и многоязычность (i18n). Проект включает в себя динамическую галерею работ с модальными окнами и плавными анимациями.
+
+---
+
+## 🚀 Основной Стек (Tech Stack)
+
+Проект построен на современных инструментах фронтенд-разработки:
+
+* **Core:** [Vue 3](https://vuejs.org/) (Composition API)
+* **Build Tool:** [Vite](https://vitejs.dev/) — сверхбыстрая сборка и горячая перезагрузка.
+* **Language:** [TypeScript](https://www.typescriptlang.org/) — строгая типизация для надежности кода.
+* **Internationalization:** Custom **i18n** implementation (EN, RU, KZ).
+* **Styles:** Scoped CSS3 с использованием Flexbox и CSS Grid.
+* **Animation:** Vue Transitions & CSS Keyframes.
+* **Deployment:** GitHub Pages / Vercel.
+
+---
+
+## ✨ Ключевые Особенности (Features)
+
+1.  **Multi-language Support:** Полная поддержка трех языков (Английский, Русский, Казахский) через единый конфиг аудармалары.
+2.  **Dynamic Project Gallery:** 9 уникальных карточек проектов с динамической подгрузкой данных.
+3.  **Advanced Modals:** Интерактивные модальные окна для каждого проекта с галереями скриншотов и детальным описанием стека.
+4.  **Responsive Design:** Идеальное отображение на всех устройствах: от мобильных телефонов до широкоформатных мониторов.
+5.  **Clean Architecture:** Модульная структура компонентов (TheNavbar, TheProjectsGallery, TheSkills и т.д.).
+
+---
+
+## 🛠 Структура Проекта (Project Structure)
+
+```text
+src/
+├── assets/             # Изображения, иконки и скриншоты проектов
+├── components/         # Модульные Vue компоненты (секции лендинга)
+│   ├── TheNavbar.vue
+│   ├── TheProjectsGallery.vue
+│   └── ...
+├── plugins/            # Вспомогательные скрипты и плагины
+├── i18n.ts             # Конфигурация многоязычности (JSON-based)
+├── App.vue             # Главный корневой компонент
+└── main.ts             # Точка входа в приложение
