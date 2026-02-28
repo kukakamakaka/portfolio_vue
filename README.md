@@ -45,3 +45,5 @@ src/
 ├── i18n.ts             # Конфигурация многоязычности (JSON-based)
 ├── App.vue             # Главный корневой компонент
 └── main.ts             # Точка входа в приложение
+
+ 🔗 Live: https://portfolio-vue-j15o.vercel.app/
