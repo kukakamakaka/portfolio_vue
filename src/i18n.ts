@@ -158,6 +158,24 @@ const messages = {
                     impact_desc: "MVP in record time. Increased request processing speed by <b>40%</b>.",
                     action_btn: "EXPLORE_REPOS_STRUCTURE"
                 },
+                "3": {
+                    title: "IRONN DYNASTY",
+                    category: "HEALTH_TECH",
+                    status: "PROJECT",
+                    tagline: "Full-stack web application for activity tracking and fitness journey",
+                    badge: "FITNESS_MONITORING // LIVE_ON_PRODUCTION",
+                    arch_label: "SYSTEM_ARCHITECTURE",
+                    description: "The central element is the Personal Dashboard — a space for aggregating user activity data, implemented using optimized Django ORM queries.",
+                    features: [
+                        "Adaptive UI: Dynamic Dark/Light mode switching via JS.",
+                        "User Management: Full authentication cycle and data protection (Django Permissions).",
+                        "Deployment: Project fully deployed and configured on PythonAnywhere."
+                    ],
+                    tech_label: "TECH_STACK",
+                    tech: ["Python 3.10", "Django", "JS & Node.js", "SQLite", "WSGI", "HTTPS"],
+                    demo_label: "LIVE_DEMO",
+                    action_btn: "PROJECT_STRUCTURE // VIEW_ON_GITHUB"
+                },
             }
         },
         contacts: {
@@ -342,6 +360,24 @@ const messages = {
                     impact_desc: "MVP за рекордные сроки. Повышение скорости обработки заявок на <b>40%</b>.",
                     action_btn: "СТРУКТУРА РЕПОЗИТОРИЯ"
                 },
+                "3": {
+                    title: "IRONN DYNASTY",
+                    category: "HEALTH_TECH",
+                    status: "ПРОЕКТ",
+                    tagline: "Full-stack веб-приложение для отслеживания активности и фитнеса",
+                    badge: "МОНИТОРИНГ ФИТНЕСА // LIVE_ON_PRODUCTION",
+                    arch_label: "АРХИТЕКТУРА СИСТЕМЫ",
+                    description: "Центральным элементом является Personal Dashboard — пространство для агрегации данных об активности пользователя, реализованное на оптимизированных Django ORM запросах.",
+                    features: [
+                        "Adaptive UI: Динамическое переключение Dark/Light режимов через JS.",
+                        "User Management: Полный цикл аутентификации и защита данных (Django Permissions).",
+                        "Deployment: Проект полностью развернут и настроен на PythonAnywhere."
+                    ],
+                    tech_label: "СТЕК ТЕХНОЛОГИЙ",
+                    tech: ["Python 3.10", "Django", "JS & Node.js", "SQLite", "WSGI", "HTTPS"],
+                    demo_label: "ДЕМО ЗАПУСК",
+                    action_btn: "СТРУКТУРА ПРОЕКТА // НА GITHUB"
+                },
             }
         },
         contacts: {
@@ -523,6 +559,24 @@ const messages = {
                     impact_stat: "48с",
                     impact_desc: "Рекордтық мерзімде MVP. Өтінімдерді өңдеу жылдамдығын <b>40%</b>-ға арттыру.",
                     action_btn: "РЕПОЗИТОРИЙ ҚҰРЫЛЫМЫ"
+                },
+                "3": {
+                    title: "IRONN DYNASTY",
+                    category: "ДЕНСАУЛЫҚ_ТЕХ",
+                    status: "ПРОЕКТ",
+                    tagline: "Белсенділік пен фитнесті бақылауға арналған Full-stack веб-қосымша",
+                    badge: "ФИТНЕС МОНИТОРИНГІ // ӨНДІРІСТЕ",
+                    arch_label: "ЖҮЙЕ АРХИТЕКТУРАСЫ",
+                    description: "Орталық элемент - бұл Personal Dashboard, пайдаланушы белсенділігі туралы деректерді агрегациялауға арналған кеңістік, оңтайландырылған Django ORM сұраныстары арқылы жүзеге асырылған.",
+                    features: [
+                        "Adaptive UI: JS арқылы Dark/Light режимдерін динамикалық ауыстыру.",
+                        "User Management: Толық аутентификация циклі және деректерді қорғау (Django Permissions).",
+                        "Deployment: Жоба PythonAnywhere-де толық орналастырылған және конфигурацияланған."
+                    ],
+                    tech_label: "ТЕХНОЛОГИЯЛАР",
+                    tech: ["Python 3.10", "Django", "JS & Node.js", "SQLite", "WSGI", "HTTPS"],
+                    demo_label: "ДЕМО НҰСҚА",
+                    action_btn: "ЖОБА ҚҰРЫЛЫМЫ // GITHUB-ТА ҚАРАУ"
                 },
             }
         },

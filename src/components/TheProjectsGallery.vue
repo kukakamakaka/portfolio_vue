@@ -130,16 +130,21 @@ const scrollSlider = (direction: 'next' | 'prev') => {
         </div>
         <div class="card-content">
           <div class="card-top">
-            <div class="status-indicator"><span class="pulse green"></span> MVP_STABLE</div>
+            <div class="status-indicator">
+              <span class="pulse green"></span>
+              {{ locale.t('projects.items.3.status') }}
+            </div>
             <span class="index">03</span>
           </div>
           <div class="card-body">
-            <span class="category">HEALTH_TECH</span>
-            <h3 class="project-name">IRONN DYNASTY</h3>
+            <span class="category">{{ locale.t('projects.items.3.category') }}</span>
+            <h3 class="project-name">{{ locale.t('projects.items.3.title') }}</h3>
           </div>
           <div class="card-footer">
-            <div class="tech-stack">Python • DJANGO • SQLITE</div>
-            <div class="explore-btn">VIEW_PROJECT <span>→</span></div>
+            <div class="tech-stack">
+              {{ locale.t('projects.items.3.tech').join(' • ') }}
+            </div>
+            <div class="explore-btn">{{ locale.t('projects.viewProject') }} <span>→</span></div>
           </div>
         </div>
       </div>
@@ -408,10 +413,10 @@ const scrollSlider = (direction: 'next' | 'prev') => {
             <div class="m-container">
               <div class="m-top">
                 <div class="m-brand">
-                  <span class="m-badge">FITNESS_MONITORING // LIVE_ON_PRODUCTION</span>
-                  <h2 class="m-title">IRONN DYNASTY</h2>
+                  <span class="m-badge">{{ locale.t('projects.items.3.badge') }}</span>
+                  <h2 class="m-title">{{ locale.t('projects.items.3.title') }}</h2>
                 </div>
-                <p class="m-tagline">Full-stack web application for activity tracking and fitness journey</p>
+                <p class="m-tagline">{{ locale.t('projects.items.3.tagline') }}</p>
               </div>
 
               <div class="m-block slider-wrapper">
@@ -430,28 +435,27 @@ const scrollSlider = (direction: 'next' | 'prev') => {
 
               <div class="m-details-row extended">
                 <div class="m-block description">
-                  <label>SYSTEM_ARCHITECTURE</label>
-                  <p class="long-text">
-                    Центральным элементом является Personal Dashboard — пространство для агрегации данных об активности пользователя, реализованное на оптимизированных Django ORM запросах.
-                  </p>
+                  <label>{{ locale.t('projects.items.3.arch_label') }}</label>
+                  <p class="long-text">{{ locale.t('projects.items.3.description') }}</p>
                   <ul class="compact-list">
-                    <li>Adaptive UI: Динамическое переключение Dark/Light режимов через JS.</li>
-                    <li>User Management: Полный цикл аутентификации и защита данных (Django Permissions).</li>
-                    <li>Deployment: Проект полностью развернут и настроен на PythonAnywhere.</li>
+                    <li v-for="f in locale.t('projects.items.3.features')" :key="f">{{ f }}</li>
                   </ul>
                 </div>
 
                 <div class="m-side-info">
                   <div class="m-block stack">
-                    <label>TECH_STACK</label>
+                    <label>{{ locale.t('projects.items.3.tech_label') }}</label>
                     <div class="stack-tags">
-                      <span class="highlight-tag">Python 3.10</span><span>Django</span>
-                      <span>JavaScript</span><span>SQLite</span><span>WSGI</span>
+            <span v-for="(t, index) in locale.t('projects.items.3.tech')"
+                  :key="t"
+                  :class="{ 'highlight-tag': index === 0 }">
+              {{ t }}
+            </span>
                     </div>
                   </div>
 
                   <div class="m-block impact">
-                    <label>LIVE_DEMO</label>
+                    <label>{{ locale.t('projects.items.3.demo_label') }}</label>
                     <div class="impact-content">
                       <a href="https://onege.pythonanywhere.com" target="_blank" class="live-link">
                         onege.pythonanywhere.com 🔗
@@ -463,10 +467,11 @@ const scrollSlider = (direction: 'next' | 'prev') => {
 
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/IronnDynasty" target="_blank" class="btn-s full-width">
-                  PROJECT_STRUCTURE // VIEW_ON_GITHUB <span>→</span>
+                  {{ locale.t('projects.items.3.action_btn') }} <span>→</span>
                 </a>
               </div>
-            </div> </div>
+            </div>
+          </div>
 
           <div v-else-if="selectedProject === 4" class="modal-window dashboard">
             <button class="close-x-btn" @click="closeProject">
