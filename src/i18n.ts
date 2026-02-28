@@ -116,14 +116,21 @@ const messages = {
             viewProject: "VIEW PROJECT",
             viewGithub: "VIEW GITHUB",
             items: {
-                "1": { "title": "QAZAQGAZ SYSTEM", "desc": "Production-ready system launched from scratch in 48 hours. RBAC model and CI/CD pipelines implemented." },
-                "2": { "title": "AVTOSCHCOOLA BOT", "desc": "Asynchronous Telegram bot for automated booking. Integration with Google Sheets API." },
-                "3": { "title": "SKT ORKEN SITE", "desc": "Corporate website for a construction company. Server-side routing implemented." },
-                "4": { "title": "CORE DJANGO API", "desc": "REST API design using Django Rest Framework and JWT authentication." },
-                "5": { "title": "VUE 3 PORTFOLIO", "desc": "High-performance portfolio using Composition API and i18n." },
-                "6": { "title": "FASTAPI SERVICE", "desc": "Microservice for real-time data processing using Pydantic and Redis." },
-                "7": { "title": "DOCKERIZED APP", "desc": "Production infrastructure setup: Nginx, SSL, Docker Compose." },
-                "8": { "title": "TASK MANAGER", "desc": "Task management system with access control levels and MySQL." }
+                "1": {
+                    title: "NS DRIVE",
+                    category: "MANAGEMENT_SYSTEM",
+                    tagline: "Automated booking system for driving school",
+                    badge: "2026_STABLE // COMMERCIAL",
+                    impact_label: "OPERATIONAL_EFFICIENCY",
+                    impact_stat: "90%",
+                    features: [
+                        "24/7 Automated Booking",
+                        "API Integration & Monitoring",
+                        "Admin Dashboard for scheduling",
+                        "Real-time Telegram notifications"
+                    ],
+                    tech: ["Python", "FastAPI", "PostgreSQL", "Aiogram 3.x", "Docker"]
+                },
             }
         },
         contacts: {
@@ -265,14 +272,21 @@ const messages = {
             viewProject: "СМОТРЕТЬ ПРОЕКТ",
             viewGithub: "СМОТРЕТЬ GITHUB",
             items: {
-                "1": { "title": "QAZAQGAZ SYSTEM", "desc": "система запущенная с нуля за 48 часов." },
-                "2": { "title": "AVTOSCHCOOLA BOT", "desc": "Telegram-бот для автоматизации записи." },
-                "3": { "title": "SKT ORKEN SITE", "desc": "Корпоративный сайт для строительной компании." },
-                "4": { "title": "CORE DJANGO API", "desc": "Проектирование REST API с JWT." },
-                "5": { "title": "VUE 3 PORTFOLIO", "desc": "Портфолио на Composition API." },
-                "6": { "title": "FASTAPI SERVICE", "desc": "Микросервис на Pydantic." },
-                "7": { "title": "DOCKERIZED APP", "desc": "Nginx, SSL, Docker Compose." },
-                "8": { "title": "TASK MANAGER", "desc": "Система управления задачами." }
+                "1": {
+                    title: "NS DRIVE",
+                    category: "СИСТЕМА УПРАВЛЕНИЯ",
+                    tagline: "Автоматизация записи для автошколы",
+                    badge: "СТАБИЛЬНО 2026 // КОММЕРЧЕСКИЙ",
+                    impact_label: "ЭФФЕКТИВНОСТЬ",
+                    impact_stat: "90%",
+                    features: [
+                        "Автоматическая запись 24/7",
+                        "Интеграция и мониторинг API",
+                        "Админ-панель для расписания",
+                        "Уведомления в Telegram в реальном времени"
+                    ],
+                    tech: ["Python", "FastAPI", "PostgreSQL", "Aiogram 3.x", "Docker"]
+                },
             }
         },
         contacts: {
@@ -414,17 +428,24 @@ const messages = {
             viewProject: "ЖОБАҒА ҚАРАУ",
             viewGithub: "GITHUB-ТЫ ҚАРАУ",
             items: {
-                "1": { "title": "QAZAQGAZ ЖҮЙЕСІ", "desc": "48 сағатта нөлден іске қосылған жүйе." },
-                "2": { "title": "AVTOSCHCOOLA БОТЫ", "desc": "Автоматтандыруға арналған Telegram-бот." },
-                "3": { "title": "SKT ORKEN САЙТЫ", "desc": "Құрылыс компаниясына арналған сайт." },
-                "4": { "title": "CORE DJANGO API", "desc": "DRF және JWT көмегімен REST API." },
-                "5": { "title": "VUE 3 ПОРТФОЛИО", "desc": "i18n қолданылған портфолио." },
-                "6": { "title": "FASTAPI ҚЫЗМЕТІ", "desc": "Деректерді өңдеуге арналған микросервис." },
-                "7": { "title": "DOCKERIZED ҚОСЫМША", "desc": "Nginx, SSL, Docker Compose." },
-                "8": { "title": "ТАПСЫРМАЛАР МЕНЕДЖЕРІ", "desc": "Тапсырмаларды басқару жүйесі." }
+                "1": {
+                    title: "NS DRIVE",
+                    category: "БАСҚАРУ ЖҮЙЕСІ",
+                    tagline: "Автомектепке жазылуды автоматтандыру",
+                    badge: "ТҰРАҚТЫ 2026 // КОММЕРЦИЯЛЫҚ",
+                    impact_label: "ТИІМДІЛІК",
+                    impact_stat: "90%",
+                    features: [
+                        "24/7 Автоматты жазылу",
+                        "API интеграциясы және мониторингі",
+                        "Кестеге арналған админ-панель",
+                        "Telegram арқылы нақты уақыттағы хабарламалар"
+                    ],
+                    tech: ["Python", "FastAPI", "PostgreSQL", "Aiogram 3.x", "Docker"]
+                },
             }
         },
-        "contacts": {
+        contacts: {
             "status": "БЕЛСЕНДІ_БАЙЛАНЫС",
             "get_in": "МЕНІМЕН",
             "touch": "ХАБАРЛАС",

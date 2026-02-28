@@ -1,9 +1,75 @@
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue';
+import { gsap } from 'gsap';
+// 1. РЕСМИ useI18n ЕМЕС, ӨЗІҢНІҢ locale ОБЪЕКТІҢДІ ИМПОРТТА:
+import { locale } from '../i18n';
+
+const selectedProject = ref<number | null>(null);
+const projectSlider = ref<HTMLElement | null>(null);
+
+const openProject = (id: number) => {
+  selectedProject.value = id;
+  document.body.style.overflow = 'hidden';
+};
+
+const closeProject = () => {
+  selectedProject.value = null;
+  document.body.style.overflow = 'auto';
+};
+
+const handleEsc = (e: KeyboardEvent) => {
+  if (e.key === 'Escape') closeProject();
+};
+
+onMounted(() => window.addEventListener('keydown', handleEsc));
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleEsc);
+  document.body.style.overflow = 'auto';
+});
+
+// GSAP Анимациялары
+const onEnter = (el: Element) => {
+  const tl = gsap.timeline();
+  tl.fromTo(el, { opacity: 0 }, { duration: 0.3, opacity: 1 })
+      .fromTo('.modal-window',
+          { y: 40, opacity: 0, scale: 0.95 },
+          { duration: 0.5, y: 0, opacity: 1, scale: 1, ease: 'expo.out' }
+      )
+      .from('.m-block',
+          { opacity: 0, y: 20, stagger: 0.05, duration: 0.4 },
+          "-=0.2"
+      );
+};
+
+const onLeave = (el: Element, done: () => void) => {
+  gsap.to(el, {
+    duration: 0.3,
+    opacity: 0,
+    scale: 0.9,
+    onComplete: done
+  });
+};
+
+const scrollSlider = (direction: 'next' | 'prev') => {
+  if (projectSlider.value) {
+    const scrollAmount = projectSlider.value.clientWidth;
+    projectSlider.value.scrollBy({
+      left: direction === 'next' ? scrollAmount : -scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+};
+</script>
+
 <template>
   <section id="projects" class="projects-wrapper">
     <div class="header-v4">
       <div class="header-info">
-        <span class="prefix">// ARCHIVE_2026</span>
-        <h2 class="main-title">SELECTED<br><span class="gradient-text">EXPERIENCE</span></h2>
+        <span class="prefix">{{ locale.t('projects.archive') }}</span>
+        <h2 class="main-title">
+          {{ locale.t('projects.title1') }}<br>
+          <span class="gradient-text">{{ locale.t('projects.title2') }}</span>
+        </h2>
       </div>
     </div>
 
@@ -16,12 +82,14 @@
             <span class="index">01</span>
           </div>
           <div class="card-body">
-            <span class="category">MANAGEMENT_SYSTEM</span>
-            <h3 class="project-name">NS DRIVE</h3>
+            <span class="category">{{ locale.t('projects.items.1.category') }}</span>
+            <h3 class="project-name">{{ locale.t('projects.items.1.title') }}</h3>
           </div>
           <div class="card-footer">
-            <div class="tech-stack">PYTHON • FASTAPI • TELEGRAM</div>
-            <div class="explore-btn">VIEW_DETAILS <span>→</span></div>
+            <div class="tech-stack">
+              {{ locale.t('projects.items.1.tech').join(' • ') }}
+            </div>
+            <div class="explore-btn">{{ locale.t('projects.viewProject') }} <span>→</span></div>
           </div>
         </div>
       </div>
@@ -131,7 +199,6 @@
         </div>
       </div>
 
-
       <div class="p-card active" @click="openProject(7)">
 
         <div class="card-bg-overlay">
@@ -201,36 +268,60 @@
 
     </div>
 
-
-
-
     <Teleport to="body">
-      <Transition @enter="onEnter" @leave="onLeave">
+      <Transition name="modal">
+        <div v-if="selectedProject" class="modal-backdrop" @click.self="closeProject">
 
-        <div v-if="selectedProject === 1" class="modal-backdrop" @click.self="closeProject">
-          <div class="modal-window dashboard">
-            <button class="close-x-btn" @click="closeProject"><div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div><span class="close-hint">ESC</span></button>
+          <div v-if="selectedProject === 1" class="modal-window dashboard">
+            <button class="close-x-btn" @click="closeProject">
+              <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
+              <span class="close-hint">ESC</span>
+            </button>
             <div class="m-container">
               <div class="m-top">
-                <div class="m-brand"><span class="m-badge">2026_STABLE</span><h2 class="m-title">NS DRIVE</h2></div>
-                <p class="m-tagline">Автоматизация записи для автошколы</p>
+                <div class="m-brand">
+                  <span class="m-badge">{{ locale.t('projects.items.1.badge') }}</span>
+                  <h2 class="m-title">{{ locale.t('projects.items.1.title') }}</h2>
+                </div>
+                <p class="m-tagline">{{ locale.t('projects.items.1.tagline') }}</p>
               </div>
               <div class="m-main-grid">
-                <div class="m-block"> <label>TECH_STACK</label> <div class="stack-tags"><span>Python</span><span>FastAPI</span><span>Docker</span></div> </div>
-                <div class="m-block"> <label>LOGIC_FLOW</label> <div class="logic-flow"><div class="node">TG</div><div class="arrow">→</div><div class="node">API</div></div> </div>
-                <div class="m-block features"> <label>FEATURES</label> <ul class="compact-list"><li>• Запись 24/7</li><li>• API Monitoring</li></ul> </div>
-                <div class="m-block impact"> <label>IMPACT</label> <div class="stat">90%</div> </div>
+                <div class="m-block">
+                  <label>TECH_STACK</label>
+                  <div class="stack-tags">
+                    <span v-for="t in locale.t('projects.items.1.tech')" :key="t">{{ t }}</span>
+                  </div>
+                </div>
+                <div class="m-block">
+                  <label>LOGIC_FLOW</label>
+                  <div class="logic-flow">
+                    <div class="node">TG</div><div class="arrow">→</div><div class="node">API</div>
+                  </div>
+                </div>
+                <div class="m-block features">
+                  <label>FEATURES</label>
+                  <ul class="compact-list">
+                    <li v-for="f in locale.t('projects.items.1.features')" :key="f">{{ f }}</li>
+                  </ul>
+                </div>
+                <div class="m-block impact">
+                  <label>{{ locale.t('projects.items.1.impact_label') }}</label>
+                  <div class="stat">{{ locale.t('projects.items.1.impact_stat') }}</div>
+                </div>
               </div>
               <div class="m-actions">
-                <a href="https://t.me/ns_drive_bot" target="_blank" class="btn-p">OPEN_BOT</a>
-                <a href="https://github.com/kukakamakaka/autoshkola-bot" class="btn-s">SOURCE</a>
+                <a href="https://t.me/ns_drive_bot" target="_blank" class="btn-p">
+                  {{ locale.t('projects.open_bot') }}
+                </a>
+                <a href="https://github.com/kukakamakaka/autoshkola-bot" target="_blank" class="btn-s">
+                  {{ locale.t('projects.source') }}
+                </a>
               </div>
+
             </div>
           </div>
-        </div>
 
-        <div v-else-if="selectedProject === 2" class="modal-backdrop" @click.self="closeProject">
-          <div class="modal-window showcase">
+          <div v-else-if="selectedProject === 2" class="modal-window showcase">
             <button class="close-x-btn" @click="closeProject" aria-label="Close">
               <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
               <span class="close-hint">ESC</span>
@@ -242,7 +333,7 @@
                   <span class="m-badge">ENTERPRISE_SOLUTION // 2026</span>
                   <h2 class="m-title">QG HELPDESK</h2>
                 </div>
-                <p class="m-tagline"> Оптимизация внутренних процессов ТОО «QazaqGaz НТЦ»</p>
+                <p class="m-tagline">Оптимизация внутренних процессов ТОО «QazaqGaz НТЦ»</p>
               </div>
 
               <div class="m-block slider-wrapper">
@@ -255,52 +346,47 @@
                     <div class="gallery-slide"><img src="../assets/projects/project1/2.jpg" alt="Stats"></div>
                   </div>
                 </div>
+              </div> <div class="m-details-row extended">
+              <div class="m-block description">
+                <label>PROJECT_OVERVIEW</label>
+                <p class="long-text">
+                  Разработка кастомной экосистемы для управления техническими заявками внутри научного центра.
+                  Система автоматизирует распределение задач между департаментами.
+                </p>
+                <ul class="compact-list">
+                  <li>Ролевая модель: Администратор, Диспетчер, Исполнитель</li>
+                  <li>Генерация PDF-отчетов по KPI сотрудников</li>
+                  <li>Интеграция с корпоративной почтой</li>
+                </ul>
               </div>
 
-              <div class="m-details-row extended">
-                <div class="m-block description">
-                  <label>PROJECT_OVERVIEW</label>
-                  <p class="long-text">
-                    Разработка кастомной экосистемы для управления техническими заявками внутри научного центра.
-                    Система автоматизирует распределение задач между департаментами, исключая потерю данных и задержки в коммуникации.
-                  </p>
-                  <ul class="compact-list">
-                    <li>Ролевая модель: Администратор, Диспетчер, Исполнитель</li>
-                    <li>Генерация PDF-отчетов по KPI сотрудников</li>
-                    <li>Интеграция с корпоративной почтой для уведомлений</li>
-                  </ul>
+              <div class="m-side-info">
+                <div class="m-block stack">
+                  <label>TECHNICAL_INFRA</label>
+                  <div class="stack-tags">
+                    <span class="highlight-tag">Laravel 12</span><span>MySQL 8.0</span>
+                    <span>Redis</span><span>Inertia.js</span><span>Docker</span>
+                  </div>
                 </div>
 
-                <div class="m-side-info">
-                  <div class="m-block stack">
-                    <label>TECHNICAL_INFRA</label>
-                    <div class="stack-tags">
-                      <span class="highlight-tag">Laravel 12</span><span>MySQL 8.0</span>
-                      <span>Redis</span><span>Inertia.js</span><span>Docker</span>
-                    </div>
-                  </div>
-
-                  <div class="m-block impact">
-                    <label>PRODUCTION_RESULT</label>
-                    <div class="impact-content">
-                      <div class="stat">48h</div>
-                      <p>MVP за рекордные сроки. Повышение скорости обработки заявок на <b>40%</b>.</p>
-                    </div>
+                <div class="m-block impact">
+                  <label>PRODUCTION_RESULT</label>
+                  <div class="impact-content">
+                    <div class="stat">48h</div>
+                    <p>MVP за рекордные сроки. Повышение скорости обработки заявок на <b>40%</b>.</p>
                   </div>
                 </div>
               </div>
+            </div>
 
               <div class="m-actions">
-                <a href="https://github.com/kukakamakaka/qazaqgaz-test/tree/main/Desktop/qazaqgaz-test" target="_blank" class="btn-s full-width">
+                <a href="https://github.com/kukakamakaka/qazaqgaz-test" target="_blank" class="btn-s full-width">
                   EXPLORE_REPOS_STRUCTURE <span>→</span>
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
+            </div> </div>
 
-        <div v-else-if="selectedProject === 3" class="modal-backdrop" @click.self="closeProject">
-          <div class="modal-window showcase">
+          <div v-else-if="selectedProject === 3" class="modal-window showcase">
             <button class="close-x-btn" @click="closeProject" aria-label="Close">
               <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
               <span class="close-hint">ESC</span>
@@ -367,12 +453,9 @@
                   PROJECT_STRUCTURE // VIEW_ON_GITHUB <span>→</span>
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
+            </div> </div>
 
-        <div v-else-if="selectedProject === 4" class="modal-backdrop" @click.self="closeProject">
-          <div class="modal-window dashboard">
+          <div v-else-if="selectedProject === 4" class="modal-window dashboard">
             <button class="close-x-btn" @click="closeProject">
               <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
               <span class="close-hint">ESC</span>
@@ -425,19 +508,14 @@
                 </div>
               </div>
 
-
-
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/soc-anomaly-app" target="_blank" class="btn-s full-width">
                   SYSTEM_ARCHITECTURE_SOURCE <span>→</span>
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
+            </div> </div>
 
-        <div v-else-if="selectedProject === 5" class="modal-backdrop" @click.self="closeProject">
-          <div class="modal-window showcase">
+          <div v-else-if="selectedProject === 5" class="modal-window showcase">
             <button class="close-x-btn" @click="closeProject" aria-label="Close">
               <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
               <span class="close-hint">ESC</span>
@@ -464,43 +542,41 @@
                     <div class="gallery-slide"><img src="../assets/projects/project3/3.jpg" alt="Photo Analysis"></div>
                   </div>
                 </div>
+              </div> <div class="m-details-row extended">
+              <div class="m-block description">
+                <label>INTELLIGENT_ENGINE</label>
+                <p class="long-text">
+                  Уникальность системы заключается в <b>Multi-Model Support</b>: приложение может переключаться между облачными GPT-4o и локальными моделями через Ollama.
+                </p>
+                <ul class="compact-list">
+                  <li>Photo Analysis: Интеллектуальный анализ снимков с конвертацией HEIC.</li>
+                  <li>Privacy First: Возможность работы полностью оффлайн (Mistral/SmolLM).</li>
+                  <li>Smart Dashboard: Расчет ИМТ и персонализация советов.</li>
+                </ul>
               </div>
 
-              <div class="m-details-row extended">
-                <div class="m-block description">
-                  <label>INTELLIGENT_ENGINE</label>
-                  <p class="long-text">
-                    Уникальность системы заключается в <b>Multi-Model Support</b>: приложение может переключаться между облачными GPT-4o и локальными моделями через Ollama для полной конфиденциальности данных.
-                  </p>
-                  <ul class="compact-list">
-                    <li>Photo Analysis: Интеллектуальный анализ снимков с конвертацией HEIC.</li>
-                    <li>Privacy First: Возможность работы полностью оффлайн (Mistral/SmolLM).</li>
-                    <li>Smart Dashboard: Расчет ИМТ и персонализация советов.</li>
-                  </ul>
+              <div class="m-side-info">
+                <div class="m-block stack">
+                  <label>AI_TECH_STACK</label>
+                  <div class="stack-tags">
+                    <span class="highlight-tag">Flask</span><span class="highlight-tag">OpenAI API</span>
+                    <span>Ollama</span><span>HuggingFace</span><span>SQLAlchemy</span>
+                  </div>
                 </div>
 
-                <div class="m-side-info">
-                  <div class="m-block stack">
-                    <label>AI_TECH_STACK</label>
-                    <div class="stack-tags">
-                      <span class="highlight-tag">Flask</span><span class="highlight-tag">OpenAI API</span>
-                      <span>Ollama</span><span>HuggingFace</span><span>SQLAlchemy</span>
-                    </div>
-                  </div>
-
-                  <div class="m-block impact">
-                    <label>PROJECT_PURPOSE</label>
-                    <div class="impact-content">
-                      <div class="stat">AI</div>
-                      <p>Демонстрация интеграции LLM в реальные веб-интерфейсы с фокусом на <b>Data Privacy</b>.</p>
-                    </div>
+                <div class="m-block impact">
+                  <label>PROJECT_PURPOSE</label>
+                  <div class="impact-content">
+                    <div class="stat">AI</div>
+                    <p>Демонстрация интеграции LLM в реальные веб-интерфейсы с фокусом на <b>Data Privacy</b>.</p>
                   </div>
                 </div>
               </div>
+            </div>
 
               <div class="m-block structure-view" style="border-left: 2px solid #e74c3c;">
                 <label style="color: #e74c3c;"> MEDICAL_DISCLAIMER</label>
-                <p style="font-size: 0.75rem; color: #888;">Проект носит образовательный характер. ИИ-рекомендации не являются медицинским диагнозом. Всегда консультируйтесь с врачом.</p>
+                <p style="font-size: 0.75rem; color: #888;">Проект носит образовательный характер. ИИ-рекомендации не являются медицинским диагнозом.</p>
               </div>
 
               <div class="m-actions">
@@ -508,13 +584,9 @@
                   EXPLORE_AI_LOGIC <span>→</span>
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
+            </div> </div>
 
-
-        <div v-else-if="selectedProject === 6" class="modal-backdrop" @click.self="closeProject">
-          <div class="modal-window showcase">
+          <div v-else-if="selectedProject === 6" class="modal-window showcase">
             <button class="close-x-btn" @click="closeProject" aria-label="Close">
               <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
               <span class="close-hint">ESC</span>
@@ -541,52 +613,46 @@
                     <div class="gallery-slide"><img src="../assets/projects/project5/3.jpg" alt="User History & Profile"></div>
                   </div>
                 </div>
+              </div> <div class="m-details-row extended">
+              <div class="m-block description">
+                <label>PLATFORM_CAPABILITIES</label>
+                <p class="long-text">
+                  Масштабный проект, включающий более <b>20+ страниц</b> уникальных шаблонов. Система объединяет онлайн-просмотр, социальное взаимодействие через Community Chat.
+                </p>
+                <ul class="compact-list">
+                  <li>Movie Engine: Динамический каталог с фильтрацией по жанрам.</li>
+                  <li>Social: Интерактивный чат на JSON-хранилище.</li>
+                  <li>Profile: Кастомизация данных пользователя и аватаров.</li>
+                </ul>
               </div>
 
-              <div class="m-details-row extended">
-                <div class="m-block description">
-                  <label>PLATFORM_CAPABILITIES</label>
-                  <p class="long-text">
-                    Масштабный проект, включающий более <b>20+ страниц</b> уникальных шаблонов. Система объединяет онлайн-просмотр, социальное взаимодействие через Community Chat и персонализированную историю просмотров.
-                  </p>
-                  <ul class="compact-list">
-                    <li>Movie Engine: Динамический каталог с фильтрацией по жанрам и рейтингу.</li>
-                    <li>Social: Интерактивный чат на JSON-хранилище для обсуждения премьер.</li>
-                    <li>Profile: Кастомизация данных пользователя и управление аватарами.</li>
-                  </ul>
+              <div class="m-side-info">
+                <div class="m-block stack">
+                  <label>STREAMING_STACK</label>
+                  <div class="stack-tags">
+                    <span class="highlight-tag">Flask</span><span>SQLAlchemy</span>
+                    <span>Jinja2</span><span>Python</span><span>JSON Logic</span>
+                  </div>
                 </div>
 
-                <div class="m-side-info">
-                  <div class="m-block stack">
-                    <label>STREAMING_STACK</label>
-                    <div class="stack-tags">
-                      <span class="highlight-tag">Flask</span><span>SQLAlchemy</span>
-                      <span>Jinja2</span><span>Python</span><span>JSON Logic</span>
-                    </div>
-                  </div>
-
-                  <div class="m-block impact">
-                    <label>SYSTEM_SCALE</label>
-                    <div class="impact-content">
-                      <div class="stat">20+</div>
-                      <p>Страниц динамических шаблонов. Полная адаптивность под <b>Cinema Mode</b>.</p>
-                    </div>
+                <div class="m-block impact">
+                  <label>SYSTEM_SCALE</label>
+                  <div class="impact-content">
+                    <div class="stat">20+</div>
+                    <p>Страниц динамических шаблонов. Адаптивность под <b>Cinema Mode</b>.</p>
                   </div>
                 </div>
               </div>
+            </div>
 
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/viva-cine" target="_blank" class="btn-s full-width">
                   EXPLORE_FRONTEND_STRUCTURE <span>→</span>
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
+            </div> </div>
 
-
-        <div v-else-if="selectedProject === 7" class="modal-backdrop" @click.self="closeProject">
-          <div class="modal-window showcase">
+          <div v-else-if="selectedProject === 7" class="modal-window showcase">
             <button class="close-x-btn" @click="closeProject" aria-label="Close">
               <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
               <span class="close-hint">ESC</span>
@@ -613,51 +679,46 @@
                     <div class="gallery-slide"><img src="../assets/projects/project6/3.jpg" alt="Admin Dashboard"></div>
                   </div>
                 </div>
+              </div> <div class="m-details-row extended">
+              <div class="m-block description">
+                <label>BACKEND_ARCHITECTURE</label>
+                <p class="long-text">
+                  Проект демонстрирует реализацию полноценного <b>RESTful API</b>. Использование FastAPI обеспечивает высокую производительность.
+                </p>
+                <ul class="compact-list">
+                  <li>Auto-Documentation: Полная поддержка Swagger UI и ReDoc.</li>
+                  <li>Routing Logic: Четкое разделение бизнес-логики на модули.</li>
+                  <li>CRUD Cycle: Реализован полный цикл управления контентом.</li>
+                </ul>
               </div>
 
-              <div class="m-details-row extended">
-                <div class="m-block description">
-                  <label>BACKEND_ARCHITECTURE</label>
-                  <p class="long-text">
-                    Проект демонстрирует реализацию полноценного <b>RESTful API</b>. Использование FastAPI обеспечивает высокую производительность, а SQLAlchemy ORM позволяет гибко управлять данными автомобилей в базе `cars_gallery.db`.
-                  </p>
-                  <ul class="compact-list">
-                    <li>Auto-Documentation: Полная поддержка Swagger UI и ReDoc для тестирования эндпоинтов.</li>
-                    <li>Routing Logic: Четкое разделение бизнес-логики на модули (Users & Cars).</li>
-                    <li>CRUD Cycle: Реализован полный цикл управления контентом галереи.</li>
-                  </ul>
+              <div class="m-side-info">
+                <div class="m-block stack">
+                  <label>API_TECH_STACK</label>
+                  <div class="stack-tags">
+                    <span class="highlight-tag">FastAPI</span><span class="highlight-tag">Uvicorn</span>
+                    <span>SQLAlchemy</span><span>Jinja2</span><span>SQLite</span>
+                  </div>
                 </div>
 
-                <div class="m-side-info">
-                  <div class="m-block stack">
-                    <label>API_TECH_STACK</label>
-                    <div class="stack-tags">
-                      <span class="highlight-tag">FastAPI</span><span class="highlight-tag">Uvicorn</span>
-                      <span>SQLAlchemy</span><span>Jinja2</span><span>SQLite</span>
-                    </div>
-                  </div>
-
-                  <div class="m-block impact">
-                    <label>DEVELOPER_TOOLS</label>
-                    <div class="impact-content">
-                      <div class="stat">V.2</div>
-                      <p>Разделение на <b>Routers</b> для масштабируемости API структуры.</p>
-                    </div>
+                <div class="m-block impact">
+                  <label>DEVELOPER_TOOLS</label>
+                  <div class="impact-content">
+                    <div class="stat">V.2</div>
+                    <p>Разделение на <b>Routers</b> для масштабируемости API структуры.</p>
                   </div>
                 </div>
               </div>
+            </div>
 
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/cargallery" target="_blank" class="btn-s full-width">
                   VIEW_API_STRUCTURE <span>→</span>
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
+            </div> </div>
 
-        <div v-else-if="selectedProject === 8" class="modal-backdrop" @click.self="closeProject">
-          <div class="modal-window showcase">
+          <div v-else-if="selectedProject === 8" class="modal-window showcase">
             <button class="close-x-btn" @click="closeProject" aria-label="Close">
               <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
               <span class="close-hint">ESC</span>
@@ -684,51 +745,46 @@
                     <div class="gallery-slide"><img src="../assets/projects/project4/3.jpg" alt="PDF Menu Integration"></div>
                   </div>
                 </div>
+              </div> <div class="m-details-row extended">
+              <div class="m-block description">
+                <label>USER_EXPERIENCE</label>
+                <p class="long-text">
+                  Проект ориентирован на максимальную визуализацию бренда. Реализовано интерактивное меню с динамической подгрузкой блюд и цен.
+                </p>
+                <ul class="compact-list">
+                  <li>Interactive Menu: Удобная навигация по категориям блюд.</li>
+                  <li>Media Management: Оптимизированная галерея интерьера и кухни.</li>
+                  <li>Scalability: Легкое добавление новых позиций через database.py.</li>
+                </ul>
               </div>
 
-              <div class="m-details-row extended">
-                <div class="m-block description">
-                  <label>USER_EXPERIENCE</label>
-                  <p class="long-text">
-                    Проект ориентирован на максимальную визуализацию бренда. Реализовано интерактивное меню с динамической подгрузкой блюд и цен, а также интеграция с PDF-модулем для скачивания меню в один клик.
-                  </p>
-                  <ul class="compact-list">
-                    <li>Interactive Menu: Удобная навигация по категориям блюд.</li>
-                    <li>Media Management: Оптимизированная галерея интерьера и кухни.</li>
-                    <li>Scalability: Легкое добавление новых позиций через database.py.</li>
-                  </ul>
+              <div class="m-side-info">
+                <div class="m-block stack">
+                  <label>RESTO_STACK</label>
+                  <div class="stack-tags">
+                    <span class="highlight-tag">Flask</span><span>Jinja2</span>
+                    <span>SQLite</span><span>Python</span><span>PDF_Integration</span>
+                  </div>
                 </div>
 
-                <div class="m-side-info">
-                  <div class="m-block stack">
-                    <label>RESTO_STACK</label>
-                    <div class="stack-tags">
-                      <span class="highlight-tag">Flask</span><span>Jinja2</span>
-                      <span>SQLite</span><span>Python</span><span>PDF_Integration</span>
-                    </div>
-                  </div>
-
-                  <div class="m-block impact">
-                    <label>FRONTEND_FLOW</label>
-                    <div class="impact-content">
-                      <div class="stat">UI</div>
-                      <p>Чистый и современный дизайн с упором на <b>Conversion Rate</b> и эстетику.</p>
-                    </div>
+                <div class="m-block impact">
+                  <label>FRONTEND_FLOW</label>
+                  <div class="impact-content">
+                    <div class="stat">UI</div>
+                    <p>Чистый и современный дизайн с упором на <b>Conversion Rate</b> и эстетику.</p>
                   </div>
                 </div>
               </div>
+            </div>
 
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/restaurant" target="_blank" class="btn-s full-width">
                   EXPLORE_RESTAURANT_LOGIC <span>→</span>
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
+            </div> </div>
 
-        <div v-else-if="selectedProject === 9" class="modal-backdrop" @click.self="closeProject">
-          <div class="modal-window showcase">
+          <div v-else-if="selectedProject === 9" class="modal-window showcase">
             <button class="close-x-btn" @click="closeProject" aria-label="Close">
               <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
               <span class="close-hint">ESC</span>
@@ -755,94 +811,50 @@
                     <div class="gallery-slide"><img src="../assets/projects/project7/3.jpg" alt="Contact & Location Map"></div>
                   </div>
                 </div>
+              </div> <div class="m-details-row extended">
+              <div class="m-block description">
+                <label>BUSINESS_SOLUTION</label>
+                <p class="long-text">
+                  Разработка официального представительства компании SKT-Orken. Основной упор сделан на чистоту кода и строгий корпоративный стиль.
+                </p>
+                <ul class="compact-list">
+                  <li>Custom Routing: Настройка маршрутизации через Flask.</li>
+                  <li>Asset Management: Оптимизация статических ресурсов (CSS/JS).</li>
+                  <li>Production Ready: Настройка конфигурации и окружения для деплоя.</li>
+                </ul>
               </div>
 
-              <div class="m-details-row extended">
-                <div class="m-block description">
-                  <label>BUSINESS_SOLUTION</label>
-                  <p class="long-text">
-                    Разработка официального представительства компании SKT-Orken. Основной упор сделан на чистоту кода, высокую скорость загрузки и строгий корпоративный стиль. Проект полностью адаптирован под мобильные устройства.
-                  </p>
-                  <ul class="compact-list">
-                    <li>Custom Routing: Настройка маршрутизации через Flask для многостраничной структуры.</li>
-                    <li>Asset Management: Оптимизация статических ресурсов (CSS/JS) для быстрой работы.</li>
-                    <li>Production Ready: Настройка конфигурации порта (5009) и окружения для деплоя.</li>
-                  </ul>
+              <div class="m-side-info">
+                <div class="m-block stack">
+                  <label>CORP_STACK</label>
+                  <div class="stack-tags">
+                    <span class="highlight-tag">Python 3.12</span><span class="highlight-tag">Flask</span>
+                    <span>HTML5/CSS3</span><span>JavaScript</span><span>Virtualenv</span>
+                  </div>
                 </div>
 
-                <div class="m-side-info">
-                  <div class="m-block stack">
-                    <label>CORP_STACK</label>
-                    <div class="stack-tags">
-                      <span class="highlight-tag">Python 3.12</span><span class="highlight-tag">Flask</span>
-                      <span>HTML5/CSS3</span><span>JavaScript</span><span>Virtualenv</span>
-                    </div>
-                  </div>
-
-                  <div class="m-block impact">
-                    <label>PROJECT_FOCUS</label>
-                    <div class="impact-content">
-                      <div class="stat">UX</div>
-                      <p>Акцент на информативность и удобную навигацию для B2B сегмента.</p>
-                    </div>
+                <div class="m-block impact">
+                  <label>PROJECT_FOCUS</label>
+                  <div class="impact-content">
+                    <div class="stat">UX</div>
+                    <p>Акцент на информативность и удобную навигацию для B2B сегмента.</p>
                   </div>
                 </div>
               </div>
+            </div>
 
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/skt-orken-site" target="_blank" class="btn-s full-width">
                   VIEW_CORPORATE_CODE <span>→</span>
                 </a>
               </div>
-            </div>
-          </div>
+            </div> </div>
+
         </div>
       </Transition>
     </Teleport>
   </section>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue';
-import { gsap } from 'gsap';
-
-const selectedProject = ref<number | null>(null);
-
-const openProject = (id: number) => {
-  selectedProject.value = id;
-  document.body.style.overflow = 'hidden';
-};
-
-const closeProject = () => {
-  selectedProject.value = null;
-  document.body.style.overflow = 'auto';
-};
-
-const onEnter = (el: any) => {
-  const tl = gsap.timeline();
-  tl.fromTo(el, { opacity: 0 }, { duration: 0.3, opacity: 1 })
-      .fromTo('.modal-window', { y: 40, opacity: 0, scale: 0.95 }, { duration: 0.5, y: 0, opacity: 1, scale: 1, ease: 'expo.out' })
-      .from('.m-block', { opacity: 0, y: 20, stagger: 0.05, duration: 0.4 }, "-=0.2");
-};
-
-const onLeave = (el: any, done: any) => {
-  gsap.to(el, { duration: 0.3, opacity: 0, scale: 0.9, onComplete: done });
-};
-
-
-const projectSlider = ref<HTMLElement | null>(null);
-
-const scrollSlider = (direction: 'next' | 'prev') => {
-  if (projectSlider.value) {
-    const scrollAmount = projectSlider.value.clientWidth;
-    projectSlider.value.scrollBy({
-      left: direction === 'next' ? scrollAmount : -scrollAmount,
-      behavior: 'smooth'
-    });
-  }
-};
-</script>
-
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@900&family=Inter:wght@400;700;800&display=swap');
 
@@ -1383,55 +1395,55 @@ const scrollSlider = (direction: 'next' | 'prev') => {
 
 /* --- MOBILE ADAPTIVE OPTIMIZATION --- */
 @media (max-width: 768px) {
-  /* 1. Жалпы сыртқы шегіністерді азайту */
+
   .projects-wrapper {
-    padding: 60px 15px; /* Шеттегі бос орынды азайттық */
+    padding: 60px 15px;
   }
 
   .main-title {
-    font-size: 2.2rem; /* Тақырыпты кішірейту */
+    font-size: 2.2rem;
     line-height: 1.1;
   }
 
-  /* 2. Grid-ті 1 бағанға қою және карточка биіктігін икемді ету */
+
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 15px;
   }
 
   .p-card {
-    height: 320px; /* Биіктігін сәл азайттық */
+    height: 320px;
   }
 
   .card-content {
-    padding: 25px; /* Ішкі шегіністерді азайттық */
+    padding: 25px;
   }
 
   .project-name {
     font-size: 1.4rem;
   }
 
-  /* 3. МОДАЛЬДЫ ТЕРЕЗЕ (Showcase & Dashboard) ОПТИМИЗАЦИЯСЫ */
+
   .modal-backdrop {
-    padding: 10px; /* Мобильде шетіне тиіп тұрмауы үшін */
+    padding: 10px;
   }
 
   .modal-window.dashboard,
   .modal-window.showcase {
     padding: 20px;
-    height: 92vh; /* Экранның көбін алады */
+    height: 92vh;
     display: flex;
     flex-direction: column;
   }
 
   .m-title {
-    font-size: 1.6rem; /* Модаль ішіндегі тақырып */
+    font-size: 1.6rem;
     line-height: 1.2;
   }
 
-  /* 4. СЛАЙДЕР ЖӘНЕ ГАЛЕРЕЯ */
+
   .gallery-slide img {
-    max-height: 40vh; /* Сурет тым үлкен болмауы үшін */
+    max-height: 40vh;
   }
 
   .nav-slide {
@@ -1443,14 +1455,14 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   .nav-slide.prev { left: 10px; }
   .nav-slide.next { right: 10px; }
 
-  /* 5. ИНФО-БЛОКТАРДЫ БІР БАҒАНҒА ҚОЮ */
+
   .m-main-grid,
   .m-details-row.extended {
     grid-template-columns: 1fr;
     gap: 15px;
   }
 
-  /* 6. STAT (Impact) КІШІРЕЙТУ */
+
   .stat {
     font-size: 2.2rem;
   }
@@ -1459,18 +1471,18 @@ const scrollSlider = (direction: 'next' | 'prev') => {
     gap: 10px;
   }
 
-  /* 7. БАТЫРМАЛАРДЫ ЫҢҒАЙЛЫ ЕТУ */
+
   .m-actions {
-    flex-direction: column; /* Батырмалар бірінің астына бірі */
+    flex-direction: column;
     gap: 8px;
   }
 
   .btn-p, .btn-s {
     padding: 15px;
-    width: 100%; /* Толық ені */
+    width: 100%;
   }
 
-  /* 8. CLOSE BUTTON (Жабу батырмасы) */
+
   .close-x-btn {
     top: 10px;
     right: 10px;
@@ -1479,7 +1491,7 @@ const scrollSlider = (direction: 'next' | 'prev') => {
   }
 
   .close-hint {
-    display: none; /* Мобильде "ESC" деген жазуды алып тастаймыз */
+    display: none;
   }
 }
 </style>
