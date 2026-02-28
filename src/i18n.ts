@@ -160,7 +160,7 @@ const messages = {
                 },
                 "3": {
                     title: "IRONN DYNASTY",
-                    category: "HEALTH_TECH",
+                    category: "FITNESS_SITE",
                     status: "PROJECT",
                     tagline: "Full-stack web application for activity tracking and fitness journey",
                     badge: "FITNESS_MONITORING // LIVE_ON_PRODUCTION",
@@ -179,7 +179,7 @@ const messages = {
                 "4": {
                     title: "SOC DETECTOR",
                     category: "CYBER_SECURITY",
-                    status: "PROJECT",
+                    status: "PROJECT IN RROGRESS",
                     badge_status: "IN_PROGRESS",
                     tagline: "Microservice for real-time security log analysis",
                     badge: "CYBERSECURITY // MVP_UNDER_DEV",
@@ -195,6 +195,28 @@ const messages = {
                     impact_stat: "ASYNC",
                     impact_desc: "Integrated <b>anomaly_detector.py</b> module for stream deviation search.",
                     action_btn: "SYSTEM_ARCHITECTURE_SOURCE"
+                },
+                "5": {
+                    title: "AI DETECTOR",
+                    category: "AI_DETECTOR",
+                    status: "PROJECT",
+                    tagline: "Personal AI analyst for symptoms and health monitoring",
+                    badge: "AI_MEDICAL_ASSISTANT // DEMO_PROJECT",
+                    engine_label: "INTELLIGENT_ENGINE",
+                    description: "The system uniqueness lies in <b>Multi-Model Support</b>: the app can switch between cloud GPT-4o and local models via Ollama.",
+                    features: [
+                        "Photo Analysis: Intelligent image analysis with HEIC conversion.",
+                        "Privacy First: Fully offline operation capability (Mistral/SmolLM).",
+                        "Smart Dashboard: BMI calculation and personalized advice."
+                    ],
+                    tech_label: "AI_TECH_STACK",
+                    tech: ["Flask", "OpenAI API", "Ollama", "HuggingFace", "SQLAlchemy"],
+                    impact_label: "PROJECT_PURPOSE",
+                    impact_stat: "AI",
+                    impact_desc: "Demonstration of LLM integration into real web interfaces with a focus on <b>Data Privacy</b>.",
+                    disclaimer_label: "MEDICAL_DISCLAIMER",
+                    disclaimer_text: "The project is for educational purposes. AI recommendations are not a medical diagnosis.",
+                    action_btn: "EXPLORE_AI_LOGIC"
                 },
             }
         },
@@ -337,7 +359,7 @@ const messages = {
             viewProject: "СМОТРЕТЬ ПРОЕКТ",
             viewGithub: "СМОТРЕТЬ GITHUB",
             archive: "// АРХИВ_2026",
-            view_details: "ПОДРОБНЕЕ",
+            view_details: "СМОТРЕТЬ ПРОЕКТ",
             production: "ПРОЕКТ",
             tech_stack: "СТЕК ТЕХНОЛОГИЙ",
             logic_flow: "ЛОГИКА РАБОТЫ",
@@ -417,6 +439,28 @@ const messages = {
                     impact_stat: "ASYNC",
                     impact_desc: "Интегрированный модуль <b>anomaly_detector.py</b> для поиска отклонений в потоке.",
                     action_btn: "ИСХОДНЫЙ КОД АРХИТЕКТУРЫ"
+                },
+                "5": {
+                    title: "AI DETECTOR",
+                    category: "ИИ ДЕТЕКТОР",
+                    status: "ПРОЕКТ",
+                    tagline: "Персональный ИИ-аналитик симптомов и состояния здоровья",
+                    badge: "AI_MEDICAL_ASSISTANT // DEMO_PROJECT",
+                    engine_label: "ИНТЕЛЛЕКТУАЛЬНЫЙ ДВИЖОК",
+                    description: "Уникальность системы заключается в <b>Multi-Model Support</b>: приложение может переключаться между облачными GPT-4o и локальными моделями через Ollama.",
+                    features: [
+                        "Photo Analysis: Интеллектуальный анализ снимков с конвертацией HEIC.",
+                        "Privacy First: Возможность работы полностью оффлайн (Mistral/SmolLM).",
+                        "Smart Dashboard: Расчет ИМТ и персонализация советов."
+                    ],
+                    tech_label: "AI_СТЕК",
+                    tech: ["Flask", "OpenAI API", "Ollama", "HuggingFace", "SQLAlchemy"],
+                    impact_label: "ЦЕЛЬ ПРОЕКТА",
+                    impact_stat: "AI",
+                    impact_desc: "Демонстрация интеграции LLM в реальные веб-интерфейсы с фокусом на <b>Data Privacy</b>.",
+                    disclaimer_label: "ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ",
+                    disclaimer_text: "Проект носит образовательный характер. ИИ-рекомендации не являются медицинским диагнозом.",
+                    action_btn: "ИЗУЧИТЬ ЛОГИКУ ИИ"
                 },
             }
         },
@@ -556,7 +600,7 @@ const messages = {
             title1: 'ТАҢДАУЛЫ',
             title2: 'ЖҰМЫСТАР',
             archive: "// МҰРАҒАТ_2026",
-            view_details: "ТОЛЫҒЫРАҚ",
+            view_details: "ЖОБАҒА ҚАРАУ",
             production: "ПРОЕКТ",
             tech_stack: "ТЕХНОЛОГИЯЛАР",
             logic_flow: "ЖҰМЫС ЛОГИКАСЫ",
@@ -638,6 +682,28 @@ const messages = {
                     impact_stat: "ASYNC",
                     impact_desc: "Ағындағы ауытқуларды іздеуге арналған интеграцияланған <b>anomaly_detector.py</b> модулі.",
                     action_btn: "ЖҮЙЕ АРХИТЕКТУРАСЫНЫҢ КОДЫ"
+                },
+                "5": {
+                    title: "AI DETECTOR",
+                    category: "ИИ ДЕТЕКТОР",
+                    status: "ПРОЕКТ",
+                    tagline: "Симптомдар мен денсаулық жағдайын талдауға арналған жеке ИИ-сарапшы",
+                    badge: "AI_MEDICAL_ASSISTANT // DEMO_PROJECT",
+                    engine_label: "ИНТЕЛЛЕКТУАЛДЫ МОТОР",
+                    description: "Жүйенің бірегейлігі <b>Multi-Model Support</b> мүмкіндігінде: қосымша бұлттық GPT-4o және Ollama арқылы жергілікті модельдер арасында ауыса алады.",
+                    features: [
+                        "Photo Analysis: HEIC конвертациясымен суреттерді зияткерлік талдау.",
+                        "Privacy First: Толық офлайн режимде жұмыс істеу мүмкіндігі (Mistral/SmolLM).",
+                        "Smart Dashboard: Дене салмағының индексін (BMI) есептеу және кеңестер.",
+                    ],
+                    tech_label: "ИИ ТЕХНОЛОГИЯЛАРЫ",
+                    tech: ["Flask", "OpenAI API", "Ollama", "HuggingFace", "SQLAlchemy"],
+                    impact_label: "ЖОБА МАЗМҰНЫ",
+                    impact_stat: "AI",
+                    impact_desc: "LLM модельдерін нақты веб-интерфейстерге <b>Деректер құпиялылығына</b> назар аудара отырып интеграциялау демосы.",
+                    disclaimer_label: "МЕДИЦИНАЛЫҚ ЕСКЕРТУ",
+                    disclaimer_text: "Жоба білім беру сипатына ие. ИИ ұсыныстары медициналық диагноз болып табылмайды.",
+                    action_btn: "ИИ ЛОГИКАСЫН ЗЕРТТЕУ"
                 },
             }
         },

@@ -176,23 +176,27 @@ const scrollSlider = (direction: 'next' | 'prev') => {
       </div>
 
       <div class="p-card active" @click="openProject(5)">
-
         <div class="card-bg-overlay">
           <img src="../assets/projects/project3/main.jpg" class="card-img-preview" alt="Aika AI">
         </div>
 
         <div class="card-content">
           <div class="card-top">
-            <div class="status-indicator"><span class="pulse"></span> AI_READY</div>
+            <div class="status-indicator">
+              <span class="pulse"></span>
+              {{ locale.t('projects.items.5.status') }}
+            </div>
             <span class="index">05</span>
           </div>
           <div class="card-body">
-            <span class="category">HEALTH_TECH // AI</span>
-            <h3 class="project-name">AI DETECTOR</h3>
+            <span class="category">{{ locale.t('projects.items.5.category') }}</span>
+            <h3 class="project-name">{{ locale.t('projects.items.5.title') }}</h3>
           </div>
           <div class="card-footer">
-            <div class="tech-stack">FLASK • OPENAI • OLLAMA</div>
-            <div class="explore-btn">VIEW_CASE <span>→</span></div>
+            <div class="tech-stack">
+              {{ locale.t('projects.items.5.tech').slice(0, 3).join(' • ') }}
+            </div>
+            <div class="explore-btn">{{ locale.t('projects.viewProject') }} <span>→</span></div>
           </div>
         </div>
       </div>
@@ -553,67 +557,68 @@ const scrollSlider = (direction: 'next' | 'prev') => {
             <div class="m-container">
               <div class="m-top">
                 <div class="m-brand">
-                  <span class="m-badge">AI_MEDICAL_ASSISTANT // DEMO_PROJECT</span>
-                  <h2 class="m-title">AI HEALTH DETECTOR </h2>
+                  <span class="m-badge">{{ locale.t('projects.items.5.badge') }}</span>
+                  <h2 class="m-title">{{ locale.t('projects.items.5.title') }}</h2>
                 </div>
-                <p class="m-tagline">Персональный ИИ-аналитик симптомов и состояния здоровья</p>
+                <p class="m-tagline">{{ locale.t('projects.items.5.tagline') }}</p>
               </div>
 
               <div class="m-block slider-wrapper">
                 <div class="gallery-viewport">
                   <button class="nav-slide prev" @click="scrollSlider('prev')">‹</button>
                   <button class="nav-slide next" @click="scrollSlider('next')">›</button>
-
                   <div class="gallery-track" ref="projectSlider">
-                    <div class="gallery-slide"><img src="../assets/projects/project3/main.jpg" alt="AI Chat Interface"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project3/main.jpg" alt="AI Chat"></div>
                     <div class="gallery-slide"><img src="../assets/projects/project3/1.jpg" alt="Health Dashboard"></div>
                     <div class="gallery-slide"><img src="../assets/projects/project3/2.jpg" alt="Symptom History"></div>
                     <div class="gallery-slide"><img src="../assets/projects/project3/3.jpg" alt="Photo Analysis"></div>
                   </div>
                 </div>
-              </div> <div class="m-details-row extended">
-              <div class="m-block description">
-                <label>INTELLIGENT_ENGINE</label>
-                <p class="long-text">
-                  Уникальность системы заключается в <b>Multi-Model Support</b>: приложение может переключаться между облачными GPT-4o и локальными моделями через Ollama.
-                </p>
-                <ul class="compact-list">
-                  <li>Photo Analysis: Интеллектуальный анализ снимков с конвертацией HEIC.</li>
-                  <li>Privacy First: Возможность работы полностью оффлайн (Mistral/SmolLM).</li>
-                  <li>Smart Dashboard: Расчет ИМТ и персонализация советов.</li>
-                </ul>
               </div>
 
-              <div class="m-side-info">
-                <div class="m-block stack">
-                  <label>AI_TECH_STACK</label>
-                  <div class="stack-tags">
-                    <span class="highlight-tag">Flask</span><span class="highlight-tag">OpenAI API</span>
-                    <span>Ollama</span><span>HuggingFace</span><span>SQLAlchemy</span>
-                  </div>
+              <div class="m-details-row extended">
+                <div class="m-block description">
+                  <label>{{ locale.t('projects.items.5.engine_label') }}</label>
+                  <p class="long-text" v-html="locale.t('projects.items.5.description')"></p>
+                  <ul class="compact-list">
+                    <li v-for="f in locale.t('projects.items.5.features')" :key="f">{{ f }}</li>
+                  </ul>
                 </div>
 
-                <div class="m-block impact">
-                  <label>PROJECT_PURPOSE</label>
-                  <div class="impact-content">
-                    <div class="stat">AI</div>
-                    <p>Демонстрация интеграции LLM в реальные веб-интерфейсы с фокусом на <b>Data Privacy</b>.</p>
+                <div class="m-side-info">
+                  <div class="m-block stack">
+                    <label>{{ locale.t('projects.items.5.tech_label') }}</label>
+                    <div class="stack-tags">
+            <span v-for="(t, index) in locale.t('projects.items.5.tech')"
+                  :key="t"
+                  :class="{ 'highlight-tag': index < 2 }">
+              {{ t }}
+            </span>
+                    </div>
+                  </div>
+
+                  <div class="m-block impact">
+                    <label>{{ locale.t('projects.items.5.impact_label') }}</label>
+                    <div class="impact-content">
+                      <div class="stat">{{ locale.t('projects.items.5.impact_stat') }}</div>
+                      <p v-html="locale.t('projects.items.5.impact_desc')"></p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
               <div class="m-block structure-view" style="border-left: 2px solid #e74c3c;">
-                <label style="color: #e74c3c;"> MEDICAL_DISCLAIMER</label>
-                <p style="font-size: 0.75rem; color: #888;">Проект носит образовательный характер. ИИ-рекомендации не являются медицинским диагнозом.</p>
+                <label style="color: #e74c3c;">{{ locale.t('projects.items.5.disclaimer_label') }}</label>
+                <p style="font-size: 0.75rem; color: #888;">{{ locale.t('projects.items.5.disclaimer_text') }}</p>
               </div>
 
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/ai-health" target="_blank" class="btn-s full-width">
-                  EXPLORE_AI_LOGIC <span>→</span>
+                  {{ locale.t('projects.items.5.action_btn') }} <span>→</span>
                 </a>
               </div>
-            </div> </div>
+            </div>
+          </div>
 
           <div v-else-if="selectedProject === 6" class="modal-window showcase">
             <button class="close-x-btn" @click="closeProject" aria-label="Close">
