@@ -231,45 +231,51 @@ const scrollSlider = (direction: 'next' | 'prev') => {
       </div>
 
       <div class="p-card active" @click="openProject(7)">
-
         <div class="card-bg-overlay">
           <img src="../assets/projects/project6/main.jpg" class="card-img-preview" alt="Car Gallery Preview">
         </div>
 
         <div class="card-content">
           <div class="card-top">
-            <div class="status-indicator"><span class="pulse"></span> STABLE</div>
+            <div class="status-indicator"><span class="pulse"></span> {{ locale.t('projects.items.7.status') }}</div>
             <span class="index">07</span>
           </div>
           <div class="card-body">
-            <span class="category">AUTO_SHOWCASE // CRUD</span>
-            <h3 class="project-name">CAR GALLERY</h3>
+            <span class="category">{{ locale.t('projects.items.7.category') }}</span>
+            <h3 class="project-name">{{ locale.t('projects.items.7.title') }}</h3>
           </div>
           <div class="card-footer">
-            <div class="tech-stack">FASTAPI • SQLALCHEMY • UVICORN</div>
-            <div class="explore-btn">OPEN_API <span>→</span></div>
+            <div class="tech-stack">
+              {{ locale.t('projects.items.7.tech').slice(0, 3).join(' • ').toUpperCase() }}
+            </div>
+            <div class="explore-btn">
+              {{ locale.t('projects.items.7.action_btn') }} <span>→</span>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="p-card active" @click="openProject(8)">
-
         <div class="card-bg-overlay">
-          <img src="../assets/projects/project4/main.jpg" class="card-img-preview" alt="Restaurant App Preview">
+          <img src="../assets/projects/project4/main.jpg" class="card-img-preview" alt="Restaurant Preview">
         </div>
 
         <div class="card-content">
           <div class="card-top">
-            <div class="status-indicator"><span class="pulse"></span> PRODUCTION</div>
+            <div class="status-indicator"><span class="pulse"></span> {{ locale.t('projects.items.8.status') }}</div>
             <span class="index">08</span>
           </div>
           <div class="card-body">
-            <span class="category">FOOD_TECH // CMS</span>
-            <h3 class="project-name">RESTAURANT APP</h3>
+            <span class="category">{{ locale.t('projects.items.8.category') }}</span>
+            <h3 class="project-name">{{ locale.t('projects.items.8.title') }}</h3>
           </div>
           <div class="card-footer">
-            <div class="tech-stack">FLASK • JINJA2 • SQLITE</div>
-            <div class="explore-btn">VIEW_SITE <span>→</span></div>
+            <div class="tech-stack">
+              {{ locale.t('projects.items.8.tech').slice(0, 3).join(' • ').toUpperCase() }}
+            </div>
+            <div class="explore-btn">
+              {{ locale.t('projects.items.8.action_btn') }} <span>→</span>
+            </div>
           </div>
         </div>
       </div>
@@ -283,16 +289,20 @@ const scrollSlider = (direction: 'next' | 'prev') => {
 
         <div class="card-content">
           <div class="card-top">
-            <div class="status-indicator"><span class="pulse"></span> LIVE</div>
+            <div class="status-indicator"><span class="pulse"></span> {{ locale.t('projects.items.9.status') }}</div>
             <span class="index">09</span>
           </div>
           <div class="card-body">
-            <span class="category">BUSINESS // INDUSTRY</span>
-            <h3 class="project-name">SKT-ORKEN</h3>
+            <span class="category">{{ locale.t('projects.items.9.category') }}</span>
+            <h3 class="project-name">{{ locale.t('projects.items.9.title') }}</h3>
           </div>
           <div class="card-footer">
-            <div class="tech-stack">FLASK • PYTHON 3.12 • CSS3</div>
-            <div class="explore-btn">VISIT_SITE <span>→</span></div>
+            <div class="tech-stack">
+              {{ locale.t('projects.items.9.tech').slice(0, 3).join(' • ').toUpperCase() }}
+            </div>
+            <div class="explore-btn">
+              {{ locale.t('projects.items.9.action_btn') }} <span>→</span>
+            </div>
           </div>
         </div>
       </div>
@@ -699,10 +709,10 @@ const scrollSlider = (direction: 'next' | 'prev') => {
             <div class="m-container">
               <div class="m-top">
                 <div class="m-brand">
-                  <span class="m-badge">HIGH_PERFORMANCE_API // CRUD_SYSTEM</span>
-                  <h2 class="m-title">CAR GALLERY</h2>
+                  <span class="m-badge">{{ locale.t('projects.items.7.badge') }}</span>
+                  <h2 class="m-title">{{ locale.t('projects.items.7.title') }}</h2>
                 </div>
-                <p class="m-tagline">Стильная галерея автомобилей на базе FastAPI и SQLAlchemy</p>
+                <p class="m-tagline">{{ locale.t('projects.items.7.tagline') }}</p>
               </div>
 
               <div class="m-block slider-wrapper">
@@ -711,50 +721,52 @@ const scrollSlider = (direction: 'next' | 'prev') => {
                   <button class="nav-slide next" @click="scrollSlider('next')">›</button>
 
                   <div class="gallery-track" ref="projectSlider">
-                    <div class="gallery-slide"><img src="../assets/projects/project6/main.jpg" alt="Car Showcase UI"></div>
-                    <div class="gallery-slide"><img src="../assets/projects/project6/1.jpg" alt="Swagger API Docs"></div>
-                    <div class="gallery-slide"><img src="../assets/projects/project6/2.jpg" alt="Database Schema"></div>
-                    <div class="gallery-slide"><img src="../assets/projects/project6/3.jpg" alt="Admin Dashboard"></div>
-                  </div>
-                </div>
-              </div> <div class="m-details-row extended">
-              <div class="m-block description">
-                <label>BACKEND_ARCHITECTURE</label>
-                <p class="long-text">
-                  Проект демонстрирует реализацию полноценного <b>RESTful API</b>. Использование FastAPI обеспечивает высокую производительность.
-                </p>
-                <ul class="compact-list">
-                  <li>Auto-Documentation: Полная поддержка Swagger UI и ReDoc.</li>
-                  <li>Routing Logic: Четкое разделение бизнес-логики на модули.</li>
-                  <li>CRUD Cycle: Реализован полный цикл управления контентом.</li>
-                </ul>
-              </div>
-
-              <div class="m-side-info">
-                <div class="m-block stack">
-                  <label>API_TECH_STACK</label>
-                  <div class="stack-tags">
-                    <span class="highlight-tag">FastAPI</span><span class="highlight-tag">Uvicorn</span>
-                    <span>SQLAlchemy</span><span>Jinja2</span><span>SQLite</span>
-                  </div>
-                </div>
-
-                <div class="m-block impact">
-                  <label>DEVELOPER_TOOLS</label>
-                  <div class="impact-content">
-                    <div class="stat">V.2</div>
-                    <p>Разделение на <b>Routers</b> для масштабируемости API структуры.</p>
+                    <div class="gallery-slide"><img src="../assets/projects/project6/main.jpg" alt="Preview"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project6/1.jpg" alt="Swagger"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project6/2.jpg" alt="Database"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project6/3.jpg" alt="Admin"></div>
                   </div>
                 </div>
               </div>
-            </div>
+
+              <div class="m-details-row extended">
+                <div class="m-block description">
+                  <label>{{ locale.t('projects.items.7.arch_label') }}</label>
+                  <p class="long-text" v-html="locale.t('projects.items.7.description')"></p>
+                  <ul class="compact-list">
+                    <li v-for="f in locale.t('projects.items.7.features')" :key="f">{{ f }}</li>
+                  </ul>
+                </div>
+
+                <div class="m-side-info">
+                  <div class="m-block stack">
+                    <label>{{ locale.t('projects.items.7.tech_label') }}</label>
+                    <div class="stack-tags">
+            <span v-for="(t, index) in locale.t('projects.items.7.tech')"
+                  :key="t"
+                  :class="{ 'highlight-tag': index < 2 }">
+              {{ t }}
+            </span>
+                    </div>
+                  </div>
+
+                  <div class="m-block impact">
+                    <label>{{ locale.t('projects.items.7.dev_label') }}</label>
+                    <div class="impact-content">
+                      <div class="stat">{{ locale.t('projects.items.7.dev_stat') }}</div>
+                      <p v-html="locale.t('projects.items.7.dev_desc')"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/cargallery" target="_blank" class="btn-s full-width">
-                  VIEW_API_STRUCTURE <span>→</span>
+                  {{ locale.t('projects.items.7.action_btn') }} <span>→</span>
                 </a>
               </div>
-            </div> </div>
+            </div>
+          </div>
 
           <div v-else-if="selectedProject === 8" class="modal-window showcase">
             <button class="close-x-btn" @click="closeProject" aria-label="Close">
@@ -765,10 +777,10 @@ const scrollSlider = (direction: 'next' | 'prev') => {
             <div class="m-container">
               <div class="m-top">
                 <div class="m-brand">
-                  <span class="m-badge">HORECA_SOLUTION // VISUAL_CMS</span>
-                  <h2 class="m-title">RESTAURANT WEB APP</h2>
+                  <span class="m-badge">{{ locale.t('projects.items.8.badge') }}</span>
+                  <h2 class="m-title">{{ locale.t('projects.items.8.title') }}</h2>
                 </div>
-                <p class="m-tagline">Элегантная платформа для ресторанов с интерактивным меню и галереей</p>
+                <p class="m-tagline">{{ locale.t('projects.items.8.tagline') }}</p>
               </div>
 
               <div class="m-block slider-wrapper">
@@ -777,50 +789,52 @@ const scrollSlider = (direction: 'next' | 'prev') => {
                   <button class="nav-slide next" @click="scrollSlider('next')">›</button>
 
                   <div class="gallery-track" ref="projectSlider">
-                    <div class="gallery-slide"><img src="../assets/projects/project4/main.jpg" alt="Main Landing Page"></div>
-                    <div class="gallery-slide"><img src="../assets/projects/project4/1.jpg" alt="Interactive Menu View"></div>
-                    <div class="gallery-slide"><img src="../assets/projects/project4/2.jpg" alt="Dish Gallery"></div>
-                    <div class="gallery-slide"><img src="../assets/projects/project4/3.jpg" alt="PDF Menu Integration"></div>
-                  </div>
-                </div>
-              </div> <div class="m-details-row extended">
-              <div class="m-block description">
-                <label>USER_EXPERIENCE</label>
-                <p class="long-text">
-                  Проект ориентирован на максимальную визуализацию бренда. Реализовано интерактивное меню с динамической подгрузкой блюд и цен.
-                </p>
-                <ul class="compact-list">
-                  <li>Interactive Menu: Удобная навигация по категориям блюд.</li>
-                  <li>Media Management: Оптимизированная галерея интерьера и кухни.</li>
-                  <li>Scalability: Легкое добавление новых позиций через database.py.</li>
-                </ul>
-              </div>
-
-              <div class="m-side-info">
-                <div class="m-block stack">
-                  <label>RESTO_STACK</label>
-                  <div class="stack-tags">
-                    <span class="highlight-tag">Flask</span><span>Jinja2</span>
-                    <span>SQLite</span><span>Python</span><span>PDF_Integration</span>
-                  </div>
-                </div>
-
-                <div class="m-block impact">
-                  <label>FRONTEND_FLOW</label>
-                  <div class="impact-content">
-                    <div class="stat">UI</div>
-                    <p>Чистый и современный дизайн с упором на <b>Conversion Rate</b> и эстетику.</p>
+                    <div class="gallery-slide"><img src="../assets/projects/project4/main.jpg" alt="1"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project4/1.jpg" alt="2"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project4/2.jpg" alt="3"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project4/3.jpg" alt="4"></div>
                   </div>
                 </div>
               </div>
-            </div>
+
+              <div class="m-details-row extended">
+                <div class="m-block description">
+                  <label>{{ locale.t('projects.items.8.ux_label') }}</label>
+                  <p class="long-text" v-html="locale.t('projects.items.8.description')"></p>
+                  <ul class="compact-list">
+                    <li v-for="f in locale.t('projects.items.8.features')" :key="f">{{ f }}</li>
+                  </ul>
+                </div>
+
+                <div class="m-side-info">
+                  <div class="m-block stack">
+                    <label>{{ locale.t('projects.items.8.tech_label') }}</label>
+                    <div class="stack-tags">
+            <span v-for="(t, index) in locale.t('projects.items.8.tech')"
+                  :key="t"
+                  :class="{ 'highlight-tag': index === 0 }">
+              {{ t }}
+            </span>
+                    </div>
+                  </div>
+
+                  <div class="m-block impact">
+                    <label>{{ locale.t('projects.items.8.flow_label') }}</label>
+                    <div class="impact-content">
+                      <div class="stat">{{ locale.t('projects.items.8.flow_stat') }}</div>
+                      <p v-html="locale.t('projects.items.8.flow_desc')"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/restaurant" target="_blank" class="btn-s full-width">
-                  EXPLORE_RESTAURANT_LOGIC <span>→</span>
+                  {{ locale.t('projects.items.8.action_btn') }} <span>→</span>
                 </a>
               </div>
-            </div> </div>
+            </div>
+          </div>
 
           <div v-else-if="selectedProject === 9" class="modal-window showcase">
             <button class="close-x-btn" @click="closeProject" aria-label="Close">
@@ -831,10 +845,10 @@ const scrollSlider = (direction: 'next' | 'prev') => {
             <div class="m-container">
               <div class="m-top">
                 <div class="m-brand">
-                  <span class="m-badge">CORPORATE_IDENTITY // BUSINESS_WEB</span>
-                  <h2 class="m-title">SKT-ORKEN OFFICIAL</h2>
+                  <span class="m-badge">{{ locale.t('projects.items.9.badge') }}</span>
+                  <h2 class="m-title">{{ locale.t('projects.items.9.title') }}</h2>
                 </div>
-                <p class="m-tagline">Профессиональный корпоративный сайт на базе Flask для промышленного сектора</p>
+                <p class="m-tagline">{{ locale.t('projects.items.9.tagline') }}</p>
               </div>
 
               <div class="m-block slider-wrapper">
@@ -843,50 +857,52 @@ const scrollSlider = (direction: 'next' | 'prev') => {
                   <button class="nav-slide next" @click="scrollSlider('next')">›</button>
 
                   <div class="gallery-track" ref="projectSlider">
-                    <div class="gallery-slide"><img src="../assets/projects/project7/main.jpg" alt="Corporate Home Page"></div>
-                    <div class="gallery-slide"><img src="../assets/projects/project7/1.jpg" alt="Services Section"></div>
-                    <div class="gallery-slide"><img src="../assets/projects/project7/2.jpg" alt="Responsive Mobile View"></div>
-                    <div class="gallery-slide"><img src="../assets/projects/project7/3.jpg" alt="Contact & Location Map"></div>
-                  </div>
-                </div>
-              </div> <div class="m-details-row extended">
-              <div class="m-block description">
-                <label>BUSINESS_SOLUTION</label>
-                <p class="long-text">
-                  Разработка официального представительства компании SKT-Orken. Основной упор сделан на чистоту кода и строгий корпоративный стиль.
-                </p>
-                <ul class="compact-list">
-                  <li>Custom Routing: Настройка маршрутизации через Flask.</li>
-                  <li>Asset Management: Оптимизация статических ресурсов (CSS/JS).</li>
-                  <li>Production Ready: Настройка конфигурации и окружения для деплоя.</li>
-                </ul>
-              </div>
-
-              <div class="m-side-info">
-                <div class="m-block stack">
-                  <label>CORP_STACK</label>
-                  <div class="stack-tags">
-                    <span class="highlight-tag">Python 3.12</span><span class="highlight-tag">Flask</span>
-                    <span>HTML5/CSS3</span><span>JavaScript</span><span>Virtualenv</span>
-                  </div>
-                </div>
-
-                <div class="m-block impact">
-                  <label>PROJECT_FOCUS</label>
-                  <div class="impact-content">
-                    <div class="stat">UX</div>
-                    <p>Акцент на информативность и удобную навигацию для B2B сегмента.</p>
+                    <div class="gallery-slide"><img src="../assets/projects/project7/main.jpg" alt="1"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project7/1.jpg" alt="2"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project7/2.jpg" alt="3"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project7/3.jpg" alt="4"></div>
                   </div>
                 </div>
               </div>
-            </div>
+
+              <div class="m-details-row extended">
+                <div class="m-block description">
+                  <label>{{ locale.t('projects.items.9.biz_label') }}</label>
+                  <p class="long-text" v-html="locale.t('projects.items.9.description')"></p>
+                  <ul class="compact-list">
+                    <li v-for="f in locale.t('projects.items.9.features')" :key="f">{{ f }}</li>
+                  </ul>
+                </div>
+
+                <div class="m-side-info">
+                  <div class="m-block stack">
+                    <label>{{ locale.t('projects.items.9.tech_label') }}</label>
+                    <div class="stack-tags">
+            <span v-for="(t, index) in locale.t('projects.items.9.tech')"
+                  :key="t"
+                  :class="{ 'highlight-tag': index < 2 }">
+              {{ t }}
+            </span>
+                    </div>
+                  </div>
+
+                  <div class="m-block impact">
+                    <label>{{ locale.t('projects.items.9.focus_label') }}</label>
+                    <div class="impact-content">
+                      <div class="stat">{{ locale.t('projects.items.9.focus_stat') }}</div>
+                      <p v-html="locale.t('projects.items.9.focus_desc')"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div class="m-actions">
                 <a href="https://github.com/kukakamakaka/skt-orken-site" target="_blank" class="btn-s full-width">
-                  VIEW_CORPORATE_CODE <span>→</span>
+                  {{ locale.t('projects.items.9.action_btn') }} <span>→</span>
                 </a>
               </div>
-            </div> </div>
+            </div>
+          </div>
 
         </div>
       </Transition>

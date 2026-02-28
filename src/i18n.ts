@@ -239,6 +239,66 @@ const messages = {
                     "scale_desc": "Dynamic template pages. Adaptability for <b>Cinema Mode</b>.",
                     "action_btn": "VIEW PROJECT"
                 },
+                "7": {
+                    "title": "CAR GALLERY",
+                    "category": "AUTO_SHOWCASE // CRUD",
+                    "status": "PROJECT",
+                    "tagline": "Stylish car gallery powered by FastAPI and SQLAlchemy",
+                    "badge": "HIGH_PERFORMANCE_API // CRUD_SYSTEM",
+                    "arch_label": "BACKEND_ARCHITECTURE",
+                    "description": "The project demonstrates the implementation of a full-fledged <b>RESTful API</b>. Using FastAPI ensures high performance and speed.",
+                    "features": [
+                        "Auto-Documentation: Full support for Swagger UI and ReDoc.",
+                        "Routing Logic: Clear separation of business logic into modules.",
+                        "CRUD Cycle: Full content management cycle implemented."
+                    ],
+                    "tech_label": "API_TECH_STACK",
+                    "tech": ["FastAPI", "Uvicorn", "SQLAlchemy", "Jinja2", "SQLite"],
+                    "dev_label": "DEVELOPER_TOOLS",
+                    "dev_stat": "V.2",
+                    "dev_desc": "Using <b>Routers</b> for better API structure scalability.",
+                    "action_btn": "VIEW PROJECT"
+                },
+                "8": {
+                    "title": "RESTAURANT APP",
+                    "category": "FOOD_TECH // CMS",
+                    "status": "PROJECT",
+                    "tagline": "Elegant platform for restaurants with interactive menu and gallery",
+                    "badge": "HORECA_SOLUTION // VISUAL_CMS",
+                    "ux_label": "USER_EXPERIENCE",
+                    "description": "The project is focused on maximum brand visualization. An interactive menu with dynamic loading of dishes and prices has been implemented.",
+                    "features": [
+                        "Interactive Menu: Easy navigation through food categories.",
+                        "Media Management: Optimized gallery for interior and kitchen photos.",
+                        "Scalability: Easy addition of new items via database.py."
+                    ],
+                    "tech_label": "RESTO_STACK",
+                    "tech": ["Flask", "Jinja2", "SQLite", "Python", "PDF_Integration"],
+                    "flow_label": "FRONTEND_FLOW",
+                    "flow_stat": "UI",
+                    "flow_desc": "Clean and modern design with a focus on <b>Conversion Rate</b> and aesthetics.",
+                    "action_btn": "VIEW PROJECT"
+                },
+                "9": {
+                    "title": "SKT-ORKEN",
+                    "category": "BUSINESS // INDUSTRY",
+                    "status": "PROJECT",
+                    "tagline": "Professional corporate website based on Flask for the industrial sector",
+                    "badge": "CORPORATE_IDENTITY // BUSINESS_WEB",
+                    "biz_label": "BUSINESS_SOLUTION",
+                    "description": "Development of the official representation for SKT-Orken. The main focus is on clean code and a strict corporate style.",
+                    "features": [
+                        "Custom Routing: Configured routing via Flask.",
+                        "Asset Management: Optimization of static resources (CSS/JS).",
+                        "Production Ready: Deployment environment and configuration setup."
+                    ],
+                    "tech_label": "CORP_STACK",
+                    "tech": ["Python 3.12", "Flask", "HTML5/CSS3", "JavaScript", "Virtualenv"],
+                    "focus_label": "PROJECT_FOCUS",
+                    "focus_stat": "UX",
+                    "focus_desc": "Emphasis on informativeness and easy navigation for the <b>B2B segment</b>.",
+                    "action_btn": "VIEW PROJECT"
+                },
             }
         },
         contacts: {
@@ -504,6 +564,66 @@ const messages = {
                     "scale_desc": "Страниц динамических шаблонов. Адаптивность под <b>Cinema Mode</b>.",
                     "action_btn": "ПОКАЗАТЬ ПРОЕКТ"
                 },
+                "7": {
+                    "title": "CAR GALLERY",
+                    "category": "АВТО_ГАЛЕРЕЯ // CRUD",
+                    "status": "ПРОЕКТ",
+                    "tagline": "Стильная галерея автомобилей на базе FastAPI и SQLAlchemy",
+                    "badge": "HIGH_PERFORMANCE_API // CRUD_SYSTEM",
+                    "arch_label": "АРХИТЕКТУРА БЭКЕНДА",
+                    "description": "Проект демонстрирует реализацию полноценного <b>RESTful API</b>. Использование FastAPI обеспечивает высокую производительность.",
+                    "features": [
+                        "Auto-Documentation: Полная поддержка Swagger UI и ReDoc.",
+                        "Routing Logic: Четкое разделение бизнес-логики на модули.",
+                        "CRUD Cycle: Реализован полный цикл управления контентом."
+                    ],
+                    "tech_label": "API СТЕК",
+                    "tech": ["FastAPI", "Uvicorn", "SQLAlchemy", "Jinja2", "SQLite"],
+                    "dev_label": "ИНСТРУМЕНТЫ РАЗРАБОТКИ",
+                    "dev_stat": "V.2",
+                    "dev_desc": "Разделение на <b>Routers</b> для масштабируемости структуры API.",
+                    "action_btn": "ПОКАЗАТЬ ПРОЕКТ"
+                },
+                "8": {
+                    "title": "RESTAURANT APP",
+                    "category": "FOOD_TECH // CMS",
+                    "status": "ПРОЕКТ",
+                    "tagline": "Элегантная платформа для ресторанов с интерактивным меню и галереей",
+                    "badge": "HORECA_SOLUTION // VISUAL_CMS",
+                    "ux_label": "ПОЛЬЗОВАТЕЛЬСКИЙ ОПЫТ",
+                    "description": "Проект ориентирован на максимальную визуализацию бренда. Реализовано интерактивное меню с динамической подгрузкой блюд и цен.",
+                    "features": [
+                        "Interactive Menu: Удобная навигация по категориям блюд.",
+                        "Media Management: Оптимизированная галерея интерьера и кухни.",
+                        "Scalability: Легкое добавление новых позиций через database.py."
+                    ],
+                    "tech_label": "RESTO СТЕК",
+                    "tech": ["Flask", "Jinja2", "SQLite", "Python", "PDF_Integration"],
+                    "flow_label": "FRONTEND ПОТОК",
+                    "flow_stat": "UI",
+                    "flow_desc": "Чистый и современный дизайн с упором на <b>Conversion Rate</b> и эстетику.",
+                    "action_btn": "ПОКАЗАТЬ ПРОЕКТ"
+                },
+                "9": {
+                    "title": "SKT-ORKEN",
+                    "category": "БИЗНЕС // ПРОМЫШЛЕННОСТЬ",
+                    "status": "ПРОЕКТ",
+                    "tagline": "Профессиональный корпоративный сайт на базе Flask для промышленного сектора",
+                    "badge": "CORPORATE_IDENTITY // BUSINESS_WEB",
+                    "biz_label": "БИЗНЕС-РЕШЕНИЕ",
+                    "description": "Разработка официального представительства компании SKT-Orken. Основной упор сделан на чистоту кода и строгий корпоративный стиль.",
+                    "features": [
+                        "Custom Routing: Настройка маршрутизации через Flask.",
+                        "Asset Management: Оптимизация статических ресурсов (CSS/JS).",
+                        "Production Ready: Настройка конфигурации и окружения для деплоя."
+                    ],
+                    "tech_label": "КОРП_СТЕК",
+                    "tech": ["Python 3.12", "Flask", "HTML5/CSS3", "JavaScript", "Virtualenv"],
+                    "focus_label": "ФОКУС ПРОЕКТА",
+                    "focus_stat": "UX",
+                    "focus_desc": "Акцент на информативность и удобную навигацию для <b>B2B сегмента</b>.",
+                    "action_btn": "ПОКАЗАТЬ ПРОЕКТ"
+                },
             }
         },
         contacts: {
@@ -766,6 +886,66 @@ const messages = {
                     "scale_label": "ЖҮЙЕ АУҚЫМЫ",
                     "scale_stat": "20+",
                     "scale_desc": "Динамикалық шаблон беттері. <b>Cinema Mode</b> режиміне бейімділік.",
+                    "action_btn": "ЖОБАҒА ҚАРАУ"
+                },
+                "7": {
+                    "title": "CAR GALLERY",
+                    "category": "АВТО_ГАЛЕРЕЯ // CRUD",
+                    "status": "ПРОЕКТ",
+                    "tagline": "FastAPI және SQLAlchemy негізіндегі стильді автокөлік галереясы",
+                    "badge": "HIGH_PERFORMANCE_API // CRUD_SYSTEM",
+                    "arch_label": "BACKEND АРХИТЕКТУРАСЫ",
+                    "description": "Жоба толыққанды <b>RESTful API</b> іске асырылуын көрсетеді. FastAPI пайдалану жоғары өнімділікті қамтамасыз етеді.",
+                    "features": [
+                        "Auto-Documentation: Swagger UI және ReDoc толық қолдауы.",
+                        "Routing Logic: Бизнес-логиканы модульдерге нақты бөлу.",
+                        "CRUD Cycle: Контентті басқарудың толық циклі іске асырылған."
+                    ],
+                    "tech_label": "API ТЕХНОЛОГИЯЛАРЫ",
+                    "tech": ["FastAPI", "Uvicorn", "SQLAlchemy", "Jinja2", "SQLite"],
+                    "dev_label": "ӘЗІРЛЕУШІ ҚҰРАЛДАРЫ",
+                    "dev_stat": "V.2",
+                    "dev_desc": "API құрылымын масштабтау үшін <b>Routers</b> жүйесін пайдалану.",
+                    "action_btn": "ЖОБАҒА ҚАРАУ"
+                },
+                "8": {
+                    "title": "RESTAURANT APP",
+                    "category": "FOOD_TECH // CMS",
+                    "status": "ПРОЕКТ",
+                    "tagline": "Интерактивті мәзірі мен галереясы бар мейрамханаларға арналған талғампаз платформа",
+                    "badge": "HORECA_SOLUTION // VISUAL_CMS",
+                    "ux_label": "ПАЙДАЛАНУШЫ ТӘЖІРИБЕСІ",
+                    "description": "Жоба брендтің максималды визуализациясына бағытталған. Тағамдар мен бағаларды динамикалық түрде жүктейтін интерактивті мәзір іске асырылды.",
+                    "features": [
+                        "Interactive Menu: Тағам санаттары бойынша ыңғайлы навигация.",
+                        "Media Management: Интерьер мен асхана фотоларына арналған оңтайландырылған галерея.",
+                        "Scalability: database.py арқылы жаңа позицияларды оңай қосу мүмкіндігі."
+                    ],
+                    "tech_label": "RESTO ТЕХНОЛОГИЯЛАРЫ",
+                    "tech": ["Flask", "Jinja2", "SQLite", "Python", "PDF_Integration"],
+                    "flow_label": "FRONTEND FLOW",
+                    "flow_stat": "UI",
+                    "flow_desc": "<b>Conversion Rate</b> пен эстетикаға бағытталған таза және заманауи дизайн.",
+                    "action_btn": "ЖОБАҒА ҚАРАУ"
+                },
+                "9": {
+                    "title": "SKT-ORKEN",
+                    "category": "БИЗНЕС // ӨНДІРІС",
+                    "status": "ПРОЕКТ",
+                    "tagline": "Өнеркәсіптік секторға арналған Flask негізіндегі кәсіби корпоративтік сайт",
+                    "badge": "CORPORATE_IDENTITY // BUSINESS_WEB",
+                    "biz_label": "БИЗНЕС-ШЕШІМ",
+                    "description": "SKT-Orken компаниясының ресми өкілдігін әзірлеу. Негізгі назар кодтың тазалығына және қатаң корпоративтік стильге аударылған.",
+                    "features": [
+                        "Custom Routing: Flask арқылы маршрутизацияны баптау.",
+                        "Asset Management: Статикалық ресурстарды (CSS/JS) оңтайландыру.",
+                        "Production Ready: Деплойға арналған конфигурация мен ортаны баптау."
+                    ],
+                    "tech_label": "КОРП_СТЕК",
+                    "tech": ["Python 3.12", "Flask", "HTML5/CSS3", "JavaScript", "Virtualenv"],
+                    "focus_label": "ЖОБА ФОКУСЫ",
+                    "focus_stat": "UX",
+                    "focus_desc": "<b>B2B сегменті</b> үшін ақпараттылық пен ыңғайлы навигацияға басымдық беру.",
                     "action_btn": "ЖОБАҒА ҚАРАУ"
                 },
             }
