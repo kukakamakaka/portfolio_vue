@@ -16,8 +16,8 @@
     "strict": true,
     "noImplicitAny": false,
 
-    /* Настройки для Vuetify */
-    "types": ["vuetify", "vite-plugin-vuetify/client"],
+    /* Артық Vuetify баптаулары өшірілді, тек стандартты Vite типтері қалды */
+    "types": ["vite/client"],
 
     "baseUrl": ".",
     "paths": {
