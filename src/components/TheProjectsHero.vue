@@ -14,6 +14,8 @@ const images = [
   new URL('../assets/projects/p7.png', import.meta.url).href,
   new URL('../assets/projects/p8.png', import.meta.url).href,
   new URL('../assets/projects/p9.png', import.meta.url).href,
+  new URL('../assets/projects/p10.png', import.meta.url).href,
+
 ];
 
 const containerRef = ref<HTMLElement | null>(null);

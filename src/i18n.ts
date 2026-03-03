@@ -299,6 +299,28 @@ const messages = {
                     "focus_desc": "Emphasis on informativeness and easy navigation for the <b>B2B segment</b>.",
                     "action_btn": "VIEW PROJECT"
                 },
+                "10": {
+                    "status": "PROJECT",
+                    "index": "10",
+                    "category": "Blockchain & AI Ecosystem",
+                    "title": "Quark: AI Intelligence Layer",
+                    "badge": "NEXT.JS 15 + TAILWIND",
+                    "tagline": "Innovative AI Intelligence Layer for Blockchain ecosystems.",
+                    "biz_label": "ABOUT PROJECT",
+                    "description": "A technical assignment to develop a Pixel Perfect landing page for the Quark platform. The project showcases Next.js 15 capabilities in building high-performance, SEO-friendly interfaces with advanced animations.",
+                    "features": [
+                        "Pixel Perfect implementation from Figma",
+                        "Interactive animations with Framer Motion",
+                        "Fully responsive from 320px to 4K",
+                        "Performance optimization (Next/Image, WebP)"
+                    ],
+                    "tech_label": "TECH STACK",
+                    "tech": ["Next.js 15", "Tailwind CSS", "Framer Motion", "TypeScript", "Vercel"],
+                    "focus_label": "OUTCOME",
+                    "focus_stat": "100%",
+                    "focus_desc": "Top Lighthouse scores and strict adherence to the design system.",
+                    "action_btn": "VIEW PROJECT"
+                }
             }
         },
         contacts: {
@@ -624,6 +646,28 @@ const messages = {
                     "focus_desc": "Акцент на информативность и удобную навигацию для <b>B2B сегмента</b>.",
                     "action_btn": "ПОКАЗАТЬ ПРОЕКТ"
                 },
+                "10": {
+                    "status": "ПРОЕКТ",
+                    "index": "10",
+                    "category": "Blockchain & AI Ecosystem",
+                    "title": "Quark: AI Intelligence Layer",
+                    "badge": "NEXT.JS 15 + TAILWIND",
+                    "tagline": "Инновационный AI-слой для блокчейн-экосистем.",
+                    "biz_label": "О ПРОЕКТЕ",
+                    "description": "Техническое задание по созданию Pixel Perfect лендинга для платформы Quark. Проект демонстрирует возможности Next.js 15 в создании высокопроизводительных и SEO-оптимизированных интерфейсов с современными анимациями.",
+                    "features": [
+                        "Pixel Perfect верстка по макету Figma",
+                        "Интерактивные анимации через Framer Motion",
+                        "Адаптивность от 320px до 4K",
+                        "Оптимизация производительности (Next/Image, WebP)"
+                    ],
+                    "tech_label": "СТЕК",
+                    "tech": ["Next.js 15", "Tailwind CSS", "Framer Motion", "TypeScript", "Vercel"],
+                    "focus_label": "РЕЗУЛЬТАТ",
+                    "focus_stat": "100%",
+                    "focus_desc": "Максимальные показатели в Lighthouse и полное соответствие дизайн-системе.",
+                    "action_btn": "ОТКРЫТЬ ПРОЕКТ"
+                }
             }
         },
         contacts: {
@@ -948,6 +992,28 @@ const messages = {
                     "focus_desc": "<b>B2B сегменті</b> үшін ақпараттылық пен ыңғайлы навигацияға басымдық беру.",
                     "action_btn": "ЖОБАҒА ҚАРАУ"
                 },
+                "10": {
+                    "status": "ПРОЕКТ",
+                    "index": "10",
+                    "category": "Blockchain & AI Ecosystem",
+                    "title": "Quark: AI Intelligence Layer",
+                    "badge": "NEXT.JS 15 + TAILWIND",
+                    "tagline": "Блокчейн жүйелеріне арналған инновациялық AI қабаты.",
+                    "biz_label": "ЖОБА ТУРАЛЫ",
+                    "description": "Quark платформасы үшін Pixel Perfect лендингін жасау бойынша техникалық тапсырма. Жоба Next.js 15 мүмкіндіктерін пайдалана отырып, жоғары өнімді және SEO-оңтайландырылған интерфейстерді құруды көрсетеді.",
+                    "features": [
+                        "Framer макеті бойынша Pixel Perfect беттеу",
+                        "Framer Motion арқылы интерактивті анимациялар",
+                        "320px-ден 4K-ге дейінгі адаптивтілік",
+                        "Өнімділікті оңтайландыру (Next/Image, WebP)"
+                    ],
+                    "tech_label": "ТЕХНОЛОГИЯЛАР",
+                    "tech": ["Next.js 15", "Tailwind CSS", "Framer Motion", "TypeScript", "Vercel"],
+                    "focus_label": "НӘТИЖЕ",
+                    "focus_stat": "100%",
+                    "focus_desc": "Lighthouse көрсеткіштерінің жоғары деңгейі және дизайн-жүйеге толық сәйкестік.",
+                    "action_btn": "ЖОБАНЫ АШУ"
+                }
             }
         },
         contacts: {

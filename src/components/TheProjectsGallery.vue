@@ -307,6 +307,32 @@ const scrollSlider = (direction: 'next' | 'prev') => {
         </div>
       </div>
 
+      <div class="p-card active" @click="openProject(10)">
+        <div class="project-badge blockchain">BLOCKCHAIN_AI</div>
+
+        <div class="card-bg-overlay">
+          <img src="../assets/projects/project9/main.jpg" class="card-img-preview" alt="Quark Preview">
+        </div>
+
+        <div class="card-content">
+          <div class="card-top">
+            <div class="status-indicator"><span class="pulse"></span> {{ locale.t('projects.items.10.status') }}</div>
+            <span class="index">11</span> </div>
+          <div class="card-body">
+            <span class="category">{{ locale.t('projects.items.10.category') }}</span>
+            <h3 class="project-name">{{ locale.t('projects.items.10.title') }}</h3>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">
+              {{ locale.t('projects.items.10.tech').slice(0, 3).join(' • ').toUpperCase() }}
+            </div>
+            <div class="explore-btn">
+              {{ locale.t('projects.items.10.action_btn') }} <span>→</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <Teleport to="body">
@@ -904,6 +930,78 @@ const scrollSlider = (direction: 'next' | 'prev') => {
             </div>
           </div>
 
+          <div v-else-if="selectedProject === 10" class="modal-window showcase">
+            <button class="close-x-btn" @click="closeProject" aria-label="Close">
+              <div class="x-icon"><span class="line l1"></span><span class="line l2"></span></div>
+              <span class="close-hint">ESC</span>
+            </button>
+
+            <div class="m-container">
+              <div class="m-top">
+                <div class="m-brand">
+                  <span class="m-badge">{{ locale.t('projects.items.10.badge') }}</span>
+                  <h2 class="m-title">{{ locale.t('projects.items.10.title') }}</h2>
+                </div>
+                <p class="m-tagline">{{ locale.t('projects.items.10.tagline') }}</p>
+              </div>
+
+              <div class="m-block slider-wrapper">
+                <div class="gallery-viewport">
+                  <button class="nav-slide prev" @click="scrollSlider('prev')">‹</button>
+                  <button class="nav-slide next" @click="scrollSlider('next')">›</button>
+
+                  <div class="gallery-track" ref="projectSlider">
+                    <div class="gallery-slide"><img src="../assets/projects/project9/main.jpg" alt="Quark Home"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project9/1.jpg" alt="Quark Tech"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project9/2.jpg" alt="Quark Mobile"></div>
+                    <div class="gallery-slide"><img src="../assets/projects/project9/3.jpg" alt="Quark Details"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-details-row extended">
+                <div class="m-block description">
+                  <label>{{ locale.t('projects.items.10.biz_label') }}</label>
+                  <p class="long-text" v-html="locale.t('projects.items.10.description')"></p>
+                  <ul class="compact-list">
+                    <li v-for="f in locale.t('projects.items.10.features')" :key="f">{{ f }}</li>
+                  </ul>
+                </div>
+
+                <div class="m-side-info">
+                  <div class="m-block stack">
+                    <label>{{ locale.t('projects.items.10.tech_label') }}</label>
+                    <div class="stack-tags">
+            <span v-for="(t, index) in locale.t('projects.items.10.tech')"
+                  :key="t"
+                  :class="{ 'highlight-tag': index < 2 }">
+              {{ t }}
+            </span>
+                    </div>
+                  </div>
+
+                  <div class="m-block impact">
+                    <label>{{ locale.t('projects.items.10.focus_label') }}</label>
+                    <div class="impact-content">
+                      <div class="stat">{{ locale.t('projects.items.10.focus_stat') }}</div>
+                      <p v-html="locale.t('projects.items.10.focus_desc')"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="m-actions">
+                <div class="action-grid">
+                  <a href="https://github.com/kukakamakaka/quark-project" target="_blank" class="btn-s">
+                    GITHUB REPO <span>→</span>
+                  </a>
+                  <a href="https://quark-project-nb5f.vercel.app/" target="_blank" class="btn-s primary">
+                    LIVE DEMO <span>↗</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </Transition>
     </Teleport>

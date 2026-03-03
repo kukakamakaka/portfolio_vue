@@ -80,10 +80,11 @@ onMounted(() => {
             <span class="num">02 // {{ locale.t('skillsSection.frontend.title') }}</span>
             <h3 class="sub-title">{{ locale.t('skillsSection.frontend.mainTitle') }}</h3>
             <ul class="tech-list">
-              <li><span class="dash">—</span> <b>Vue.js 3:</b> {{ locale.t('skillsSection.frontend.vue') }}</li>
-              <li><span class="dash">—</span> <b>TypeScript:</b> {{ locale.t('skillsSection.frontend.ts') }}</li>
-              <li><span class="dash">—</span> <b>Build:</b> Vite, NPM</li>
-              <li><span class="dash">—</span> <b>Styles:</b> Tailwind, GSAP, i18n</li>
+              <li><span class="dash">—</span> <b>Frameworks:</b> Next.js 15, Vue 3, React</li>
+              <li><span class="dash">—</span> <b>Languages:</b> TypeScript, JavaScript (ES6+)</li>
+              <li><span class="dash">—</span> <b>Animations:</b> Framer Motion, GSAP</li>
+              <li><span class="dash">—</span> <b>Styling:</b> Tailwind CSS, SCSS, Vuetify</li>
+              <li><span class="dash">—</span> <b>Tools:</b> Vite, Webpack, i18n, Git</li>
             </ul>
             <div class="card-decor-box">UI.02</div>
           </div>
